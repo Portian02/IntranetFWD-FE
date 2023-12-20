@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
     function Formuser() {
         const [username, setUsername] = useState("");
-        const [age, setAge] = useState("");
+        const [borndate, setBornDate] = useState("");
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
         const [number, setNumber] = useState("");
@@ -12,10 +12,10 @@ import React, { useState } from "react";
         const handleSubmit = (e) => {
             e.preventDefault();
        
-            console.log("User added:", username, age, email, password, number, identification, userType);
+            console.log("User added:", username, borndate, email, password, number, identification, userType);
           
             setUsername("");
-            setAge("");
+            setBornDate("");
             setEmail("");
             setPassword("");
             setNumber("");
@@ -36,11 +36,11 @@ import React, { useState } from "react";
                     </label>
                     <br />
                     <label>
-                        Age:
+                        Born date:
                         <input
                             type="number"
-                            value={age}
-                            onChange={(e) => setAge(e.target.value)}
+                            value={borndate}
+                            onChange={(e) => setBornDate(e.target.value)}
                         />
                     </label>
                     <br />
