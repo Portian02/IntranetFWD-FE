@@ -1,11 +1,17 @@
 import React from "react";
 import Routing from "./components/routes";
-const App = () => {
+import { useState } from 'react';
+import './App.css';
+import User from "./components/user";
+import PrivateText from "./components/privateText";
+
+const App=()=>{
+  const [currUser, setCurrUser]=useState(null);
   return (
-   < Routing>
-   
-   </Routing>
+    <div className="App">
+      <User currUser={currUser} setCurrUser={setCurrUser} />
+    </div>
   );
-};
+}
 
 export default App;
