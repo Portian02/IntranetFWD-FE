@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import "./login.css"
 const Login = ({setCurrUser, setShow}) =>{
   const formRef=useRef()
   const login=async (userInfo, setCurrUser)=>{
@@ -8,11 +9,12 @@ const Login = ({setCurrUser, setShow}) =>{
             method: "post",
             headers: {
                 'content-type': 'application/json',
-                'accept': 'application/json'
+                // 'accept': 'application/json'
             },
             body: JSON.stringify(userInfo)
         })
         const data=await response.json()
+        console.log("Soy response", response)
         if(!response.ok) 
           throw data.error
         localStorage.setItem("token", response.headers.get("Authorization"))
@@ -37,8 +39,7 @@ const Login = ({setCurrUser, setShow}) =>{
   }
   return(
     <div>
-      <form ref={formRef} onSubmit={handleSubmit}>
-        
+      <form ref={formRef} onSubmit={handleSubmit} className="login-form">
         Email: <input type="email" name='email' placeholder="email" />
         <br/>
         Password: <input type="password" name='password' placeholder="password" />
@@ -46,8 +47,9 @@ const Login = ({setCurrUser, setShow}) =>{
         <input type='submit' value="Login" />
       </form>
       <br />
-      <div>Not registered yet, <a href="#signup" onClick={handleClick} >Signup</a> </div>
+      <div className="signup-link">Not registered yet, <a href="#signup" onClick={handleClick} >Signup</a> </div>
     </div>
   )
 }
 export default Login
+

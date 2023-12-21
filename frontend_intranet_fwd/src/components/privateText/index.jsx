@@ -3,7 +3,7 @@ const PrivateText=({currUser})=>{
     const [message, setMessage]=useState(null)
     const getText=async ()=>{
         try {
-            const response=await fetch("http://localhost:3001/private/test", {
+            const response=await fetch("http://localhost:3001/api/private", {
                 method: "get",
                 headers: {
                     "content-type": "application/json",

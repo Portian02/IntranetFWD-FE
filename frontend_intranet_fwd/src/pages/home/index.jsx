@@ -1,11 +1,19 @@
 import React from 'react'
+import { useState } from 'react'; 
+import User from '../../components/users';
+// import './Home.css';
+import PrivateText from '../../components/privateText';
+import Navbar from '../../components/NavBar';
 
-export const Home = () => {
+
+const Home = () => {
+  const [currUser, setCurrUser] = useState(null);
   return (
-    <div> 
-<h1>
-Welcome to the FWD intranet
-</h1>
-    </div>
+    <div className="Home">
+      <Navbar />
+    <User currUser={currUser} setCurrUser={setCurrUser} />
+  </div>
   )
-};
+}
+
+export default Home
