@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "../NavBar";
+// import NavBar from "../NavBar";
+import "./users.css";
 const UserList = () => {
   const [users, setUsers] = useState([]);
 
@@ -20,14 +21,21 @@ const UserList = () => {
 
   return (
     <div>
-      <NavBar /> 
-      <h2>Lista de Usuarios</h2>
-
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>{user.id}:{user.username}</li>
-        ))}
-      </ul>
+      <h2 className="user-list-title">Lista de Usuarios</h2>
+      <div className="user-list">
+        <ul className="user-list-items">
+          {users.map((user) => (
+            <div key={user.id} className="user-component">
+              <div className="user-id">
+                {user.id}:{user.username}
+              </div>
+              <div className="user-email">{user.email}</div>
+              <div className="user-role">{user.role}</div>
+              <div className="user-number">{user.nummber}</div>
+            </div>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

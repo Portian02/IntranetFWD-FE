@@ -1,0 +1,98 @@
+/* FILEPATH: /c:/Frontend-IntranetFWD/IntranetFWD-FE/frontend_intranet_fwd/src/components/users/index.css */
+
+.user-list {
+    display: flex;
+    justify-content: center; /* Center align items horizontally */
+    align-items: center; /* Center align items vertically */
+    gap: 20px;
+    margin: 20px;
+    padding: 10px;
+    background-color: #000000;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    animation: fadeIn 1s ease-in-out;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 400px;
+}
+
+
+
+.user-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Updated to create 3 columns */
+    gap: 20px; /* Added gap between grid items */
+}
+
+.user-list-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.user-component {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.user-component:hover {
+    transform: scale(1.05);
+}
+
+.user-id {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.user-email {
+    color: #cccccc;
+}
+
+.user-role {
+    color: #999999;
+}
+
+.user-number {
+    color: #cccccc;
+}
+
+/* Colores tipo arcoíris */
+.user-list {
+    background-color: #ff0000;
+}
+
+.user-component {
+    background-color: #ff7f00;
+}
+
+.user-id {
+    color: #ffff00;
+}
+
+.user-email {
+    color: #00ff00;
+}
+
+.user-role {
+    color: #0000ff;
+}
+
+.user-number {
+    color: #4b0082;
+}
+
+/* Lista */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}

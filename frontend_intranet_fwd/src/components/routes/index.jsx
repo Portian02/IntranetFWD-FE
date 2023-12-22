@@ -5,13 +5,13 @@ import Formuser from "../formuser";
 import Internalcommunications from "../internalcomunications";
 import InternalCommunicationsForm from "../internalcomunicationsform";
 import Home from "../../pages/home/index";
-import CalendarForm from "../calendarForm";
 import Calendar from "../calendarevents";
+import CalendarForm from "../calendarForm";
 
 const Routing = () => {
   return (
     <Routes>
-  
+      
       <Route path="/" element={<Home />} />
       <Route path="users" element={<UserList />} />
       <Route path="users/new" element={<Formuser />} />
