@@ -33,7 +33,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
     title: data.title,
     content: data.content,
     date: data.date,
-    user_id: data.user_id,
+   
       },
     };
     communicationadd(communicationInfo, setCurrCommunication);
@@ -70,14 +70,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
           className="communicationadd-input"
         />
         <br />
-        <label htmlFor="user_id">User_id:</label>
-        <input
-          type="user_id"
-          name="user_id"
-          id="user_id"
-          placeholder="user_id"
-          className="communicationadd-input"
-        />
+       
         <br />
         <input type="submit" value="Submit" className="communicationadd-submit" />
       </form>

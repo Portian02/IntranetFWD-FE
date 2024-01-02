@@ -1,49 +1,59 @@
 import React, { useState, useEffect } from "react";
 import "./calendar.css";
+import { fetchCalendars } from "../../services/ApiService";
 const CalendarList = () => {
   const [calendars, setCalendars] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchCalendars = async () => {
+    async function loadCalendars() {
       try {
-        const response = await fetch(
-          "http://localhost:3001/api/calendar_events"
-        );
-        const data = await response.json();
-
+        const data = await fetchCalendars();
         setCalendars(data);
+        setLoading(false);
       } catch (error) {
-        console.error("Error fetching calendars:", error);
+        console.error('Failed to load calendars', error);
       }
-    };
+    }
 
-    fetchCalendars();
+    loadCalendars();
   }, []);
-
   return (
     <div>
       <h2 className="title">Lista de Calendarios</h2>
-    <div  className="container-calendar-events">
-      <ul>
-        {calendars.map((calendar) => (
-          <div className="card">
-            <p key={calendar.id} className="card-title">
-              {calendar.name}
-            </p>
-            <p key={calendar.id} className="small-desc">
-              {calendar.description}
-            </p>
-            <div key={calendar.id}>
-              <span>Date:</span>
-              {calendar.date}
-            </div>
-            <div className="go-corner">
-              <div className="go-arrow">→</div>
-            </div>
-          </div>
-        ))}
-      </ul>
-    </div>
+      {loading ? (
+        <div className="loading">
+          <section className="loader">
+            <div className="slider" style={{ "--i": 0 }}></div>
+            <div className="slider" style={{ "--i": 1 }}></div>
+            <div className="slider" style={{ "--i": 2 }}></div>
+            <div className="slider" style={{ "--i": 3 }}></div>
+            <div className="slider" style={{ "--i": 4 }}></div>
+          </section>
+        </div>
+      ) : (
+        <div className="container-calendar-events">
+          <ul className="internal-communications">
+            {calendars.map((calendar) => (
+              <div className="card">
+                <p key={calendar.id} className="card-title">
+                  {calendar.name}
+                </p>
+                <p key={calendar.id} className="small-desc">
+                  {calendar.description}
+                </p>
+                <div key={calendar.id}>
+                  <span>Date:</span>
+                  {calendar.date}
+                </div>
+                <div className="go-corner">
+                  <div className="go-arrow">→</div>
+                </div>
+              </div>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

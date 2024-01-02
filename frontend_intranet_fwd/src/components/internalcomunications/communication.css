@@ -1,8 +1,13 @@
+
+
 .internal-communications {
     margin: 20px;
     padding: 20px;
     background-color: #f2f2f2;
     border: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide into two columns */
+    gap: 20px; /* Add gap between columns */
 }
 
 .internal-communications__title {
@@ -18,6 +23,7 @@
 
 .internal-communications__item {
     margin-bottom: 20px;
+    animation: fade-in 0.5s ease-in-out; /* Apply fade-in animation */
 }
 
 .comunication-content {
@@ -50,8 +56,4 @@
     to {
         opacity: 1;
     }
-}
-
-.internal-communications__item {
-    animation: fade-in 0.5s ease-in-out;
 }

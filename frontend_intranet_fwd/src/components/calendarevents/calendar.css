@@ -1,4 +1,7 @@
 
+.container-calendar-events {
+    overflow: hidden;
+}
 
 .title {
     position: sticky;

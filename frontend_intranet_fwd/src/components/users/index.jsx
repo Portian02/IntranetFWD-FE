@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import NavBar from "../NavBar";
 import "./users.css";
+
 const UserList = () => {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Agregar estado para el loading
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -11,8 +12,10 @@ const UserList = () => {
         const data = await response.json();
 
         setUsers(data);
+        setIsLoading(false); // Actualizar el estado del loading cuando se complete la carga
       } catch (error) {
         console.error("Error fetching users:", error);
+        setIsLoading(false); // Actualizar el estado del loading en caso de error
       }
     };
 
@@ -20,24 +23,38 @@ const UserList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="list-conatiner">
       <h2 className="user-list-title">Lista de Usuarios</h2>
-      <div className="user-list">
-        <ul className="user-list-items">
-          {users.map((user) => (
-            <div key={user.id} className="user-component">
-              <div className="user-id">
-                {user.id}:{user.username}
+      {isLoading ? (
+        <div className="loading">
+            <section className="loader">
+              <div className="slider" style={{ "--i": 0 }}></div>
+              <div className="slider" style={{ "--i": 1 }}></div>
+              <div className="slider" style={{ "--i": 2 }}></div>
+              <div className="slider" style={{ "--i": 3 }}></div>
+              <div className="slider" style={{ "--i": 4 }}></div>
+            </section>
+        </div> // Mostrar el mensaje de carga mientras isLoading sea true
+      ) : (
+        <div className="user-list">
+          <div className="user-list-items">
+            {users.map((user) => (
+              <div key={user.id} className="user-component">
+                <div className="user-id">
+                  {user.id}:{user.username}
+                </div>
+                <div className="user-email">{user.email}</div>
+                <div className="user-role">{user.role}</div>
+                <div className="user-number">{user.nummber}</div>
               </div>
-              <div className="user-email">{user.email}</div>
-              <div className="user-role">{user.role}</div>
-              <div className="user-number">{user.nummber}</div>
-            </div>
-          ))}
-        </ul>
-      </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default UserList;
+
+ 
