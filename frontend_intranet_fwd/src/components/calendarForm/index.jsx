@@ -1,66 +1,93 @@
-import React, { useState } from 'react';
-
-const CalendarForm = () => {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [date, setDate] = useState('');
-  const [linkpdf, setLinkpdf] = useState('');
-  
-
+import { useRef } from "react";
+import "./calendarform.css";
+const CommunicationForm = ({ setCurrCalendarevent, setShow }) => {
+  const formRef = useRef();
+  const communicationadd = async (calendar_eventInfo, setCurrCalendarevent) => {
+    const url = "http://localhost:3001/api/calendar_events";
+    try {
+      const response = await fetch(url, {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+          // accept: "application/json",
+        },
+        body: JSON.stringify(calendar_eventInfo),
+      });
+      console.log("Soy response", response);
+      console.log("Soy calendar_eventInfo", calendar_eventInfo);
+      const data = await response.json();
+      console.log("Soy Data", data);
+      if (!response.ok) throw data.error;
+      localStorage.setItem("token", response.headers.get("Authorization"));
+      setCurrCalendarevent(data);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Name:', name);
-    console.log('Description:', description);
-    console.log('Date:', date);
-    console.log('linkpdf:', linkpdf);
-    // Reset form
-    setName('');
-    setDescription('');
-    setDate('');
-    setLinkpdf('');
+    const formData = new FormData(formRef.current);
+    const data = Object.fromEntries(formData);
+    const calendar_eventInfo = {
+      calendar_event: {
+        name: data.name,
+        description: data.description,
+        date: data.date,
+        document: data.document,
+      },
+    };
+    communicationadd(calendar_eventInfo, setCurrCalendarevent);
+    e.target.reset();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-      />
+    <div className="container">
+      <form ref={formRef} onSubmit={handleSubmit} className="form">
+        <p className="title">Calendar Form</p>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="name"
+          className="username input"
+        />
+        <br />
+        <label htmlFor="content">Description:</label>
+        <input
+          type="content"
+          name="description"
+          id="content"
+          placeholder="content"
+          className="username input"
+        />
+        <br />
+        <label htmlFor="date">Date:</label>
+        <input
+          type="date"
+          name="date"
+          id="date"
+          placeholder="date"
+          className="date input"
+        />
+        <label htmlFor="document">Document:</label>
+        <input
+          type="text"
+          name="document"
+          id="document"
+          placeholder="document"
+          className="document input"
+        />
+        <br />
+        <input
+          type="submit"
+          value="Submit"
+          className="btn"
+        />
+      </form>
 
-      <label htmlFor="description">Description:</label>
-      <textarea
-        id="description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        required
-      ></textarea>
-
-      <label htmlFor="date">Date:</label>
-      <input
-        type="date"
-        id="date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-        required
-      />
-     <label htmlFor="linkpdj">Linkpdf:</label>
-      <input
-        type="file"
-        id="linkpdf"
-        value={linkpdf}
-        onChange={(e) => setLinkpdf(e.target.value)}
-        required
-      />
-
-
-      <button type="submit">Send</button>
-    </form>
+      <br />
+    </div>
   );
 };
-
-export default CalendarForm;
+export default CommunicationForm;

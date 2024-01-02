@@ -1,7 +1,13 @@
 import React from 'react'
 import CalendarList from '../../components/calendarevents'
-export const Home = () => {
+
+
+const Calendar = () => {
   return (
-    <div> < CalendarList/> </div>
+    <div>
+      <CalendarList/>
+    </div>
   )
 }
+
+export default Calendar

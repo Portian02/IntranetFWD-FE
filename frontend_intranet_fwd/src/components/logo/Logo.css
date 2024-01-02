@@ -1,0 +1,16 @@
+/* FILEPATH: /c:/Frontend-IntranetFWD/IntranetFWD-FE/frontend_intranet_fwd/src/components/logo/Logo.css */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 10px;
+  
+}
+
+.logo__text {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
