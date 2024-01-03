@@ -5,16 +5,19 @@ const Login = ({setCurrUser, setShow}) =>{
   const login=async (userInfo, setCurrUser)=>{
     const url="http://localhost:3001/login"
     try{
-        const response=await fetch(url, {
+     
+        const response= await fetch(url, {
             method: "post",
             headers: {
                 'content-type': 'application/json',
-                // 'accept': 'application/json'
+                'accept': 'application/json'
             },
             body: JSON.stringify(userInfo)
         })
-        const data=await response.json()
+        const data= await response.json()
+        console.log("Soy la data", data)
         console.log("Soy response", response)
+         debugger;
         if(!response.ok) 
           throw data.error
         localStorage.setItem("token", response.headers.get("Authorization"))
