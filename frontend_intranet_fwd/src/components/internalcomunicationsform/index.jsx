@@ -33,6 +33,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
     title: data.title,
     content: data.content,
     date: data.date,
+    user_id: 1,  //PASAR EL ID DE LA PERSONA QUE ESTA LOGUEADA EN ESTE CASO EL ADMI
    
       },
     };

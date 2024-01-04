@@ -8,6 +8,7 @@ import Home from "../../pages/home/index";
 import Calendar from "../calendarevents";
 import CalendarForm from "../calendarForm";
 import PasswordChange from "../changePassword";
+import PageNotFound from "../../pages/Nopage";
 const Routing = () => {
   return (
     <Routes>
@@ -20,7 +21,7 @@ const Routing = () => {
        <Route path="calendars" element={<Calendar/>} />
       <Route path="calendars/new" element={< CalendarForm />} />
       <Route path="users/update_password" element={< PasswordChange />} />
-
+      <Route path="*" element={<PageNotFound />} />
   
 
   </Routes>

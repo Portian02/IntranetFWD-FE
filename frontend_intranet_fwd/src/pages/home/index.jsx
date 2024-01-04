@@ -1,9 +1,10 @@
 import React from 'react';
 import './home.css';
-
+import ControlledCarousel from '../../components/carrousel';
 const Home = () => {
   return (
     <div className="Home">
+      <ControlledCarousel />
       <div className="content">
         <h1 className="title">Bienvenido Forward Costa Rica</h1>
         <p className="description">

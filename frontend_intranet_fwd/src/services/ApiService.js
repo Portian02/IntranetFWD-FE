@@ -30,3 +30,23 @@ export async function fetchCommunicationInternals() {
     throw error;
   }
 }
+
+// const authToken = localStorage.getItem('authToken');
+
+// fetch('http://localhost:3001/login', {
+//   method: 'GET',
+//   headers: {
+//     'Content-Type': 'application/json',
+//     'Authorization': `Bearer ${authToken}`,
+//   },
+// })
+//   .then(response => response.json())
+//   .then(data => {
+//     // Handle server response
+//   })
+//   .catch(error => {
+//     // Handle network errors or other errors
+//   });
+
+
+
