@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./users.css";
-
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Agregar estado para el loading
@@ -26,15 +25,13 @@ const UserList = () => {
     <div className="list-conatiner">
       <h2 className="user-list-title">Lista de Usuarios</h2>
       {isLoading ? (
-        <div className="loading">
-            <section className="loader">
-              <div className="slider" style={{ "--i": 0 }}></div>
-              <div className="slider" style={{ "--i": 1 }}></div>
-              <div className="slider" style={{ "--i": 2 }}></div>
-              <div className="slider" style={{ "--i": 3 }}></div>
-              <div className="slider" style={{ "--i": 4 }}></div>
-            </section>
-        </div> // Mostrar el mensaje de carga mientras isLoading sea true
+        <section className="loader">
+          <div className="slider"></div>
+          <div className="slider"></div>
+          <div className="slider"></div>
+          <div className="slider"></div>
+          <div className="slider"></div>
+        </section>
       ) : (
         <div className="user-list">
           <div className="user-list-items">
@@ -56,5 +53,3 @@ const UserList = () => {
 };
 
 export default UserList;
-
- 

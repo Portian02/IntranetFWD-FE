@@ -7,7 +7,7 @@ import InternalCommunicationsForm from "../internalcomunicationsform";
 import Home from "../../pages/home/index";
 import Calendar from "../calendarevents";
 import CalendarForm from "../calendarForm";
-
+import PasswordChange from "../changePassword";
 const Routing = () => {
   return (
     <Routes>
@@ -19,6 +19,9 @@ const Routing = () => {
       <Route path="communications/new" element={<InternalCommunicationsForm />} />
        <Route path="calendars" element={<Calendar/>} />
       <Route path="calendars/new" element={< CalendarForm />} />
+      <Route path="users/update_password" element={< PasswordChange />} />
+
+  
 
   </Routes>
 

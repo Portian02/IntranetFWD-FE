@@ -37,10 +37,7 @@ const Login = ({setCurrUser, setShow}) =>{
       login(userInfo, setCurrUser)
       e.target.reset()
   }
-  const handleClick=e=>{
-    e.preventDefault()
-    setShow(false)
-  }
+ 
   return(
     <div>
       <form ref={formRef} onSubmit={handleSubmit} className="login-form">
@@ -51,7 +48,6 @@ const Login = ({setCurrUser, setShow}) =>{
         <input type='submit' value="Login" />
       </form>
       <br />
-      <div className="signup-link">Not registered yet, <a href="#signup" onClick={handleClick} >Signup</a> </div>
     </div>
   )
 }
