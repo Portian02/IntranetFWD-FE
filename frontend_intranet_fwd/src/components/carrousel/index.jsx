@@ -1,41 +1,70 @@
-import { useState } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
-import ExampleCarouselImage from 'components/ExampleCarouselImage';
+import React from "react";
+import Carousel from "react-bootstrap/Carousel";
+import "./carousel.css";
+import { Link } from "react-router-dom";
 
-function ControlledCarousel() {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
-
+const Carousel1 = () => {
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <ExampleCarouselImage text="First slide" />
+    <Carousel data-bs-theme="dark" className="carusel">
+      <Carousel.Item className="container-image" interval={1000}>
+        <Link to="/princess">
+          <img
+            className="d-block w-100"
+            src="https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp" // Aquí debes colocar la ruta de la imagen o la lógica que prefieras
+            alt="img"
+          />
+        </Link>
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h5>Gatito Feliz</h5>
+          <p>Lo más tierno que verás hoy</p>
+        </Carousel.Caption>
+        {/* --------------------------------------------------------------------------- */}
+      </Carousel.Item>
+      <Carousel.Item className="container-image" interval={1000}>
+        <Link to="/princess">
+          <img
+            className="d-block w-100"
+            src="https://aws-storage-aulab.s3.eu-south-1.amazonaws.com/aulabes/app/public/39/conversions/Articulo_CAROUSEL-cover-cover.jpg"
+            alt="img"
+          />
+        </Link>
+        <Carousel.Caption>
+          <h5>Relajate</h5>
+          <p>un carrusel puede ser de ayuda</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
-        <ExampleCarouselImage text="Second slide" />
+      {/* // ---------------------------------------------------------------------------  */}
+
+      <Carousel.Item className="container-image" interval={1000}>
+        <Link to="/princess">
+          <img
+            className="d-block w-100"
+            src="https://aws-storage-aulab.s3.eu-south-1.amazonaws.com/aulabes/app/public/1/conversions/1articoloPartireDa0-cover-cover.jpg"
+            alt="img"
+          />
+        </Link>
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h5>Evoluciona</h5>
+          <p>Mantente actualizadoo con nosotros con las nuevas tecnologias</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
-        <ExampleCarouselImage text="Third slide" />
+      {/* // ---------------------------------------------------------------------------  */}
+
+      <Carousel.Item className="container-image" interval={1000}>
+        <Link to="/princess">
+          <img
+            className="d-block w-100"
+            src="https://aws-storage-aulab.s3.eu-south-1.amazonaws.com/aulabes/app/public/2/conversions/Cambia_carriera-cover-thumb.jpg"
+            alt="img"
+          />
+        </Link>
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h5>Apresurate</h5>
+          <p>e inscribete a nuestro programa</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   );
-}
+};
 
-export default ControlledCarousel;
+export default Carousel1;

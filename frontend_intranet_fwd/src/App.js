@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from "./components/NavBar";
 import User from "./components/user";
 import { useState } from "react";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 const App=()=>{
   const [currUser, setCurrUser] = useState(null);
   return (
