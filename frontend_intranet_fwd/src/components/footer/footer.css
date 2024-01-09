@@ -1,0 +1,30 @@
+.footer-info {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.footer-manager {
+    background-color: #e6e6e6;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.footer-creation {
+    text-align: center;
+    color: #999999;
+}
+
+.footer-creation p {
+    margin: 0;
+}
+
+.footer-creation p::before {
+    content: "\00a9";
+}
+
+.footer-creation p::after {
+    content: " 2024 IntranetFWD";
+}

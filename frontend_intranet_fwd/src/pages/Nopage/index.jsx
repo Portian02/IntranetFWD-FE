@@ -3,7 +3,7 @@ import React from 'react';
 import './Nopages.css';
 const PageNotFound = () => {
     return (
-        <div class="container">
+        <div class="container-Nopage">
 
 
         <div className="page-not-found">

@@ -72,7 +72,7 @@ const CommunicationForm = ({ setCurrCalendarevent, setShow }) => {
         />
         <label htmlFor="document">Document:</label>
         <input
-          type="text"
+          type="URL or File"
           name="document"
           id="document"
           placeholder="document"
