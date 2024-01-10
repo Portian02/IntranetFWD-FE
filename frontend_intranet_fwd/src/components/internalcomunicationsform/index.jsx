@@ -32,7 +32,6 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
       internal_communication: {
     title: data.title,
     content: data.content,
-    date: data.date,
     user_id: 1,  //PASAR EL ID DE LA PERSONA QUE ESTA LOGUEADA EN ESTE CASO EL ADMI
    
       },
@@ -59,15 +58,6 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
           name="content"
           id="content"
           placeholder="content"
-          className="communicationadd-input"
-        />
-        <br />
-        <label htmlFor="date">Date:</label>
-        <input
-          type="date"
-          name="date"
-          id="date"
-          placeholder="date"
           className="communicationadd-input"
         />
         <br />
