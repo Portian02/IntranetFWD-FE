@@ -30,23 +30,19 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
     const data = Object.fromEntries(formData);
     const communicationInfo = {
       internal_communication: {
-        title: data.title,
-        content: data.content,
-        date: data.date,
-        user_id: 1, //PASAR EL ID DE LA PERSONA QUE ESTA LOGUEADA EN ESTE CASO EL ADMI
+    title: data.title,
+    content: data.content,
+    user_id: data.user_id //PASAR EL ID DE LA PERSONA QUE ESTA LOGUEADA EN ESTE CASO EL ADMI
+   
       },
     };
     communicationadd(communicationInfo, setCurrCommunication);
     e.target.reset();
   };
-
+ 
   return (
     <div className="communicationadd-container">
-      <form
-        ref={formRef}
-        onSubmit={handleSubmit}
-        className="communicationadd-form"
-      >
+      <form ref={formRef} onSubmit={handleSubmit} className="communicationadd-form">
         <label htmlFor="title">Title:</label>
         <input
           type="title"
@@ -65,26 +61,22 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
           className="communicationadd-input"
         />
         <br />
-        <label htmlFor="date">Date:</label>
+        <label htmlFor="user_id" id="user_id">User_id:</label>
         <input
-          type="date"
-          name="date"
-          id="date"
-          placeholder="date"
-          className="communicationadd-input"
+          type="user_id"
+          name="user_id"
+          id="user_id"
+          placeholder="user_id"
+          cassName="communicationadd-input"
+          value={localStorage.getItem("user_id")}
         />
-        <br />
-
-        <br />
-        <input
-          type="submit"
-          value="Submit"
-          className="communicationadd-submit"
-        />
+        <input type="submit" value="Submit" className="communicationadd-submit" />
       </form>
 
-      <br />
+      <br />  
+      
     </div>
   );
 };
 export default CommunicationForm;
+

@@ -1,6 +1,6 @@
-import React from 'react';
-import './home.css';
-import ControlledCarousel from '../../components/carrousel';
+import React from "react";
+import "./home.css";
+import ControlledCarousel from "../../components/carrousel";
 const Home = () => {
   return (
     <div className="Home">
@@ -30,4 +30,4 @@ const Home = () => {
   );
 };
 
-export default Home
+export default Home;

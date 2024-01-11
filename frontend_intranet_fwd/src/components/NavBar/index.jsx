@@ -43,9 +43,6 @@ const Navbar = () => {
                 <Link to="/users/new" className="navbar__link">
                   Add User
                 </Link>
-                <Link to="/communications/new" className="navbar__link">
-                  Add Communication
-                </Link>
                 <Link to="/calendars/new" className="navbar__link">
                   Add Calendar
                 </Link>

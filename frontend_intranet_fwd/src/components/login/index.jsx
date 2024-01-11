@@ -1,3 +1,4 @@
+
 import { useRef } from "react";
 import "./login.css";
 const Login = ({ setCurrUser, setShow }) => {
@@ -35,15 +36,14 @@ const Login = ({ setCurrUser, setShow }) => {
     e.target.reset();
   };
 
-  return (
+  return(
     <div>
       <form ref={formRef} onSubmit={handleSubmit} className="login-form">
-        Email: <input type="email" name="email" placeholder="email" />
-        <br />
-        Password:{" "}
-        <input type="password" name="password" placeholder="password" />
-        <br />
-        <input type="submit" value="Login" />
+        Email: <input type="email" name='email' placeholder="email" className="email-input" />
+        <br/>
+        Password: <input type="password" name='password' placeholder="password" className="password-input" />
+        <br/>
+        <input type='submit' value="Login" className="submit-button" />
       </form>
       <br />
     </div>

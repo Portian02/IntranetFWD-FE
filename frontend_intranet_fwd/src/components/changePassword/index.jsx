@@ -27,13 +27,12 @@ const PasswordChange = () => {
           throw new Error('Error al cambiar la contraseña');
         }
   
-        // Maneja la respuesta del backend según tus necesidades
         const data = await response.json();
         console.log(data);
   
         // Puedes redirigir al usuario o mostrar algún mensaje de éxito aquí
+        console.log('Contraseña cambiada con éxito');
       } catch (error) {
-        // Maneja los errores, puedes mostrar mensajes de error o realizar otras acciones
         console.error('Error al cambiar la contraseña:', error);
       }
     };
