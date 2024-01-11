@@ -20,8 +20,7 @@ const Login = ({setCurrUser, setShow}) =>{
          debugger;
         if(!response.ok) 
           throw data.error
-        localStorage.setItem("token", response.get("Authorization"))
-        console.log(response.get("Authorization"))
+          localStorage.setItem("token", response.headers.get("Authorization"))
         setCurrUser(data)        
     }catch(error){
        console.log("error", error)
