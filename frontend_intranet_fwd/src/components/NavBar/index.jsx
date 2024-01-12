@@ -10,7 +10,6 @@ const Navbar = () => {
     setDropdownVisible(!dropdownVisible);
   };
 
-
   return (
     <nav className="navbar">
       <Logo className="navbar__logo" /> {/* Agregar el componente de Logo */}
@@ -32,10 +31,7 @@ const Navbar = () => {
         </li>
         <li className="navbar__item">
           <div className="navbar__dropdown">
-            <button
-              className="navbar__dropdown-button"
-              onClick={toggleDropdown}
-            >
+            <button className="navbar__dropdown-button" onClick={toggleDropdown}>
               Add
             </button>
             {dropdownVisible && (
@@ -55,7 +51,6 @@ const Navbar = () => {
             Calendars
           </Link>
         </li>
-       
       </ul>
     </nav>
   );

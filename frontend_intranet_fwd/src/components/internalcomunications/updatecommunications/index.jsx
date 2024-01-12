@@ -8,7 +8,7 @@ const UpdateCommunicationForm = ({ internalCommunication }) => {
     const updateCommunication = async () => {
         try {
             const response = await fetch(`http://localhost:3001/api/internal_communications/${internalCommunication.id}`, {
-                method: 'PUT',
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },

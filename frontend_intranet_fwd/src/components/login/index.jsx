@@ -11,16 +11,35 @@ const Login = ({ setCurrUser, setShow }) => {
         headers: {
           "content-type": "application/json",
           accept: "application/json",
+        //  'Authorization': "Bearer"
         },
         body: JSON.stringify(userInfo),
       });
-      const data = await response.json();
-      console.log("Soy la data", data);
       console.log("Soy response", response);
-      debugger;
+      const data = await response.json();
+      
+      console.log("Hola SOY EL TOKEN QUE LLEGUE DESDE EL DATA",data.jti);
+      
+      
+      // debugger;
       if (!response.ok) throw data.error;
-      localStorage.setItem("token", response.headers.get("Authorization"));
+
+
+     localStorage.setItem("token", data.jti);
+
+
+     //AQUI NO LLEGA EL TOKEN YA QUE EL Authorization NO ESTA EN EL BODY
+     console.log("Hola",response.headers.get("Authorization"));
+       
+  
+    localStorage.setItem("sessionId", JSON.stringify(data));
+
+
       setCurrUser(data);
+      setShow(false);  
+
+
+     
     } catch (error) {
       console.log("error", error);
     }
@@ -50,3 +69,4 @@ const Login = ({ setCurrUser, setShow }) => {
   );
 };
 export default Login;
+

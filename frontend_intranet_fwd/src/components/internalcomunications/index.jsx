@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './communication.css';
 import { fetchCommunicationInternals } from '../../services/ApiService';
 import Modals from "../../components/internalcomunications/modalInternalCommunication/modals";
-
+import MyButton from './DeleteCommunication/ButtonDelete';
 const Internalcommunications = () => {
   const [comunications, setcomunication] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -40,8 +40,9 @@ const Internalcommunications = () => {
             <div key={comunication.id} className="internal-communications__item">
               {comunication.title}
               <div className="comunication-content">{comunication.content}</div>
-              <div className="comunication-date">{comunication.date}</div>
+              <div className="comunication-date">{comunication.updated_at}</div>
               <div className="comunication-username">{comunication.user_id.username}</div>
+              <MyButton />
             </div>
           ))}
       <Modals />

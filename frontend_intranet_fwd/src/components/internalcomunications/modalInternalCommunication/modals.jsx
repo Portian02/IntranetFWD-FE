@@ -5,8 +5,7 @@ const Modals = () => {
  const [isOpenFormAdd, openFormAdd, closeFormAdd] = useModal(false); // 
   return (
     <div>
-    
-      <button  class="button" onClick={openFormAdd}>➕</button>
+      <button className="button" onClick={openFormAdd}>➕</button>
       <Modal isOpen={isOpenFormAdd} closeModal={closeFormAdd}>
         <h3>New Communication</h3>
         <CommunicationForm />
