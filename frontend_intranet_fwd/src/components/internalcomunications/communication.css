@@ -1,0 +1,59 @@
+
+
+.internal-communications {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide into two columns */
+    gap: 20px; /* Add gap between columns */
+}
+
+.internal-communications__title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #003366; /* Color primario */
+}
+
+.internal-communications__list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.internal-communications__item {
+    margin-bottom: 20px;
+    animation: fade-in 0.5s ease-in-out; /* Apply fade-in animation */
+}
+
+.comunication-content {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333; /* Color de texto principal */
+}
+
+.comunication-date {
+    font-size: 14px;
+    color: #888;
+}
+
+.comunication-username {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Hover effect */
+.internal-communications__item:hover {
+    background-color: #e6e6e6;
+    cursor: pointer;
+}
+
+/* Animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
