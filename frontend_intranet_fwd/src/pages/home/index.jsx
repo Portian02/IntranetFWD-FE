@@ -1,10 +1,16 @@
 import React from "react";
 import "./home.css";
+  import Navbar from "../../components/NavBar";
 import ControlledCarousel from "../../components/carrousel";
 const Home = () => {
+
+
+
+  
   return (
-    
+  
     <div className="Home">
+         <Navbar/>
       <ControlledCarousel />
       <div className="content">
         <h1 className="title">Bienvenido Forward Costa Rica</h1>

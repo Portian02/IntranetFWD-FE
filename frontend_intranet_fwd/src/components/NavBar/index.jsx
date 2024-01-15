@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../logo";
-import User from "../user";
 import Logout from "../logout";
 const Navbar = ({currUser, setCurrUser}) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -10,6 +9,30 @@ const Navbar = ({currUser, setCurrUser}) => {
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <nav className="navbar">
@@ -21,7 +44,7 @@ const Navbar = ({currUser, setCurrUser}) => {
           </Link>
         </li>
         <li className="navbar__item">
-          <Link to="users" className="navbar__link">
+          <Link to="/users" className="navbar__link">
             Users
           </Link>
         </li>
@@ -61,16 +84,9 @@ const Navbar = ({currUser, setCurrUser}) => {
           </Link>
         </li>
       </ul>
-     {currUser ? (
-        <div className="navbar__user">
-          <Logout currUser={currUser} setCurrUser={setCurrUser} />
-        </div>
-      ) : (
-        <div className="navbar__user">
-          <User currUser={currUser} setCurrUser={setCurrUser} />
-        </div>  
-      )}
+    {currUser? "" : <Logout setCurrUser={setCurrUser}/>}
 
+       
     </nav>
   );
 };

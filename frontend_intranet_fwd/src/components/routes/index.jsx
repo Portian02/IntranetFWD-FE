@@ -17,16 +17,16 @@ const Routing = () => {
     <Routes>
       
       <Route path="/" element={<LoginPage />} />
-      <Route path="home" element={<Home />} />
-      <Route path="users" element={<UserList />} />
-      <Route path="users/new" element={<Signup />} />
-      <Route path="communications" element={<Internalcommunications/>} />
-      <Route path="communications/new" element={<InternalCommunicationsForm />} />
-       <Route path="calendars" element={<Calendar/>} />
-      <Route path="calendars/new" element={< CalendarForm />} />
-      <Route path="users/update_password" element={< PasswordChange />} />
-      <Route path="announcements" element={<Announcement/>} />
-       <Route path="announcements/new" element={< AnnouncementForm />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/users" element={<UserList />} />
+      <Route path="/users/new" element={<Signup />} />
+      <Route path="/communications" element={<Internalcommunications/>} />
+      <Route path="/communications/new" element={<InternalCommunicationsForm />} />
+      <Route path="/calendars" element={<Calendar/>} />
+      <Route path="/calendars/new" element={< CalendarForm />} />
+      <Route path="/users/update_password" element={< PasswordChange />} />
+      <Route path="/announcements" element={<Announcement/>} />
+      <Route path="/announcements/new" element={< AnnouncementForm />} />
       <Route path="*" element={<PageNotFound />} />
 
   </Routes>
