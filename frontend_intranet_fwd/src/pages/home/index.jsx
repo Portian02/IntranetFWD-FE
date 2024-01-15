@@ -3,6 +3,7 @@ import "./home.css";
 import ControlledCarousel from "../../components/carrousel";
 const Home = () => {
   return (
+    
     <div className="Home">
       <ControlledCarousel />
       <div className="content">

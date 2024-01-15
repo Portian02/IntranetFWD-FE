@@ -1,49 +1,39 @@
-
 import { useRef } from "react";
 import "./login.css";
+
 const Login = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
+
   const login = async (userInfo, setCurrUser) => {
     const url = "http://localhost:3001/login";
     try {
       const response = await fetch(url, {
         method: "post",
         headers: {
-          "content-type": "application/json",
-          accept: "application/json",
-        //  'Authorization': "Bearer"
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify(userInfo),
       });
-      console.log("Soy response", response);
+
+      if (!response.ok) {
+        throw new Error("Failed to login");
+      }
+
       const data = await response.json();
-      
-      console.log("Hola SOY EL TOKEN QUE LLEGUE DESDE EL DATA",data.jti);
-      
-      
-      // debugger;
-      if (!response.ok) throw data.error;
+      const token = data.token; // Ajusta esto según la estructura de tu respuesta
 
-
-     localStorage.setItem("token", data.jti);
-
-
-     //AQUI NO LLEGA EL TOKEN YA QUE EL Authorization NO ESTA EN EL BODY
-     console.log("Hola",response.headers.get("Authorization"));
-       
-  
-    localStorage.setItem("sessionId", JSON.stringify(data));
-
+      if (token) {
+        localStorage.setItem("token", token);
+      }
 
       setCurrUser(data);
-      setShow(false);  
-
-
-     
+      setShow(false);
     } catch (error) {
-      console.log("error", error);
+      console.error("Error during login:", error);
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(formRef.current);
@@ -55,18 +45,40 @@ const Login = ({ setCurrUser, setShow }) => {
     e.target.reset();
   };
 
-  return(
+const goToHome = () => {
+
+  window.location.href = "/home"
+  }
+
+
+
+
+
+
+  return (
     <div>
       <form ref={formRef} onSubmit={handleSubmit} className="login-form">
-        Email: <input type="email" name='email' placeholder="email" className="email-input" />
-        <br/>
-        Password: <input type="password" name='password' placeholder="password" className="password-input" />
-        <br/>
-        <input type='submit' value="Login" className="submit-button" />
+        Email:{" "}
+        <input
+          type="email"
+          name="email"
+          placeholder="email"
+          className="email-input"
+        />
+        <br />
+        Password:{" "}
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          className="password-input"
+        />
+        <br />
+        <input onClick={goToHome} type="submit" value="Login" className="submit-button" />
       </form>
       <br />
     </div>
   );
 };
-export default Login;
 
+export default Login;

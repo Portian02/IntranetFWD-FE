@@ -31,6 +31,22 @@ export async function fetchCommunicationInternals() {
   }
 }
 
+
+export async function fetchAnnouncements() {
+  try {
+    const response = await fetch("http://localhost:3001/api/announcements");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch annoucements", error);
+    throw error;
+  }
+}
+
+
 // In this case, we have the method to delete a communication.
 export async function deleteCommunication(id) {
   const url = `http://localhost:3001/api/internal_communications/${id}`;
@@ -53,23 +69,6 @@ export async function deleteCommunication(id) {
 
 
 
-export async function fetchCurrentUser(sessionId) {
-  const response = await fetch(`http://localhost:3000/api/users/${sessionId}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      // Suponiendo que tu API usa el sessionId para autenticar al usuario
-      'Authorization': `Bearer ${sessionId}`
-    }
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-
-  const user = await response.json();
-  return user;
-}
 
 
 

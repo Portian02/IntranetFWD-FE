@@ -42,7 +42,7 @@ const Internalcommunications = () => {
               <div className="comunication-content">{comunication.content}</div>
               <div className="comunication-date">{comunication.updated_at}</div>
               <div className="comunication-username">{comunication.user_id.username}</div>
-              <MyButton />
+              {/* <MyButton /> */}
             </div>
           ))}
       <Modals />

@@ -13,8 +13,7 @@ const App=()=>{
   
   return (
     <div className="App">
-      <Navbar setCurrUser={setCurrUser}/>
-      <User currUser={currUser} setCurrUser={setCurrUser} />
+      <Navbar currUser={currUser} setCurrUser={setCurrUser}/>
       <Routing currUser={currUser} setCurrUser={setCurrUser} /> 
       <Footer />
    </div>
