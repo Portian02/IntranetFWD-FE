@@ -1,14 +1,14 @@
 /* FILEPATH: /c:/Frontend-IntranetFWD/IntranetFWD-FE/frontend_intranet_fwd/src/components/NavBar/Navbar.css */
 
 .navbar {
-  background-color: #003366;
+  background-color: #df2c8e;
   padding: 5px; /* Decreased padding to 5px */
 }
 
 .navbar__list {
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Changed to center */
   align-items: center;
   margin: 0; /* Add this line to remove default margin */
 }
@@ -99,4 +99,9 @@
   .navbar__dropdown:hover .navbar__dropdown-content {
     display: block;
   }
+}
+
+/* Logout Styles */
+.navbar__logout {
+  margin-left: auto; /* Added this block to move logout to the right */
 }

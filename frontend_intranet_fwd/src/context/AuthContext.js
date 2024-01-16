@@ -2,13 +2,11 @@ import { useState, createContext } from "react";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState({});
-
-  const list = [];
-  list.push();
+  const [isAuthenticated, setAuthenticated] = useState({});
+  
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth, list }}>
+    <AuthContext.Provider value={{ isAuthenticated, setAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );

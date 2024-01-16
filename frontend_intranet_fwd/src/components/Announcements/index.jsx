@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./announcements.css"; 
-import { fetchAnnouncements } from "../../services/ApiService"; 
+import "./Annoucements.css"; 
+import { fetchAnnouncements } from '../../services/ApiService';
 
 const Announcement = () => {
   const [announcements, setAnnouncements] = useState([]);

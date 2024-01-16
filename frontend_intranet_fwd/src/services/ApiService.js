@@ -1,7 +1,7 @@
-// Este archivo contiene la lógica 
-// para realizar las llamadas a la API. 
+// This file contains the logic
+// to make API calls.
 
-// En este caso, solo tenemos una llamada para obtener los eventos del calendario.
+// In this case, we only have a call to fetch calendar events.
 export async function fetchCalendars() {
   try {
     const response = await fetch("http://localhost:3001/api/calendar_events");
@@ -16,23 +16,7 @@ export async function fetchCalendars() {
   }
 }
 
-export async function fetchAnnouncements() {
-
-  try{
-    const response = await fetch("http://localhost:3001/api/announcements");
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data;
-
-  }catch(error){
-    console.error("Failed to fetch announcements", error);
-    throw error;
-  }
-  }
-
-// En este caso, solo tenemos una llamada para obtener los eventos del internal commmunications.
+// In this case, we only have a call to fetch internal communications.
 export async function fetchCommunicationInternals() {
   try {
     const response = await fetch("http://localhost:3001/api/internal_communications");
@@ -46,6 +30,61 @@ export async function fetchCommunicationInternals() {
     throw error;
   }
 }
+
+
+export async function fetchAnnouncements() {
+  try {
+    const response = await fetch("http://localhost:3001/api/announcements");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch annoucements", error);
+    throw error;
+  }
+}
+
+
+// In this case, we have the method to delete a communication.
+export async function deleteCommunication(id) {
+  const url = `http://localhost:3001/api/internal_communications/${id}`;
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Failed to delete communication', error);
+    throw error;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const authToken = localStorage.getItem('authToken');
 

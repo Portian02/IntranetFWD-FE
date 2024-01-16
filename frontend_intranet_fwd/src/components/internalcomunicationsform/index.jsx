@@ -5,6 +5,8 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
   const communicationadd = async (communicationInfo, setCurrCommunication) => {
     const url = "http://localhost:3001/api/internal_communications";
     try {
+
+      console.log("SOY LAAAAAAAAAAAAAA",communicationInfo)
       const response = await fetch(url, {
         method: "post",
         headers: {
@@ -13,7 +15,10 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
         },
         body: JSON.stringify(communicationInfo),
       });
-      console.log("Soy response", response);
+
+
+      
+      console.log("Soy respons holaaaaaaaa", response);
       console.log("Soy communicationInfo", communicationInfo);
       const data = await response.json();
       console.log("Soy Data", data);
@@ -32,10 +37,14 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
       internal_communication: {
     title: data.title,
     content: data.content,
-    user_id: 1,  //PASAR EL ID DE LA PERSONA QUE ESTA LOGUEADA EN ESTE CASO EL ADMI
+    user_id: data.user_id //PASAR EL ID DE LA PERSONA QUE ESTA LOGUEADA EN ESTE CASO EL ADMI
    
       },
     };
+
+
+    
+    console.log("Soy communicationInfo", communicationInfo);
     communicationadd(communicationInfo, setCurrCommunication);
     e.target.reset();
   };
@@ -61,12 +70,19 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
           className="communicationadd-input"
         />
         <br />
-       
-        <br />
+        <label htmlFor="user_id" id="user_id">User_id:</label>
+        <input
+          type="user_id"
+          name="user_id"
+          id="user_id"
+          placeholder="user_id"
+          cassName="communicationadd-input"
+          value={1} //AQUI SE PASA EL ID DEL USUARIO QUE ESTA LOGUEADO
+        />
         <input type="submit" value="Submit" className="communicationadd-submit" />
       </form>
 
-      <br />
+      <br />  
       
     </div>
   );
