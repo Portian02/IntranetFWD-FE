@@ -1,26 +1,27 @@
 
-import Signup from "../signup";
 import Login from "../login";
 import Logout from "../logout";
 import { useState } from "react";
 import PrivateText from "../privateText";
+
 const User = ({currUser, setCurrUser}) => {
     const [show, setShow]=useState(true)
+
+ 
+
+    
     if(currUser) 
         return (
             <div>
-            Hello Welcome {currUser.email}
+            Hello Welcome {currUser.username}
             <PrivateText currUser={currUser}/>
-            <Logout setCurrUser={setCurrUser}/>
+            <Logout setCurrUser={setCurrUser}/> 
             </div>
         )
+        
     return (
-        <div>
-            { show?
-                <Login setCurrUser={setCurrUser} setShow={setShow}/>  
-                :
-                <Signup setCurrUser={setCurrUser}  setShow={setShow} />
-            }
+        <div>                                             
+            <Login setCurrUser={setCurrUser} setShow={setShow}/> 
         </div>
     )
 }

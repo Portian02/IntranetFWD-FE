@@ -30,10 +30,9 @@ const CommunicationForm = ({ setCurrCalendarevent, setShow }) => {
     const data = Object.fromEntries(formData);
     const calendar_eventInfo = {
       calendar_event: {
-        name: data.name,
+        title: data.title,
         description: data.description,
-        date: data.date,
-        document: data.document,
+        url: data.url,
       },
     };
     communicationadd(calendar_eventInfo, setCurrCalendarevent);
@@ -44,10 +43,10 @@ const CommunicationForm = ({ setCurrCalendarevent, setShow }) => {
     <div className="container">
       <form ref={formRef} onSubmit={handleSubmit} className="form">
         <p className="title">Calendar Form</p>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name">Title</label>
         <input
           type="text"
-          name="name"
+          name="title"
           id="name"
           placeholder="name"
           className="username input"
@@ -62,28 +61,17 @@ const CommunicationForm = ({ setCurrCalendarevent, setShow }) => {
           className="username input"
         />
         <br />
-        <label htmlFor="date">Date:</label>
+        <label htmlFor="document">Url</label>
         <input
-          type="date"
-          name="date"
-          id="date"
-          placeholder="date"
-          className="date input"
-        />
-        <label htmlFor="document">Document:</label>
-        <input
-          type="URL or File"
-          name="document"
+          type="text"
+          name="url"
           id="document"
           placeholder="document"
           className="document input"
         />
         <br />
-        <input
-          type="submit"
-          value="Submit"
-          className="btn"
-        />
+        <input type="submit" value="Submit" className="btn" />
+        
       </form>
 
       <br />

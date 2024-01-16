@@ -1,9 +1,8 @@
 import React from "react";
-import "./home.css";
+import "./admin.css";
   import Navbar from "../../components/NavBar";
 import ControlledCarousel from "../../components/carrousel";
-const Home = () => {
-
+const Admin = () => {
 
 
   
@@ -37,4 +36,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Admin;
