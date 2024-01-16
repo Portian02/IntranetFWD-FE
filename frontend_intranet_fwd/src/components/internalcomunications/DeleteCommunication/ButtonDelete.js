@@ -5,7 +5,7 @@ const MyButton = ({id}) => {
   const handleDelete = async () => {
     try {
       const data = await deleteCommunication(id);
-      console.log(data);
+      console.log("Hola soy la data del comunicado",data);
     } catch (error) {
       console.error('Failed to delete communication', error);
     }

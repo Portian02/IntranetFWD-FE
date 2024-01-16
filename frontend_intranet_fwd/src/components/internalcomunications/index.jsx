@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import './communication.css';
-import { fetchCommunicationInternals } from '../../services/ApiService';
+import React, { useState, useEffect } from "react";
+import "./communication.css";
+import { fetchCommunicationInternals } from "../../services/ApiService";
 import Modals from "../../components/internalcomunications/modalInternalCommunication/modals";
-import MyButton from './DeleteCommunication/ButtonDelete';
+import MyButton from "./DeleteCommunication/ButtonDelete";
 const Internalcommunications = () => {
   const [comunications, setcomunication] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     async function loadCommunicationInternal() {
       try {
@@ -14,12 +13,13 @@ const Internalcommunications = () => {
         setcomunication(data);
         setIsLoading(false);
       } catch (error) {
-        console.error('Failed to load calendars', error);
+        console.error("Failed to load calendars", error);
       }
     }
 
     loadCommunicationInternal();
   }, []);
+  const role = localStorage.getItem("role");
 
   return (
     <div>
@@ -37,16 +37,25 @@ const Internalcommunications = () => {
       ) : (
         <ul className="internal-communications">
           {comunications.map((comunication) => (
-            <div key={comunication.id} className="internal-communications__item">
+            <div
+              key={comunication.id}
+              className="internal-communications__item"
+            >
               {comunication.title}
               <div className="comunication-content">{comunication.content}</div>
               <div className="comunication-date">{comunication.updated_at}</div>
-              <div className="comunication-username">{comunication.user_id.username}</div>
-              {/* <MyButton /> */}
+              <div className="comunication-username">
+                {comunication.user_id.username}
+              </div>
+                {role === "admin" || role === "teacher" &&( 
+             <MyButton />
+                )}
+           
             </div>
           ))}
-      <Modals />
-
+          {role === "admin" &&( 
+          <Modals />
+          )}
         </ul>
       )}
     </div>

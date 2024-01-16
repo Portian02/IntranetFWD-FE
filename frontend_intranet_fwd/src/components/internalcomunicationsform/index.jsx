@@ -41,6 +41,10 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
    
       },
     };
+
+
+    
+    console.log("Soy communicationInfo", communicationInfo);
     communicationadd(communicationInfo, setCurrCommunication);
     e.target.reset();
   };

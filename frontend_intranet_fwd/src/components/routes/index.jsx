@@ -6,6 +6,7 @@ import InternalCommunicationsForm from "../internalcomunicationsform";
 import Announcement from "../Announcements";
 import AnnouncementForm from "../AnnouncementsForm";
 import Home from "../../pages/home/index";
+import Admin from "../../pages/admin/index";
 import Calendar from "../calendarevents";
 import CalendarForm from "../calendarForm";
 import PasswordChange from "../changePassword";
@@ -18,6 +19,7 @@ const Routing = () => {
       
       <Route path="/" element={<LoginPage />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/admin" element={<Admin />} />
       <Route path="/users" element={<UserList />} />
       <Route path="/users/new" element={<Signup />} />
       <Route path="/communications" element={<Internalcommunications/>} />

@@ -53,3 +53,31 @@
     transform: translateY(30px);
     transition-duration: .3s;
   }
+  /* RESPONSIVE STYLES */
+  @media (max-width: 768px) {
+    .buttonDelete {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .svgIcon {
+      width: 10px;
+    }
+  
+    .buttonDelete:hover {
+      width: 120px;
+    }
+  
+    .buttonDelete:hover .svgIcon {
+      width: 40px;
+    }
+  
+    .buttonDelete::before {
+      font-size: 1px;
+    }
+  
+    .buttonDelete:hover::before {
+      font-size: 10px;
+      transform: translateY(20px);
+    }
+  }
