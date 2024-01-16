@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./Annoucements.css"; 
-import { fetchAnnouncements } from '../../services/ApiService';
+import "./Annoucements.css";
+import { fetchAnnouncements } from "../../services/ApiService";
+import Navbar from "../NavBar";
 
 const Announcement = () => {
   const [announcements, setAnnouncements] = useState([]);
@@ -9,11 +10,11 @@ const Announcement = () => {
   useEffect(() => {
     async function loadAnnouncements() {
       try {
-        const data = await fetchAnnouncements(); 
+        const data = await fetchAnnouncements();
         setAnnouncements(data);
         setLoading(false);
       } catch (error) {
-        console.error('Failed to load announcements', error);
+        console.error("Failed to load announcements", error);
       }
     }
 
@@ -22,16 +23,17 @@ const Announcement = () => {
 
   return (
     <div>
+      <Navbar />
       <h2 className="title">Lista de Anuncios</h2>
       {loading ? (
         <div className="loading">
-            <section className="loader">
-                <div className="slider" style={{ "--i": 0 }}></div>
-                <div className="slider" style={{ "--i": 1 }}></div>
-                <div className="slider" style={{ "--i": 2 }}></div>
-                <div className="slider" style={{ "--i": 3 }}></div>
-                <div className="slider" style={{ "--i": 4 }}></div>
-            </section>
+          <section className="loader">
+            <div className="slider" style={{ "--i": 0 }}></div>
+            <div className="slider" style={{ "--i": 1 }}></div>
+            <div className="slider" style={{ "--i": 2 }}></div>
+            <div className="slider" style={{ "--i": 3 }}></div>
+            <div className="slider" style={{ "--i": 4 }}></div>
+          </section>
         </div>
       ) : (
         <div className="container-announcement-events">

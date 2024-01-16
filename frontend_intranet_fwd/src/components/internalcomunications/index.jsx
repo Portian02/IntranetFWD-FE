@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./communication.css";
+import Navbar from "../NavBar";
 import { fetchCommunicationInternals } from "../../services/ApiService";
 import Modals from "../../components/internalcomunications/modalInternalCommunication/modals";
 import MyButton from "./DeleteCommunication/ButtonDelete";
@@ -23,6 +24,7 @@ const Internalcommunications = () => {
 
   return (
     <div>
+      <Navbar />  
       <h2 className="internal-communications__title">Lista de comunicados</h2>
       {isLoading ? (
         <div className="loading">
