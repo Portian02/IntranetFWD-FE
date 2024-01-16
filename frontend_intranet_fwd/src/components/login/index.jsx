@@ -32,7 +32,7 @@ const Login = ({ setCurrUser, setShow }) => {
         } else if (data.role === "admin") {
           navigate("/admin");
         } else if (data.role === "teacher") {
-          navigate("/teacher");
+          navigate("/home");
         }
 
         console.log("EL USUARIO NO TIENE ROLES");

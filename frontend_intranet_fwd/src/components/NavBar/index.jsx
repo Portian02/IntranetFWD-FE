@@ -10,6 +10,8 @@ const Navbar = ({currUser, setCurrUser}) => {
     setDropdownVisible(!dropdownVisible);
   };
 
+  const role = localStorage.getItem("role");
+  console.log("Hi  world I´m the",role);  
 
 
 
@@ -43,11 +45,12 @@ const Navbar = ({currUser, setCurrUser}) => {
             Home
           </Link>
         </li>
+        {role === "admin" || role === "teacher" &&(
         <li className="navbar__item">
           <Link to="/users" className="navbar__link">
             Users
           </Link>
-        </li>
+        </li>)}
         <li className="navbar__item">
           <Link to="/communications" className="navbar__link">
             Communications
@@ -59,6 +62,7 @@ const Navbar = ({currUser, setCurrUser}) => {
           </Link>
         </li>
         <li className="navbar__item">
+        {role === "admin" &&(
           <div className="navbar__dropdown">
             <button className="navbar__dropdown-button" onClick={toggleDropdown}>
               Add
@@ -77,6 +81,7 @@ const Navbar = ({currUser, setCurrUser}) => {
               </div>
             )}
           </div>
+          )}
         </li>
         <li className="navbar__item">
           <Link to="/calendars" className="navbar__link">
