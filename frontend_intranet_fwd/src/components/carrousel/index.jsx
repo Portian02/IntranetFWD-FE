@@ -9,14 +9,14 @@ const Carousel1 = () => {
       <Carousel.Item className="container-image" interval={1000}>
         <Link to="/princess">
           <img
-            className="d-block w-100"
-            src="https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp" // Aquí debes colocar la ruta de la imagen o la lógica que prefieras
+            className="d-block w-70"
+            src="https://static.wixstatic.com/media/aaad85_0c9b08f1c5404c309c0eedc8d2974d8e~mv2.jpg/v1/fill/w_912,h_980,fp_0.53_0.19,q_85,usm_0.66_1.00_0.01,enc_auto/PHOTO-2023-11-13-19-58-45.jpg"
             alt="img"
           />
         </Link>
         <Carousel.Caption>
-          <h5>Gatito Feliz</h5>
-          <p>Lo más tierno que verás hoy</p>
+          <h5>Student</h5>
+          <p>Sebastian Arias </p>
         </Carousel.Caption>
         {/* --------------------------------------------------------------------------- */}
       </Carousel.Item>
@@ -24,7 +24,7 @@ const Carousel1 = () => {
         <Link to="/princess">
           <img
             className="d-block w-100"
-            src="https://aws-storage-aulab.s3.eu-south-1.amazonaws.com/aulabes/app/public/39/conversions/Articulo_CAROUSEL-cover-cover.jpg"
+            src="https://static.wixstatic.com/media/aaad85_b3f03880d2354c1eaae96f20c5f13c1e~mv2.jpg/v1/fill/w_840,h_504,fp_0.50_0.57,q_85,usm_0.66_1.00_0.01,enc_auto/PHOTO-2023-11-13-20-23-54%202.jpg"
             alt="img"
           />
         </Link>
@@ -39,7 +39,7 @@ const Carousel1 = () => {
         <Link to="/princess">
           <img
             className="d-block w-100"
-            src="https://aws-storage-aulab.s3.eu-south-1.amazonaws.com/aulabes/app/public/1/conversions/1articoloPartireDa0-cover-cover.jpg"
+            src="https://static.wixstatic.com/media/aaad85_d3ce69c5f8be45ca931ee2c53050ae58~mv2.jpg/v1/fill/w_840,h_504,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Image%20by%20Timon%20Studler.jpg"
             alt="img"
           />
         </Link>
@@ -54,7 +54,7 @@ const Carousel1 = () => {
         <Link to="/princess">
           <img
             className="d-block w-100"
-            src="https://aws-storage-aulab.s3.eu-south-1.amazonaws.com/aulabes/app/public/2/conversions/Cambia_carriera-cover-thumb.jpg"
+            src="https://static.wixstatic.com/media/aaad85_a4ae89c8cc474705bacd2a687ab2f92c~mv2.jpg/v1/fill/w_840,h_485,fp_0.70_0.24,q_85,usm_0.66_1.00_0.01,enc_auto/PHOTO-2023-11-13-20-40-17%202.jpg"
             alt="img"
           />
         </Link>
