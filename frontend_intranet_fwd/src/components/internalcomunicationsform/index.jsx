@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import "./CommunicationForm.css";
+import { useNavigate } from "react-router-dom";
 const CommunicationForm = ({ setCurrCommunication, setShow }) => {
   const formRef = useRef();
   const communicationadd = async (communicationInfo, setCurrCommunication) => {
@@ -31,6 +32,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
     const communicationInfo = {
