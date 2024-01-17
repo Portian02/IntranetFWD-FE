@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+
 import "./Annoucements.css";
 import { fetchAnnouncements } from "../../services/ApiService";
 import Navbar from "../NavBar";
+
 
 const Announcement = () => {
   const [announcements, setAnnouncements] = useState([]);
@@ -10,11 +12,13 @@ const Announcement = () => {
   useEffect(() => {
     async function loadAnnouncements() {
       try {
+
         const data = await fetchAnnouncements();
         setAnnouncements(data);
         setLoading(false);
       } catch (error) {
         console.error("Failed to load announcements", error);
+
       }
     }
 
@@ -23,6 +27,7 @@ const Announcement = () => {
 
   return (
     <div>
+
       <Navbar />
       <h2 className="title">Lista de Anuncios</h2>
       {loading ? (
@@ -34,6 +39,7 @@ const Announcement = () => {
             <div className="slider" style={{ "--i": 3 }}></div>
             <div className="slider" style={{ "--i": 4 }}></div>
           </section>
+
         </div>
       ) : (
         <div className="container-announcement-events">
@@ -57,4 +63,6 @@ const Announcement = () => {
   );
 };
 
+
 export default Announcement;
+
