@@ -1,6 +1,6 @@
 import React from "react";
 import "./home.css";
-  import Navbar from "../../components/NavBar";
+import Navbar from "../../components/NavBar";
 import ControlledCarousel from "../../components/carrousel";
 const Home = () => {
 

@@ -49,8 +49,8 @@ const Internalcommunications = () => {
               <div className="comunication-username">
                 {comunication.user_id.username}
               </div>
-                {role === "admin" || role === "teacher" &&( 
-             <MyButton />
+                {role === "admin" &&( 
+             <MyButton id={comunication.id} />
                 )}
            
             </div>

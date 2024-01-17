@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./calendar.css";
+import Navbar from "../NavBar";
+
 import { fetchCalendars } from "../../services/ApiService";
 const CalendarList = () => {
   const [calendars, setCalendars] = useState([]);
@@ -23,6 +25,7 @@ const CalendarList = () => {
   
   return (
     <div>
+      <Navbar />
       <h2 className="title">Lista de Calendarios</h2>
       {loading ? (
         <div className="loading">
