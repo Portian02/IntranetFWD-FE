@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import "./singup.css";
+import Navbar from "../NavBar";
+
 const Signup = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
   const signup = async (userInfo, setCurrUser) => {
@@ -18,8 +20,8 @@ const Signup = ({ setCurrUser, setShow }) => {
       const data = await response.json();
       console.log("Soy Data", data);
       if (!response.ok) throw data.error;
-      localStorage.setItem("token", response.headers.get("Authorization"));
-      setCurrUser(data);
+      localStorage.setItem("token", response.headers.get("Authorization"))
+      setCurrUser(data) 
     } catch (error) {
       console.log("error", error);
     }
@@ -50,99 +52,131 @@ const Signup = ({ setCurrUser, setShow }) => {
   };
   return (
     <div className="signup-container">
-      <form ref={formRef} onSubmit={handleSubmit} className="signup-form">
-        <label htmlFor="identification">Identification:</label>
+      <Navbar />
+      <form ref={formRef} onSubmit={handleSubmit} className="form">
+      <p className="title-user">Register</p>
+     
+      <div className="flex">
+        <label>
+          <input
+            required
+            placeholder=""
+            type="identification"
+            name="identification"
+            id="identification"
+            className="input"
+          />
+          <span>Identification</span>
+        </label>
+
+        <label>
+          <input
+            required
+            placeholder=""
+              name="name"
+              id="name"
+            type="text"
+            className="input"
+          />
+          <span>Name</span>
+        </label>
+      </div>
+
+    <label>
         <input
-          type="identification"
-          name="identification"
-          id="identification"
-          placeholder="identification"
-          className="signup-input"
-        />
-        <label htmlFor="name">Name:</label>
-        <input
-          type="name"
-          name="name"
-          id="name"
-          placeholder="name"
-          className="signup-input"
-        />
-        <br />
-        <label htmlFor="number">Number:</label>
-        <input
-          type="number"
+          required
+          placeholder=""
+            type="number"
           name="number"
           id="number"
-          placeholder="number"
-          className="signup-input"
+          className="input"
         />
-        <br />
-        <label htmlFor="email">Email:</label>
+        <span>Number</span>
+      </label>
+
+      <label>
         <input
+          required
+          placeholder=""
           type="email"
-          name="email"
+           name="email"
           id="email"
-          placeholder="email"
-          className="signup-input"
+          className="input"
         />
-        <label htmlFor="borndate">Born Date:</label>
+        <span>Email</span>
+      </label>
+
+       <label>
         <input
+          required
+          placeholder=""
           type="date"
-          name="borndate"
           id="borndate"
-          placeholder="borndate"
-          className="signup-input"
+          name="borndate"
+          className="input"
         />
-        <br />
-        <label htmlform="type_user_id">Type User:</label>
-        <input
-          type="number"
-          name="type_user_id"
-          id="type_user_id"
-          placeholder="type_user_id"
-          className="signup-input"
+        <span>Born Date</span>
+      </label>
 
-         />
+    <label>
+      <select
+        required
+        name="type_user_id"
+        id="type_user_id"
+        className="input"
+      >
+        <option value="">Select Type User</option>
+        <option value="1">Student</option>
+        <option value="2">Teacher</option>
+        <option value="3">Admin</option>
+      </select>
+      <span>Type User</span>
+    </label>
 
-        <br />
-        <label htmlFor="password">Password:</label>
+      <label>
         <input
+          required
+          placeholder=""
           type="password"
           name="password"
           id="password"
-          placeholder="password"
-          className="signup-input"
+          className="input"
         />
-        <br />
-        <label htmlFor="password_confirmation">Password Confirmation:</label>
+        <span>Password</span>
+      </label>
+
+      <label>
         <input
+          required
+          placeholder=""
           type="password"
           name="password_confirmation"
           id="password_confirmation"
-          placeholder="password_confirmation"
-          className="signup-input"
+          className="input"
         />
-        <br />
-        <label htmlFor="role">Role:</label>
-        <input
-          type="role"
-          name="role"
-          id="role"
-          placeholder="role"
-          className="signup-input"
-        />
-        <br />
-        <input type="submit" value="Submit" className="signup-submit" />
-      </form>
+        <span>Confirm password</span>
+      </label>
 
-      <br />
-      <div className="signup-login">
-        Already registered,{" "}
-        <a href="#login" onClick={handleClick} className="signup-login-link">
-          Login
-        </a>{" "}
-        here.
-      </div>
+        <label>
+          <select
+            required
+            name="role"
+            id="role"
+            className="input"
+          >
+            <option value="">Select</option>
+            <option value="admin">Admin</option>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+          </select>
+          <span>Role</span>
+        </label>
+
+      <input type="submit" value="Submit" className="submit-btn" />
+
+     
+    </form>
+
     </div>
   );
 };

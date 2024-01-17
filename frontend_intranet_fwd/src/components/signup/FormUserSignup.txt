@@ -1,0 +1,120 @@
+<form ref={formRef} onSubmit={handleSubmit} className="form">
+      <p className="title">Register</p>
+     
+      <div className="flex">
+        <label>
+          <input
+            required
+            placeholder=""
+            type="identification"
+              name="identification"
+          id="identification"
+            className="input"
+          />
+          <span>Identification</span>
+        </label>
+
+        <label>
+          <input
+            required
+            placeholder=""
+              name="name"
+              id="name"
+            type="text"
+            className="input"
+          />
+          <span>Name</span>
+        </label>
+      </div>
+
+    <label>
+        <input
+          required
+          placeholder=""
+            type="number"
+          name="number"
+          id="number"
+          className="input"
+        />
+        <span>Number</span>
+      </label>
+
+      <label>
+        <input
+          required
+          placeholder=""
+          type="email"
+           name="email"
+          id="email"
+          className="input"
+        />
+        <span>Email</span>
+      </label>
+
+       <label>
+        <input
+          required
+          placeholder=""
+          type="date"
+          id="borndate"
+          name="borndate"
+          className="input"
+        />
+        <span>Born Date</span>
+      </label>
+
+     <label>
+        <input
+          required
+          placeholder=""
+          type="number"
+          name="type_user_id"
+          id="type_user_id"
+          className="input"
+        />
+        <span>Type User</span>
+      </label>
+
+
+      <label>
+        <input
+          required
+          placeholder=""
+          type="password"
+          name="password"
+          id="password"
+          className="input"
+        />
+        <span>Password</span>
+      </label>
+
+      <label>
+        <input
+          required
+          placeholder=""
+          name="password_confirmation"
+          id="password_confirmation"
+          type="password"
+          className="input"
+        />
+        <span>Confirm password</span>
+      </label>
+
+         <label>
+        <input
+          required
+          placeholder=""
+          type="role"
+          name="role"
+          id="role"
+          className="input"
+        />
+        <span>Role</span>
+      </label>
+
+      <input type="submit" value="Submit" className="signup-submit" />
+
+      <p className="signin">
+        Already have an account? <a href="#">Signin</a>
+      </p>
+    </form>
