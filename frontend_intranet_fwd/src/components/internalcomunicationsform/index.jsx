@@ -30,6 +30,10 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
       console.log("error", error);
     }
   };
+
+   const reload = () => {
+    window.location.reload();}
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -53,7 +57,8 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
  
   return (
     <div className="communicationadd-container">
-      <form ref={formRef} onSubmit={handleSubmit} className="communicationadd-form">
+
+      <form ref={formRef} onSubmit={handleSubmit}  className="communicationadd-form">
         <label htmlFor="title">Title:</label>
         <input
           type="title"
@@ -78,10 +83,13 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
           name="user_id"
           id="user_id"
           placeholder="user_id"
-          cassName="communicationadd-input"
-          value={1} //AQUI SE PASA EL ID DEL USUARIO QUE ESTA LOGUEADO
+
+          className="communicationadd-input"
+          defaultValue={1} //AQUI SE PASA EL ID DEL USUARIO QUE ESTA LOGUEADO
         />
-        <input type="submit" value="Submit" className="communicationadd-submit" />
+        <input onClick={reload}   type="submit" value="Submit" className="communicationadd-submit" />
+
+
       </form>
 
       <br />  
