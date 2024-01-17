@@ -67,7 +67,21 @@ export async function deleteCommunication(id) {
   }
 }
 
+// In this case, we have the method to delete an announcement.
 
+export async function fetchadmonitions() {
+  try {
+    const response = await fetch("http://localhost:3001/api/admonitions");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch admonitions", error);
+    throw error;
+  }
+}
 
 
 

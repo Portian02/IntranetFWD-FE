@@ -54,6 +54,9 @@ const Navbar = ({currUser, setCurrUser}) => {
                 <Link to="/announcements/new" className="navbar__link">
                   New Announcements
                 </Link>
+                <Link to="/admonitions/new" className="navbar__link">
+                  New Admonitions
+                </Link>
               </div>
             )}
           </div>

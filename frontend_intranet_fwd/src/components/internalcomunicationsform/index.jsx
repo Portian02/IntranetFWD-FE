@@ -1,101 +1,114 @@
 import { useRef } from "react";
-import "./CommunicationForm.css";
 import { useNavigate } from "react-router-dom";
-const CommunicationForm = ({ setCurrCommunication, setShow }) => {
-  const formRef = useRef();
-  const communicationadd = async (communicationInfo, setCurrCommunication) => {
-    const url = "http://localhost:3001/api/internal_communications";
-    try {
 
-      console.log("SOY LAAAAAAAAAAAAAA",communicationInfo)
+const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
+  const formRef = useRef();
+  const navigate = useNavigate();
+
+  const addAdmonition = async (admonitionInfo) => {
+    const url = "http://localhost:3001/admonitions"; 
+
+    try {
       const response = await fetch(url, {
         method: "post",
         headers: {
           "content-type": "application/json",
-          // accept: "application/json",
         },
-        body: JSON.stringify(communicationInfo),
+        body: JSON.stringify(admonitionInfo),
       });
 
-
-      
-      console.log("Soy respons holaaaaaaaa", response);
-      console.log("Soy communicationInfo", communicationInfo);
       const data = await response.json();
-      console.log("Soy Data", data);
+
       if (!response.ok) throw data.error;
-      localStorage.setItem("token", response.headers.get("Authorization"));
-      setCurrCommunication(data);
+
+      // Puedes realizar acciones adicionales después de añadir la amonestación si es necesario
+      console.log("Amonestación creada exitosamente:", data);
+      setCurrAdmonition(data);
+      setShow(false); // Otras acciones según tus necesidades
+
     } catch (error) {
-      console.log("error", error);
+      console.error("Error al crear la amonestación:", error);
     }
   };
 
-   const reload = () => {
-    window.location.reload();}
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
-    const communicationInfo = {
-      internal_communication: {
-    title: data.title,
-    content: data.content,
-    user_id: data.user_id //PASAR EL ID DE LA PERSONA QUE ESTA LOGUEADA EN ESTE CASO EL ADMI
-   
-      },
+
+    const admonitionInfo = {
+      user_id: data.user_id,
+      status_admonition: data.status_admonition,
+      date: data.date,
+      responsable_id: data.responsable_id,
+      type_admonition_id: data.type_admonition_id
+      // Agrega más campos según la estructura de tu modelo Admonition
     };
 
-
-    
-    console.log("Soy communicationInfo", communicationInfo);
-    communicationadd(communicationInfo, setCurrCommunication);
+    addAdmonition(admonitionInfo);
     e.target.reset();
   };
- 
-  return (
-    <div className="communicationadd-container">
 
-      <form ref={formRef} onSubmit={handleSubmit}  className="communicationadd-form">
-        <label htmlFor="title">Title:</label>
+  return (
+    <div className="admonition-form-container">
+      <form ref={formRef} onSubmit={handleSubmit} className="admonition-form">
+      <label htmlFor="user_id">Usuario ID:</label>
         <input
-          type="title"
-          name="title"
-          id="title"
-          placeholder="title"
-          className="communicationadd-input"
-        />
-        <br />
-        <label htmlFor="content">Content:</label>
-        <input
-          type="content"
-          name="content"
-          id="content"
-          placeholder="content"
-          className="communicationadd-input"
-        />
-        <br />
-        <label htmlFor="user_id" id="user_id">User_id:</label>
-        <input
-          type="user_id"
+          type="text"
           name="user_id"
           id="user_id"
-          placeholder="user_id"
-
-          className="communicationadd-input"
-          defaultValue={1} //AQUI SE PASA EL ID DEL USUARIO QUE ESTA LOGUEADO
+          placeholder="Usuario ID"
+          className="admonition-input"
+          required
         />
-        <input onClick={reload}   type="submit" value="Submit" className="communicationadd-submit" />
+        <br />
+        <label htmlFor="type_admonition_id">Tipo de Amonestación ID:</label>  
+        <input
+          type="text"
+          name="type_admonition_id"
+          id="type_admonition_id"
+          placeholder="Tipo de Amonestación ID"
+          className="admonition-input"
+          required
+        />
+        <br />
 
-
+        <label htmlFor="status_admonition">Status:</label>
+        <input
+          type="text"
+          name="status_admonition"
+          id="status_admonition"
+          placeholder="Status"
+          className="admonition-input"
+          required
+        />
+        <br />
+        <label htmlFor="date">Fecha:</label>
+        <input
+          type="date"
+          name="date"
+          id="date"
+          className="admonition-input"
+          required
+        />
+        <br />
+        <label htmlFor="responsable_id">Responsable ID:</label>
+        <input
+          type="text"
+          name="responsable_id"
+          id="responsable_id"
+          placeholder="Responsable ID"
+          className="admonition-input"
+          required
+        />
+       
+        <br />
+        <input type="submit" value="Guardar Amonestación" className="admonition-submit" />
       </form>
-
-      <br />  
-      
     </div>
   );
 };
-export default CommunicationForm;
+
+export default AdmonitionForm;
 

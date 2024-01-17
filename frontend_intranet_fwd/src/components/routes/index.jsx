@@ -13,6 +13,8 @@ import PasswordChange from "../changePassword";
 import PageNotFound from "../../pages/Nopage";
 import Signup from "../signup";
 import LoginPage from "../../pages/Login";
+import Admonitions from "../Admonitions";
+import AdmonitionForm from "../internalcomunicationsform";
 const Routing = () => {
   return (
     <Routes>
@@ -29,6 +31,8 @@ const Routing = () => {
       <Route path="/users/update_password" element={< PasswordChange />} />
       <Route path="/announcements" element={<Announcement/>} />
       <Route path="/announcements/new" element={< AnnouncementForm />} />
+      <Route path="/admonitions" element={<Admonitions/>} />
+      <Route path="/admonitions/new" element={< AdmonitionForm/>} />
       <Route path="*" element={<PageNotFound />} />
 
   </Routes>
