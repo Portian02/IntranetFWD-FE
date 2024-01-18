@@ -42,8 +42,6 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
 
   };
 
- 
-
 
 
   const handleSubmit = (e) => {
@@ -167,6 +165,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
 
       <form ref={formRef} onSubmit={handleSubmit}  className="communicationadd-form">
 
+
          <label>
         <select
           required
@@ -182,6 +181,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
         <span>User</span>
       </label>
         <br />
+
 
 
         <label htmlFor="title">Title:</label>
@@ -210,9 +210,13 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
           placeholder="user_id"
 
           className="communicationadd-input"
+
           defaultValue={user_id} //AQUI SE PASA EL ID DEL USUARIO QUE ESTA LOGUEADO
+
         />
-        <input type="submit" value="Submit" className="communicationadd-submit" />
+        <input onClick={reload}   type="submit" value="Submit" className="communicationadd-submit" />
+
+
       </form>
 
       <br />  
