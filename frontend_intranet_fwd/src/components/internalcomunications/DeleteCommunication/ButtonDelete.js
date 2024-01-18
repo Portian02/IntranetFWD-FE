@@ -1,6 +1,7 @@
 import { deleteCommunication } from "../../../services/ApiService";
 import "./button.css";
 
+
 const MyButton = ({ id }) => {
   const handleDelete = async () => {
     try {
@@ -22,3 +23,4 @@ const MyButton = ({ id }) => {
 };
 
 export default MyButton;
+

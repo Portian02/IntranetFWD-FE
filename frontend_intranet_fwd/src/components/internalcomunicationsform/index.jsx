@@ -164,6 +164,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
   
   return (
     <div className="communicationadd-container">
+
       <form ref={formRef} onSubmit={handleSubmit}  className="communicationadd-form">
 
          <label>
@@ -207,6 +208,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
           name="user_id"
           id="user_id"
           placeholder="user_id"
+
           className="communicationadd-input"
           defaultValue={user_id} //AQUI SE PASA EL ID DEL USUARIO QUE ESTA LOGUEADO
         />
