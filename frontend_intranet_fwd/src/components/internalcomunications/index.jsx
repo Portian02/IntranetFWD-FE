@@ -6,7 +6,9 @@ import Navbar from "../NavBar";
 import { fetchCommunicationInternals } from "../../services/ApiService";
 import Modals from "../../components/internalcomunications/modalInternalCommunication/modals";
 import MyButton from "./DeleteCommunication/ButtonDelete";
+
 import UpdateModals from "./updatecommunications/modalToUpdate";
+
 
 const Internalcommunications = () => {
   const [comunications, setcomunication] = useState([]);
