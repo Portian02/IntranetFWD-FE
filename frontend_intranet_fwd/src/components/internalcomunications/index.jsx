@@ -4,6 +4,8 @@ import Navbar from "../NavBar";
 import { fetchCommunicationInternals } from "../../services/ApiService";
 import Modals from "../../components/internalcomunications/modalInternalCommunication/modals";
 import MyButton from "./DeleteCommunication/ButtonDelete";
+
+
 const Internalcommunications = () => {
   const [comunications, setcomunication] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -19,8 +21,70 @@ const Internalcommunications = () => {
     }
 
     loadCommunicationInternal();
+    Internalcommunicationsusers();
   }, []);
   const role = localStorage.getItem("role");
+
+
+
+
+  const Internalcommunicationsusers = async () => {
+  
+      try {
+        const response = await fetch("http://localhost:3001/api/internal_communications_users");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        
+  
+        for (let index = 0; index < data.length; index++) {
+
+        const id_usuario_log= localStorage.getItem("id_usuario_log");
+
+      
+
+           if (data[index].user_id===parseInt(id_usuario_log)) {
+            
+            console.log("hola")
+          }
+          
+
+       
+        }
+
+
+
+        return data;
+      
+      } catch (error) {
+
+      
+        console.error("Failed to fetch internal commmunications", error);
+        throw error;
+
+
+      }
+
+ 
+  
+
+  }
+
+
+
+
+
+
+
+
+   
+
+
+  //esto tiene el ultimo registro mas no el numero de id
+  localStorage.setItem("id_registro", comunications.at(-1)?.id);
+ 
+
 
   return (
     <div>

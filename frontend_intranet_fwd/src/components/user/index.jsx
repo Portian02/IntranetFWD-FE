@@ -9,6 +9,8 @@ const User = ({currUser, setCurrUser}) => {
 
  
 
+
+   
     
     if(currUser) 
         return (
