@@ -1,4 +1,4 @@
-import Modal from "./Modal";
+import Modal from "../../Modal/Modal.js";
 import {useModal} from '../../../hooks/useModal.js';
 import CommunicationForm from "../../internalcomunicationsform/index.jsx";
 const Modals = () => {
