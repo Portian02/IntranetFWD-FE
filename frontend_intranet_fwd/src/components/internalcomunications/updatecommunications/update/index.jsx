@@ -20,6 +20,7 @@ function UpdateCommunicationForm({ id, initialData }) {
     } catch (error) {
       console.error("Failed to update communication", error);
     }
+    window.location.reload();
   };
 
   return (

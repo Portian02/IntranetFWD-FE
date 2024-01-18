@@ -214,7 +214,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
           defaultValue={user_id} //AQUI SE PASA EL ID DEL USUARIO QUE ESTA LOGUEADO
 
         />
-        <input onClick={reload}   type="submit" value="Submit" className="communicationadd-submit" />
+        <input  type="submit" value="Submit" className="communicationadd-submit" />
 
 
       </form>
