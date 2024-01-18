@@ -11,7 +11,7 @@ const Navbar = ({currUser, setCurrUser}) => {
   };
 
   const role = localStorage.getItem("role");
-  console.log("Hi  world I´m the",role);  
+  // console.log("Hi  world I´m the",role);  
   return (
     <nav className="navbar">
       <Logo className="navbar__logo" /> {/* Agregar el componente de Logo */}

@@ -5,7 +5,7 @@ const UserList = () => {
   const [isLoading, setIsLoading] = useState(true); // Agregar estado para el loading
 
   useEffect(() => {
-    const fetchUsers = async () => {
+     const fetchUsers = async () => {
       try {
         const response = await fetch("http://localhost:3001/api/users");
         const data = await response.json();
