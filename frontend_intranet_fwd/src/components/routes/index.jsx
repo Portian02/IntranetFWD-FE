@@ -14,7 +14,9 @@ import PageNotFound from "../../pages/Nopage";
 import Signup from "../signup";
 import LoginPage from "../../pages/Login";
 import Admonitions from "../Admonitions";
-import AdmonitionForm from "../internalcomunicationsform";
+import AdmonitionForm from "../AdmonitionsForm";
+import Justification from "../justifications";
+import JustificationForm from "../justificationsForm";
 const Routing = () => {
   return (
     <Routes>
@@ -33,6 +35,8 @@ const Routing = () => {
       <Route path="/announcements/new" element={< AnnouncementForm />} />
       <Route path="/admonitions" element={<Admonitions/>} />
       <Route path="/admonitions/new" element={< AdmonitionForm/>} />
+      <Route path="/justifications" element={<Justification/>} />
+      <Route path="/justifications/new" element={< JustificationForm/>} />
       <Route path="*" element={<PageNotFound />} />
 
   </Routes>

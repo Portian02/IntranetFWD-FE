@@ -1,13 +1,11 @@
 import { useRef } from "react";
-
 import { useNavigate } from "react-router-dom";
-
+import "./admonitions.css"; 
 const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
   const formRef = useRef();
-  const navigate = useNavigate();
 
-  const addAdmonition = async (admonitionInfo) => {
-    const url = "http://localhost:3001/new/admonitions"; 
+  const addAdmonition = async (admonitionInfo, setCurrAdmonition) => {
+    const url = "http://localhost:3001/api/admonitions"; 
 
     try {
       const response = await fetch(url, {
@@ -17,20 +15,17 @@ const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
         },
         body: JSON.stringify(admonitionInfo),
       });
-
+console.log("llega?", response);
       const data = await response.json();
-
       if (!response.ok) throw data.error;
 
-      // Puedes realizar acciones adicionales después de añadir la amonestación si es necesario
-      console.log("Amonestación creada exitosamente:", data);
+      localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrAdmonition(data);
-      setShow(false); // Otras acciones según tus necesidades
-
     } catch (error) {
-      console.error("Error al crear la amonestación:", error);
+      console.log("error", error);
     }
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,37 +33,43 @@ const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
 
+  
     const admonitionInfo = {
-      status_admonition: data.status_admonition,
-      date: data.date,
-      responsable_id: data.responsable_id,
-      // Agrega más campos según la estructura de tu modelo Admonition
+      admonition: {
+        status_admonition: data.status_admonition,
+        date: data.date,
+        responsable_id: data.responsable_id,
+        user_id: data.userid,
+        admonition_types_id: data.admonition_type_id,
+      
+      },
     };
 
-    addAdmonition(admonitionInfo);
+      console.log("Soy data", admonitionInfo);
+
+    addAdmonition(admonitionInfo, setCurrAdmonition);
     e.target.reset();
   };
 
   return (
-    <div className="admonition-form-container">
-      <form ref={formRef} onSubmit={handleSubmit} className="admonition-form">
+    <div className="admonition-add-container">
+      <form ref={formRef} onSubmit={handleSubmit} className="admonition-add-form">
         <label htmlFor="status_admonition">Status:</label>
         <input
           type="text"
           name="status_admonition"
           id="status_admonition"
           placeholder="Status"
-          className="admonition-input"
-          required
+          className="admonition-add-input"
         />
         <br />
-        <label htmlFor="date">Fecha:</label>
+        <label htmlFor="date">Date:</label>
         <input
           type="date"
           name="date"
           id="date"
-          className="admonition-input"
-          required
+          placeholder="Date"
+          className="admonition-add-input"
         />
         <br />
         <label htmlFor="responsable_id">Responsable ID:</label>
@@ -77,13 +78,31 @@ const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
           name="responsable_id"
           id="responsable_id"
           placeholder="Responsable ID"
-          className="admonition-input"
-          required
+          className="admonition-add-input"
         />
-        {/* Agrega más campos según la estructura de tu modelo Admonition */}
         <br />
-        <input type="submit" value="Guardar Amonestación" className="admonition-submit" />
+        <label htmlFor="userid">User ID:</label>
+        <input
+          type="text"
+          name="userid"
+          id="userid"
+          placeholder="User ID"
+          className="admonition-add-input"
+        />
+        <br />
+        <label htmlFor="admonition_type_id">Admonition Type ID:</label>
+        <input
+          type="text"
+          name="admonition_type_id"
+          id="admonition_type_id"
+          placeholder="Admonition Type ID"
+          className="admonition-add-input"
+        />
+        
+        <br />
+        <input  type="submit" value="Submit" className="admonition-add-submit" />
       </form>
+      <br />
     </div>
   );
 };

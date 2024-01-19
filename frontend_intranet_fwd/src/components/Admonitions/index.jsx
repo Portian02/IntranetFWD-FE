@@ -36,7 +36,7 @@ const Admonition = () => {
         </div>
       ) : (
         <div className="container-admonition-events">
-          <ul className="internal-communications">
+          <ul className="justifications">
             {admonitions.map((admonition) => (
               <div className="card" key={admonition.id}>
                 <p className="card-title">Status: {admonition.status_admonition}</p>
