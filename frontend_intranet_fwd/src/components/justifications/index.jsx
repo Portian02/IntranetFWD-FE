@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { fetchJustifications } from "../../services/ApiService";
+import Navbar from "../NavBar";
+
 
 const Justifications = () => {
   const [justifications, setJustifications] = useState([]);
@@ -6,12 +9,12 @@ const Justifications = () => {
   useEffect(() => {
     const fetchJustifications = async () => {
       try {
-        const response = await fetch('http://localhost:3000/justification');
+        const response = await fetch('http://localhost:3000/justifications');
         const data = await response.json();
 
         setJustifications(data);
       } catch (error) {
-        console.error('Error fetching justifications:', error);
+        ///console.error('Error fetching justifications:', error);
       }
     };
 

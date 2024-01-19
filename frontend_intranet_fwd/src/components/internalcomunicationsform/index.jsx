@@ -8,14 +8,16 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
 
  
   const communicationadd = async (communicationInfo, setCurrCommunication) => {
+
  
     try {
 
       const response = await fetch("http://localhost:3001/api/internal_communications", {
+
         method: "post",
         headers: {
           "content-type": "application/json",
-          // accept: "application/json",
+          
         },
         body: JSON.stringify(communicationInfo),
       });
@@ -58,7 +60,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
       internal_communication: {
     title: data.title,
     content: data.content,
-    user_id: data.user_id //PASAR EL ID DE LA PERSONA QUE ESTA LOGUEADA EN ESTE CASO EL ADMI
+    user_id: data.user_id 
    
       },
 
