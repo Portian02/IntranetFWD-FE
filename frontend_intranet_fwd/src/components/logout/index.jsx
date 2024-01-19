@@ -15,6 +15,7 @@ const Logout =({setCurrUser})=>{
             if(!response.ok) throw data.error
             localStorage.removeItem("token")
             localStorage.removeItem("role")
+            localStorage.removeItem("id")
             setCurrUser(null)
         } catch (error) {
             console.log("error", error)
