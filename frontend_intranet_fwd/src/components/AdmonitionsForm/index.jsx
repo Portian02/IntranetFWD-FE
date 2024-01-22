@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import "./admonitions.css"; 
 const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
   const formRef = useRef();

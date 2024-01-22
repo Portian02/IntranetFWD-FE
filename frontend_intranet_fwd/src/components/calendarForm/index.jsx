@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "./calendarform.css";
-const CommunicationForm = ({ setCurrCalendarevent, setShow }) => {
+const CalendarForm = ({ setCurrCalendarevent, setShow }) => {
   const formRef = useRef();
   const communicationadd = async (calendar_eventInfo, setCurrCalendarevent) => {
     const url = "http://localhost:3001/api/calendar_events";
@@ -20,6 +20,7 @@ const CommunicationForm = ({ setCurrCalendarevent, setShow }) => {
       if (!response.ok) throw data.error;
       localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrCalendarevent(data);
+      window.location.reload();
     } catch (error) {
       console.log("error", error);
     }
@@ -37,6 +38,7 @@ const CommunicationForm = ({ setCurrCalendarevent, setShow }) => {
     };
     communicationadd(calendar_eventInfo, setCurrCalendarevent);
     e.target.reset();
+
   };
 
   return (
@@ -61,7 +63,7 @@ const CommunicationForm = ({ setCurrCalendarevent, setShow }) => {
           className="username input"
         />
         <br />
-        <label htmlFor="document">Url</label>
+        <label htmlFor="url">Url</label>
         <input
           type="text"
           name="url"
@@ -78,4 +80,4 @@ const CommunicationForm = ({ setCurrCalendarevent, setShow }) => {
     </div>
   );
 };
-export default CommunicationForm;
+export default CalendarForm;

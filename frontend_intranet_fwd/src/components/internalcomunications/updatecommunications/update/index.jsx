@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { updateCommunication } from "../../../../services/ApiService";
-// import './update.css';
+import { updateCommunication } from "../../../../services/ApiCommunications";
 import "./updateform.css";
 function UpdateCommunicationForm({ id, initialData }) {
   const [data, setData] = useState(initialData);
