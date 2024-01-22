@@ -1,53 +1,74 @@
 import React, { useState, useEffect } from "react";
 import "./users.css";
+import { fetchUsers } from "../../services/ApiUsers";
+import Navbar from "../NavBar";
+import ButtonDeleteUser from "./DeleteUser/ButtonDelete";
+import ModalsUserAdd from "./ModalToAddUser/modals";
+import UpdateModalsUser from "./UpDateUser/modalToUpdate";
+import HamsterWheel from "../loader";
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Agregar estado para el loading
-
+  const role = localStorage.getItem("role");
   useEffect(() => {
-     const fetchUsers = async () => {
+    async function loadUsers() {
       try {
-        const response = await fetch("http://localhost:3001/api/users");
-        const data = await response.json();
-
+        const data = await fetchUsers();
         setUsers(data);
-        setIsLoading(false); // Actualizar el estado del loading cuando se complete la carga
+        setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching users:", error);
-        setIsLoading(false); // Actualizar el estado del loading en caso de error
+        console.error("Failed to load admonitions", error);
       }
-    };
+    }
 
-    fetchUsers();
+    loadUsers();
   }, []);
 
   return (
     <div className="list-conatiner">
+      <Navbar />
       <h2 className="user-list-title">Lista de Usuarios</h2>
       {isLoading ? (
-        <section className="loader">
-          <div className="slider"></div>
-          <div className="slider"></div>
-          <div className="slider"></div>
-          <div className="slider"></div>
-          <div className="slider"></div>
-        </section>
-      ) : (
-        <div className="user-list">
-          <div className="user-list-items">
-            {users.map((user) => (
-              <div key={user.id} className="user-component">
-                <div className="user-id">
-                  {user.id}:{user.username}
-                </div>
-                <div className="user-email">{user.email}</div>
-                <div className="user-role">{user.role}</div>
-                <div className="user-number">{user.nummber}</div>
-              </div>
-            ))}
-          </div>
+        <div className="loading">
+          <HamsterWheel />
+          <p>Loading data ...</p>
         </div>
+      ) : (
+        <ul className="user-list">
+          {users.map((user) => (
+            <div key={user.id} className="user-card">
+             
+              <div className="user-info">
+                <div className="user-name">{user.name}</div>
+                <div className="user-details">
+                  <div className="user-username">
+                    <strong>Name:</strong> {user.username}
+                  </div>
+                  <div className="user-email">
+                    <strong>Email:</strong> {user.email}
+                  </div>
+                  <div className="user-role">
+                    <strong>Role:</strong> {user.role}
+                  </div>
+                  <div className="user-number">
+                    <strong>Number:</strong> {user.number}
+                  </div>
+                </div>
+              </div>
+              <div className="btns">
+              {role === "admin" && (
+              <ButtonDeleteUser id={user.id} />
+              )}
+              {role === "admin" && (
+              <UpdateModalsUser id={user.id} initialData={user} />
+              
+              )}
+              </div>
+            </div>
+          ))}
+        </ul>
       )}
+           <ModalsUserAdd />
     </div>
   );
 };

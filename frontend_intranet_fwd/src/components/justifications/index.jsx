@@ -1,35 +1,65 @@
 import React, { useState, useEffect } from 'react';
-import { fetchJustifications } from "../../services/ApiService";
+import { fetchJustifications } from '../../services/ApiJustification';
 import Navbar from "../NavBar";
-
-
+import ButtonDeleteJustification from './DeleteJustification/ButtonDelete';
+import ModalsJustificationsAdd from './ModalToAddJustification/modals';
+import UpdateModalsJustification from './UpDateJustification/modalToUpdate';
+import './justification.css';
+import HamsterWheel from '../loader';
 const Justifications = () => {
   const [justifications, setJustifications] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const role = localStorage.getItem("role");
 
   useEffect(() => {
-    const fetchJustifications = async () => {
+    async function loadJustification() {
       try {
-        const response = await fetch('http://localhost:3000/justifications');
-        const data = await response.json();
-
+        const data = await fetchJustifications();
         setJustifications(data);
+        setIsLoading(false);
       } catch (error) {
-        ///console.error('Error fetching justifications:', error);
+        console.error("Failed to load admonitions", error);
       }
-    };
-
-    fetchJustifications();
-  }, []); 
+    }
+    loadJustification();
+  }, []);
 
   return (
-    <div>
-      <h2>Justificaciones FWD </h2>
-
-        <ul>
-        {justifications.map((justifications) => (
-          <li key={justifications.id}>{justifications.name}</li>
-        ))}
-      </ul>
+    <div> 
+      <Navbar/>
+      {isLoading ? (
+        <div className="loading">
+          <HamsterWheel />
+          <p>Loading data ...</p>
+        </div>
+      ) : (
+        <div>
+          <h2>Justificaciones FWD</h2>
+          <ul className='justification-list'>
+            {justifications.map((justification) => (
+              <div className="justification-card" key={justification.id}>
+                <div className="justification-name">{justification.name}</div>
+                <div className="justification-description">{justification.description}</div>
+                <div className="justification-date">{justification.date}</div>
+                <div className="justification-user-id">{justification.user_id}</div>
+                <div className="justification-type-id">{justification.justification_type_id}</div>
+                <div className="justification-responsable-id">{justification.responsable_id}</div>
+                <div className='btns-communications'>
+                {role === "admin" && (
+                  <ButtonDeleteJustification id={justification.id} />
+                )}
+                {role === "admin" && (
+                  <UpdateModalsJustification id={justification.id} initialData={justification} />
+                )}
+                </div>
+              </div>
+            ))}
+          </ul>
+        </div>
+      )}
+      {role === "admin" && (
+        <ModalsJustificationsAdd/>
+      )}
     </div>
   );
 };

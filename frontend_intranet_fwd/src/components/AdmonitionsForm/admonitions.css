@@ -1,27 +1,49 @@
-form {
+.admonition-add-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    justify-content: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 
-input[type="text"],
-textarea {
-    width: 10%;
+  .admonition-add-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .admonition-add-input {
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #861111;
+    border: 1px solid #ccc;
     border-radius: 4px;
-}
+    font-size: 14px;
+  }
 
-button {
-    padding: 10px 20px;
+  .admonition-add-submit {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
     background-color: #007bff;
-    color: #25b184;
+    color: #fff;
     border: none;
     border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
-}
+  }
 
-button:hover {
+  .admonition-add-submit:hover {
     background-color: #0056b3;
-}
+  }
+
+  @media screen and (max-width: 600px) {
+    .admonition-add-container {
+      padding: 10px;
+    }
+  }

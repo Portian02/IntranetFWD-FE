@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import "./singup.css";
-import Navbar from "../NavBar";
 
 const Signup = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
@@ -22,10 +21,12 @@ const Signup = ({ setCurrUser, setShow }) => {
       if (!response.ok) throw data.error;
       localStorage.setItem("token", response.headers.get("Authorization"))
       setCurrUser(data) 
+      window.location.reload()
     } catch (error) {
       console.log("error", error);
     }
   };
+  const Default_password = "fwd1234"
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(formRef.current);
@@ -46,13 +47,10 @@ const Signup = ({ setCurrUser, setShow }) => {
     signup(userInfo, setCurrUser);
     e.target.reset();
   };
-  const handleClick = (e) => {
-    e.preventDefault();
-    setShow(true);
-  };
+
   return (
     <div className="signup-container">
-      <Navbar />
+     
       <form ref={formRef} onSubmit={handleSubmit} className="form">
       <p className="title-user">Register</p>
      
@@ -86,7 +84,7 @@ const Signup = ({ setCurrUser, setShow }) => {
         <input
           required
           placeholder=""
-            type="number"
+            type="text"
           name="number"
           id="number"
           className="input"
@@ -115,7 +113,7 @@ const Signup = ({ setCurrUser, setShow }) => {
           name="borndate"
           className="input"
         />
-        <span>Born Date</span>
+      
       </label>
 
     <label>
@@ -130,7 +128,7 @@ const Signup = ({ setCurrUser, setShow }) => {
         <option value="2">Teacher</option>
         <option value="3">Admin</option>
       </select>
-      <span>Type User</span>
+    
     </label>
 
       <label>
@@ -140,6 +138,7 @@ const Signup = ({ setCurrUser, setShow }) => {
           type="password"
           name="password"
           id="password"
+          defaultValue={Default_password}
           className="input"
         />
         <span>Password</span>
@@ -152,6 +151,7 @@ const Signup = ({ setCurrUser, setShow }) => {
           type="password"
           name="password_confirmation"
           id="password_confirmation"
+          defaultValue={Default_password}
           className="input"
         />
         <span>Confirm password</span>
@@ -164,7 +164,7 @@ const Signup = ({ setCurrUser, setShow }) => {
             id="role"
             className="input"
           >
-            <option value="">Select</option>
+            <option value=""></option>
             <option value="admin">Admin</option>
             <option value="student">Student</option>
             <option value="teacher">Teacher</option>

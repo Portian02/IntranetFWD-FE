@@ -1,15 +1,13 @@
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import "./justifications.css"; 
 
 const JustificationForm = ({ setCurrJustification, setShow }) => {
   const formRef = useRef();
-  const navigate = useNavigate();
 
   const addJustification = async (justificationInfo) => {
-    const url = "http://localhost:3001/api/justifications"; 
+    const urladd = "http://localhost:3001/api/justifications"; 
     try {
-      const response = await fetch(url, {
+      const response = await fetch(urladd, {
         method: "post",
         headers: {
           "content-type": "application/json",
@@ -19,11 +17,10 @@ const JustificationForm = ({ setCurrJustification, setShow }) => {
 
       const data = await response.json();
       if (!response.ok) throw data.error;
-
-      
       setCurrJustification(data);
       setShow(false); // Cierra el modal
-      navigate("/ruta-de-redireccion"); // Redirecciona a la ruta que quieras
+
+      window.location.reload(); // Recarga la página
     } catch (error) {
       console.error("Error al agregar justificación", error);
     }
@@ -36,7 +33,7 @@ const JustificationForm = ({ setCurrJustification, setShow }) => {
     const data = Object.fromEntries(formData);
 
     const justificationInfo = {
-      justification: {
+      justifications: {
         status_justification: data.status_justification,
         date: data.date,
         responsable_id: data.responsable_id,
@@ -70,7 +67,7 @@ const JustificationForm = ({ setCurrJustification, setShow }) => {
           className="justification-add-input"
         />
         <br />
-        <label htmlFor="responsable_id">Responsable ID:</label>
+        <label htmlFor="responsable_id">Responsable:</label>
         <input
           type="text"
           name="responsable_id"
@@ -79,7 +76,7 @@ const JustificationForm = ({ setCurrJustification, setShow }) => {
           className="justification-add-input"
         />
         <br />
-        <label htmlFor="userid">User ID:</label>
+        <label htmlFor="userid">User:</label>
         <input
           type="text"
           name="userid"

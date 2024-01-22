@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./communication.css";
-
 import Navbar from "../NavBar";
-
-import { fetchCommunicationInternals } from "../../services/ApiService";
+import { fetchCommunicationInternals } from "../../services/ApiCommunications";
 import Modals from "../../components/internalcomunications/modalInternalCommunication/modals";
 import MyButton from "./DeleteCommunication/ButtonDelete";
-
 import UpdateModals from "./updatecommunications/modalToUpdate";
-
-
+import HamsterWheel from "../loader";
 const Internalcommunications = () => {
   const [comunications, setcomunication] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -29,67 +25,29 @@ const Internalcommunications = () => {
   }, []);
   const role = localStorage.getItem("role");
 
-
-
-
   const Internalcommunicationsusers = async () => {
-  
       try {
         const response = await fetch("http://localhost:3001/api/internal_communications_users");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        
-  
         for (let index = 0; index < data.length; index++) {
-
         const id_usuario_log= localStorage.getItem("id_usuario_log");
-
-      
-
            if (data[index].user_id===parseInt(id_usuario_log)) {
-            
             console.log("hola")
           }
-          
-
-       
         }
-
-
-
         return data;
-      
       } catch (error) {
-
-      
         console.error("Failed to fetch internal commmunications", error);
         throw error;
-
-
       }
-
- 
-  
-
   }
-
-
-
-
-
-
-
-
-   
-
 
   //esto tiene el ultimo registro mas no el numero de id
   localStorage.setItem("id_registro", comunications.at(-1)?.id);
  
-
-
   return (
     <div>
 
@@ -98,13 +56,8 @@ const Internalcommunications = () => {
       <h2 className="internal-communications__title">Lista de comunicados</h2>
       {isLoading ? (
         <div className="loading">
-          <section className="loader">
-            <div className="slider" style={{ "--i": 0 }}></div>
-            <div className="slider" style={{ "--i": 1 }}></div>
-            <div className="slider" style={{ "--i": 2 }}></div>
-            <div className="slider" style={{ "--i": 3 }}></div>
-            <div className="slider" style={{ "--i": 4 }}></div>
-          </section>
+          <HamsterWheel />
+          <p>Loading data ...</p>
         </div>
       ) : (
         <ul className="internal-communications">
@@ -129,11 +82,11 @@ const Internalcommunications = () => {
            )}
             </div>
           ))}
+        </ul>
+      )}
           {role === "admin" &&( 
           <Modals />
           )}
-        </ul>
-      )}
     </div>
   );
 };
