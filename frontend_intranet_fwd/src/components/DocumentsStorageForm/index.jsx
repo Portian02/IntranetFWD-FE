@@ -4,10 +4,10 @@ const DocumentsStorageForm = ({ setCurrDocumentsStorage, setShow }) => {
   const formRef = useRef();
 
   const addDocumentsStorage = async (DocumentsStorage,setCurrDocumentsStorage) => {
-    const url = "http://localhost:3001/api/documents_storages";
+    
 
     try {
-      const response = await fetch(url, {
+      const response = await fetch("http://localhost:3001/api/documents_storages", {
         method: "post",
         headers: {
           "content-type": "application/json",
