@@ -32,6 +32,13 @@ const Navbar = ({currUser, setCurrUser}) => {
             Communications
           </Link>
         </li>
+        <li className="navbar__item">
+        <Link to="/documentsStorage" className="navbar__link">
+                    Documents Storage
+                  </Link>
+        </li>
+                  
+
          <li className="navbar__item">
           <Link to="/announcements" className="navbar__link">
             Announcements
@@ -56,6 +63,12 @@ const Navbar = ({currUser, setCurrUser}) => {
                 </Link>
                 <Link to="/admonitions/new" className="navbar__link">
                   New Admonitions
+                </Link>
+                <Link to="/justifications/new" className="navbar__link">
+                  New Justifications
+                </Link>
+                <Link to="/documentsStorage/new" className="navbar__link">
+                  New Documents Storage 
                 </Link>
               </div>
             )}

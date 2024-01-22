@@ -17,6 +17,8 @@ import Admonitions from "../Admonitions";
 import AdmonitionForm from "../AdmonitionsForm";
 import Justification from "../justifications";
 import JustificationForm from "../justificationsForm";
+import DocumentsStorage from "../DocumentsStorage";
+import DocumentsStorageForm from "../DocumentsStorageForm";
 const Routing = () => {
   return (
     <Routes>
@@ -37,6 +39,8 @@ const Routing = () => {
       <Route path="/admonitions/new" element={< AdmonitionForm/>} />
       <Route path="/justifications" element={<Justification/>} />
       <Route path="/justifications/new" element={< JustificationForm/>} />
+      <Route path="/documentsStorage" element={<DocumentsStorage/>} />
+      <Route path="/documentsStorage/new" element={< DocumentsStorageForm/>} />
       <Route path="*" element={<PageNotFound />} />
 
   </Routes>
