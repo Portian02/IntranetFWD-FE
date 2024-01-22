@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { fetchDocumentsStorage } from "../../services/ApiService"; 
+import { fetchDocument } from "../../services/ApiDocuments";
 import Navbar from "../NavBar";
 
-const DocumentsStorage= () => {
+const DocumentsStorage = () => {
   const [documentsStorage, setDocumentsStorage] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadDocumentsStorage() {
       try {
-        const data = await fetchDocumentsStorage();
+        const data = await fetchDocument();
+        const data = await fetchDocument();
         console.log("data", data);
         setDocumentsStorage(data);
         setLoading(false);
@@ -21,7 +22,7 @@ const DocumentsStorage= () => {
     loadDocumentsStorage();
   }, []);
 
-  console.log("documentsStorage", documentsStorage);  
+  console.log("documentsStorage", documentsStorage);
 
   return (
     <div>
@@ -43,11 +44,17 @@ const DocumentsStorage= () => {
             {documentsStorage.map((documentStorage) => (
               <div className="card" key={documentStorage.id}>
                 <p className="card-title">Name: {documentStorage.name}</p>
-                <p className="small-desc">Descripción: {documentStorage.description}</p>
-                <a href={documentStorage.url} target="_blank" rel="noopener noreferrer">
-                <p>URL: {documentStorage.url}</p>
+                <p className="small-desc">
+                  Descripción: {documentStorage.description}
+                </p>
+                <a
+                  href={documentStorage.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <p>URL: {documentStorage.url}</p>
                 </a>
-              
+
                 <p> Documents_type: {documentStorage.document_type_id}</p>
                 <div className="go-corner">
                   <div className="go-arrow">→</div>
