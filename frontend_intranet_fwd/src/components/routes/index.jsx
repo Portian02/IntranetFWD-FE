@@ -10,6 +10,7 @@ import PageNotFound from "../../pages/Nopage";
 import LoginPage from "../../pages/Login";
 import Admonitions from "../Admonitions";
 import Justification from "../justifications";
+import DocumentsStorage from "../DocumentsStorage";
 import NoAuth from "../../pages/NoAuth";
 import Profile from "../../pages/profile";
 const Routing = () => {
@@ -18,6 +19,14 @@ const Routing = () => {
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/users" element={<UserList />} />
+      <Route path="/communications" element={<Internalcommunications/>} />
+      <Route path="/calendars" element={<Calendar/>} />
+      <Route path="/users/update_password" element={< PasswordChange />} />
+      <Route path="/announcements" element={<Announcement/>} />
+      <Route path="/admonitions" element={<Admonitions/>} />
+      <Route path="/justifications" element={<Justification/>} />
+      <Route path="/documentsStorage" element={<DocumentsStorage/>} />
       {role === "admin" ? (
         <Route path="/users" element={<UserList />} />
       ) : (
