@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { fetchDocument } from "../../services/ApiDocuments";
 import Navbar from "../NavBar";
-
+import ButtonDeleteDocument from "./DeleteDocuments/ButtonDelete";
+import ModalsDocumentsAdd from "./DocumentModalToAdd/modals";
 const DocumentsStorage = () => {
   const [documentsStorage, setDocumentsStorage] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,7 +11,8 @@ const DocumentsStorage = () => {
     async function loadDocumentsStorage() {
       try {
         const data = await fetchDocument();
-       
+      
+        console.log("data", data);
         setDocumentsStorage(data);
         setLoading(false);
       } catch (error) {
@@ -51,18 +53,23 @@ const DocumentsStorage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <p>URL: {documentStorage.url}</p>
+                  <p value={documentStorage.url}> {documentStorage.name} </p>
                 </a>
 
                 <p> Documents_type: {documentStorage.document_type_id}</p>
                 <div className="go-corner">
                   <div className="go-arrow">→</div>
                 </div>
+                <ButtonDeleteDocument
+                  id={documentStorage.id}
+                  />
+
               </div>
             ))}
           </ul>
         </div>
       )}
+      <ModalsDocumentsAdd />
     </div>
   );
 };
