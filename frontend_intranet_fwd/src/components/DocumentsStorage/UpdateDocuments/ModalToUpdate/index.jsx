@@ -2,7 +2,7 @@ import Modal from "../../../Modal/Modal.js";
 import { useModal } from "../../../../hooks/useModal.js";
 import UpdateDocumentForm from "../UpDate/index.jsx";
 import "./btn.css";
-const UpdateModalsAdmonnition = ({ id, initialData }) => {
+const UpdateModalsDocument = ({ id, initialData }) => {
   const [isOpenUpdate, openUdating, closeUpdate] = useModal(false); //
   return (
     <div>
@@ -20,4 +20,4 @@ const UpdateModalsAdmonnition = ({ id, initialData }) => {
   );
 };
 
-export default UpdateModalsAdmonnition;
+export default UpdateModalsDocument;

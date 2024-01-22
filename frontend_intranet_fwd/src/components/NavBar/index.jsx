@@ -31,20 +31,19 @@ const Navbar = ({currUser, setCurrUser}) => {
             Communications
           </Link>
         </li>
+        <li className="navbar__item">
+          <Link to="/calendars" className="navbar__link">
+            Calendars
+          </Link>
+        </li>
        
         <li className="navbar__item">
           <div className="navbar__dropdown">
             <button className="navbar__dropdown-button" onClick={toggleDropdown}>
-              Add
+              Others
             </button>
             {dropdownVisible && (
               <div className="navbar__dropdown-content">
-        {role === "admin" &&(
-                <Link to="/users/new" className="navbar__link">
-                  New  User
-                </Link>
-               
-          )}
           <Link to="/admonitions" className="navbar__link">
             Admontions
           </Link>
@@ -65,11 +64,6 @@ const Navbar = ({currUser, setCurrUser}) => {
               </div>
             )}
           </div>
-        </li>
-        <li className="navbar__item">
-          <Link to="/calendars" className="navbar__link">
-            Calendars
-          </Link>
         </li>
       </ul>
       <div className="logout-btn">

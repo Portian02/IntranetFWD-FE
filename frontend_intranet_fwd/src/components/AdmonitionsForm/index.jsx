@@ -1,7 +1,10 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
+import { fetchUsers } from "../../services/ApiUsers";
 import "./admonitions.css"; 
 const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
   const formRef = useRef();
+  const [getUsers,  setGetUsers] = useState([]);
+
 
   const addAdmonition = async (admonitionInfo, setCurrAdmonition) => {
     const url = "http://localhost:3001/api/admonitions"; 
@@ -49,6 +52,21 @@ console.log("llega?", response);
     addAdmonition(admonitionInfo, setCurrAdmonition);
     e.target.reset();
   };
+// with this function we get the users
+ useEffect(() => {
+  async function GetUsers() {
+    try {
+      const data = await fetchUsers();
+      setGetUsers(data);
+    } catch (error) {
+      console.error("Failed to load admonitions", error);
+    }
+  }
+  GetUsers();
+  }, []);
+
+
+
 
   return (
     <div className="admonition-add-container">
@@ -80,14 +98,25 @@ console.log("llega?", response);
           className="admonition-add-input"
         />
         <br />
-        <label htmlFor="userid">User ID:</label>
-        <input
-          type="text"
-          name="userid"
-          id="userid"
-          placeholder="User ID"
-          className="admonition-add-input"
-        />
+        <label>
+          <select
+            required
+            name="type_user_id"
+            id="type_user_id"
+            className="input"
+          >
+            <option value="">Select User</option>
+            <optgroup label="Students">
+              {getUsers
+                .filter(user => user.role === "student")
+                .map(user => (
+                  <option key={user.id} value={user.id}>{user.username}</option>
+                ))}
+            </optgroup>
+          </select>
+          <span>User</span>
+        </label>
+        <br />
         <br />
         <label htmlFor="admonition_type_id">Admonition Type ID:</label>
         <input

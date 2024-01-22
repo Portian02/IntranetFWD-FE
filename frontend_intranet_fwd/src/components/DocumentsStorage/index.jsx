@@ -3,10 +3,11 @@ import { fetchDocument } from "../../services/ApiDocuments";
 import Navbar from "../NavBar";
 import ButtonDeleteDocument from "./DeleteDocuments/ButtonDelete";
 import ModalsDocumentsAdd from "./DocumentModalToAdd/modals";
+import UpdateModalsDocument from "./UpdateDocuments/ModalToUpdate";
 const DocumentsStorage = () => {
   const [documentsStorage, setDocumentsStorage] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const role = localStorage.getItem("role");
   useEffect(() => {
     async function loadDocumentsStorage() {
       try {
@@ -60,10 +61,15 @@ const DocumentsStorage = () => {
                 <div className="go-corner">
                   <div className="go-arrow">→</div>
                 </div>
+                {role === "admin" && (
+                <div>
                 <ButtonDeleteDocument
                   id={documentStorage.id}
                   />
-
+                <UpdateModalsDocument id={documentStorage.id} initialData={documentStorage}   />
+                </div>
+                )}
+            
               </div>
             ))}
           </ul>

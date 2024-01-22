@@ -1,5 +1,6 @@
 import { useRef,useState,useEffect } from "react";
 import "./CommunicationForm.css";
+import { fetchUsers } from "../../services/ApiUsers";
 const CommunicationForm = ({ setCurrCommunication, setShow }) => {
 
   const [getUsers,  setGetUsers] = useState([]);
@@ -138,29 +139,27 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
 
 
 
-      useEffect(() => {
-        const getusuarios = async () => {
-
-
- 
-          try {
-            const response = await fetch("http://localhost:3001/api/users");
-            const data = await response.json();
-    
-            setGetUsers(data);
-            // Actualizar el estado del loading cuando se complete la carga
-          } catch (error) {
-            console.error("Error fetching users:", error);
-    
-          }
-        };
-        getusuarios();
-  }, []);
+  useEffect(() => {
+    async function GetUsers() {
+      try {
+        const data = await fetchUsers();
+        setGetUsers(data);
+      } catch (error) {
+        console.error("Failed to load admonitions", error);
+      }
+    }
+    GetUsers();
+    }, []);
 
   
 
    
       const user_id = localStorage.getItem("id")
+
+
+
+
+     
   
   return (
     <div className="communicationadd-container">
@@ -168,20 +167,31 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
       <form ref={formRef} onSubmit={handleSubmit}  className="communicationadd-form">
 
 
-         <label>
-        <select
-          required
-          name="type_user_id"
-          id="type_user_id"
-          className="input"
-        >
-          <option value="">Select User</option>
-          {getUsers.map(user => (
-            <option key={user.id} value={user.id}>{user.username}</option>
-          ))}
-        </select>
-        <span>User</span>
-      </label>
+        <label>
+          <select
+            required
+            name="type_user_id"
+            id="type_user_id"
+            className="input"
+          >
+            <option value="">Select User</option>
+            <optgroup label="Students">
+              {getUsers
+                .filter(user => user.role === "student")
+                .map(user => (
+                  <option key={user.id} value={user.id}>{user.username}</option>
+                ))}
+            </optgroup>
+            <optgroup label="Teachers">
+              {getUsers
+                .filter(user => user.role === "teacher")
+                .map(user => (
+                  <option key={user.id} value={user.id}>{user.username}</option>
+                ))}
+            </optgroup>
+          </select>
+          <span>User</span>
+        </label>
         <br />
 
 
