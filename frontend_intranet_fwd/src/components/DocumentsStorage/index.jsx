@@ -10,8 +10,7 @@ const DocumentsStorage = () => {
     async function loadDocumentsStorage() {
       try {
         const data = await fetchDocument();
-        const data = await fetchDocument();
-        console.log("data", data);
+       
         setDocumentsStorage(data);
         setLoading(false);
       } catch (error) {
