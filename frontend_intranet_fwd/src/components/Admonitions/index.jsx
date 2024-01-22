@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { fetchadmonitions } from "../../services/ApiService";
+import { fetchAdmonitions } from "../../services/ApiAdmonitions";
 import Navbar from "../NavBar";
-
+import UpdateModalsAdmonnition from "./UpdateAdmonitions/ModalToUpdate";
+import ButtonDeleteAdmonition from "./DeleteAdmonitions/ButtonDelete";
+import ModalsAdmonitionAdd from "./AdmonitionModalToAdd/modals";
 const Admonition = () => {
   const [admonitions, setAdmonitions] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  
+  const role = localStorage.getItem("role");
   useEffect(() => {
     async function loadAdmonitions() {
       try {
-        const data = await fetchadmonitions();
+        const data = await fetchAdmonitions();
         setAdmonitions(data);
         setLoading(false);
       } catch (error) {
@@ -19,7 +22,6 @@ const Admonition = () => {
 
     loadAdmonitions();
   }, []);
-
   return (
     <div>
       <Navbar />
@@ -40,6 +42,7 @@ const Admonition = () => {
             {admonitions.map((admonition) => (
               <div className="card" key={admonition.id}>
                 <p className="card-title">Status: {admonition.status_admonition}</p>
+                {console.log("soy el status:",admonition.status_admonition)}
                 <p className="small-desc">Fecha: {admonition.date}</p>
                 <p>Responsable ID: {admonition.responsable_id}</p>
                 <p>Usuario ID: {admonition.user_id}</p>
@@ -47,9 +50,20 @@ const Admonition = () => {
                 <div className="go-corner">
                   <div className="go-arrow">→</div>
                 </div>
+                {role === "admin"&&(
+                <ButtonDeleteAdmonition id={admonition.id} />
+                )}
+                {role === "admin"&&(
+                <UpdateModalsAdmonnition
+                  id={admonition.id}
+                  initialData={admonition}/>
+                )}
               </div>
             ))}
           </ul>
+          {role === "admin"&&(
+          <ModalsAdmonitionAdd />
+          )}
         </div>
       )}
     </div>

@@ -11,7 +11,6 @@ const Navbar = ({currUser, setCurrUser}) => {
   };
 
   const role = localStorage.getItem("role");
-  console.log("Hi  world I´m the",role);  
   return (
     <nav className="navbar">
       <Logo className="navbar__logo" /> {/* Agregar el componente de Logo */}
@@ -32,48 +31,40 @@ const Navbar = ({currUser, setCurrUser}) => {
             Communications
           </Link>
         </li>
+       
         <li className="navbar__item">
-        <Link to="/documentsStorage" className="navbar__link">
-                    Documents Storage
-                  </Link>
-        </li>
-                  
-
-         <li className="navbar__item">
-          <Link to="/announcements" className="navbar__link">
-            Announcements
-          </Link>
-        </li>
-        <li className="navbar__item">
-        {role === "admin" &&(
           <div className="navbar__dropdown">
             <button className="navbar__dropdown-button" onClick={toggleDropdown}>
               Add
             </button>
             {dropdownVisible && (
               <div className="navbar__dropdown-content">
+        {role === "admin" &&(
                 <Link to="/users/new" className="navbar__link">
                   New  User
                 </Link>
-                <Link to="/calendars/new" className="navbar__link">
-                  New Calendar
-                </Link>
-                <Link to="/announcements/new" className="navbar__link">
-                  New Announcements
-                </Link>
-                <Link to="/admonitions/new" className="navbar__link">
-                  New Admonitions
-                </Link>
-                <Link to="/justifications/new" className="navbar__link">
-                  New Justifications
-                </Link>
-                <Link to="/documentsStorage/new" className="navbar__link">
-                  New Documents Storage 
-                </Link>
+               
+          )}
+          <Link to="/admonitions" className="navbar__link">
+            Admontions
+          </Link>
+        
+           
+          <Link to="/justifications" className="navbar__link">
+            Justifications
+          </Link>
+        
+         
+          <Link to="/announcements" className="navbar__link">
+            Announcements
+          </Link>
+        
+        <Link to="/DocumentsStorage" className="navbar__link">
+        Documents
+        </Link>
               </div>
             )}
           </div>
-          )}
         </li>
         <li className="navbar__item">
           <Link to="/calendars" className="navbar__link">
@@ -81,7 +72,9 @@ const Navbar = ({currUser, setCurrUser}) => {
           </Link>
         </li>
       </ul>
+      <div className="logout-btn">
     {currUser? "" : <Logout setCurrUser={setCurrUser}/>}
+      </div>
 
        
     </nav>

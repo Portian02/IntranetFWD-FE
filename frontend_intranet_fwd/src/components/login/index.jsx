@@ -24,13 +24,17 @@ const Login = ({ setCurrUser, setShow }) => {
         const data = await response.json();
         localStorage.setItem("token", data.jti);
         localStorage.setItem("role", data.role);
+        localStorage.setItem("id", data.id);
         console.log(localStorage.getItem("role"));
         console.log(data.role);
+        console.log("SOY EL USUARIO",data?.id)
+        localStorage.setItem("id_usuario_log", data?.id);
+        // setCurrUser(data);
 
         if (data.role === "student") {
           navigate("/home");
         } else if (data.role === "admin") {
-          navigate("/admin");
+          navigate("/home");
         } else if (data.role === "teacher") {
           navigate("/home");
         }
@@ -42,8 +46,8 @@ const Login = ({ setCurrUser, setShow }) => {
         "holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       );
 
-      const data = await response.json();
-      const token = data.token; // Ajusta esto según la estructura de tu respuesta
+    
+      const token = localStorage.getItem("token"); // Ajusta esto según la estructura de tu respuesta
     
 
       if (token) {
@@ -51,7 +55,6 @@ const Login = ({ setCurrUser, setShow }) => {
       }
 
       
-        setCurrUser(data);
       
       setShow(false);
     } catch (error) {

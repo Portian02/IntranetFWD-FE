@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./calendar.css";
 import Navbar from "../NavBar";
-
-import { fetchCalendars } from "../../services/ApiService";
+import ModalsCalendarAdd from "./CalendarModalToAdd/modals";
+import { fetchCalendars } from "../../services/ApiCalendars";
+import ButtonDeleteCalendar from "./DeleteCalendar/ButtonDelete";
+import UpdateModalsCalendar from "./UpdateCalendar/ModalToUpdate";    
+import HamsterWheel from "../loader";
 const CalendarList = () => {
   const [calendars, setCalendars] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const role = localStorage.getItem("role"); 
   useEffect(() => {
     async function loadCalendars() {
       try {
@@ -29,13 +32,8 @@ const CalendarList = () => {
       <h2 className="title">Lista de Calendarios</h2>
       {loading ? (
         <div className="loading">
-          <section className="loader">
-            <div className="slider" style={{ "--i": 0 }}></div>
-            <div className="slider" style={{ "--i": 1 }}></div>
-            <div className="slider" style={{ "--i": 2 }}></div>
-            <div className="slider" style={{ "--i": 3 }}></div>
-            <div className="slider" style={{ "--i": 4 }}></div>
-          </section>
+          <HamsterWheel />
+          <p>Loading data ...</p>
         </div>
       ) : (
         <div className="container-calendar-events">
@@ -43,23 +41,31 @@ const CalendarList = () => {
             {calendars.map((calendar) => (
               <div className="card">
                 <p key={calendar.id} className="card-title">
-                  {calendar.name}
+                  {calendar.title}
                 </p>
                 <p key={calendar.id} className="small-desc">
                   {calendar.description}
                 </p>
-                <div key={calendar.id}>
-                  <span>Date:</span>
-                  {calendar.date}
-                </div>
+                <a href={calendar.url} key={calendar.id} className="small-desc">
+                  {calendar.title}
+                  </a>
                 <div className="go-corner">
                   <div className="go-arrow">→</div>
                 </div>
+                {role === "admin"&&(
+                <ButtonDeleteCalendar id={calendar.id} />)}
+                {role === "admin" &&(
+                <UpdateModalsCalendar
+                  id={calendar.id}
+                  initialData={calendar} />
+                  )}
               </div>
             ))}
           </ul>
         </div>
       )}
+      {role === "admin"&&(
+      <ModalsCalendarAdd />)}
     </div>
   );
 };
