@@ -4,8 +4,8 @@ import Navbar from "../NavBar";
 import ModalsCalendarAdd from "./CalendarModalToAdd/modals";
 import { fetchCalendars } from "../../services/ApiCalendars";
 import ButtonDeleteCalendar from "./DeleteCalendar/ButtonDelete";
-import UpdateModalsCalendar from "./UpdateCalendar/ModalToUpdate";    
-import HamsterWheel from "../loader";
+import UpdateModalsCalendar from "./UpdateCalendar/ModalToUpdate";  
+import Loading from "../loader";
 const CalendarList = () => {
   const [calendars, setCalendars] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ const CalendarList = () => {
       <h2 className="title">Lista de Calendarios</h2>
       {loading ? (
         <div className="loading">
-          <HamsterWheel />
+          <Loading/>
           <p>Loading data ...</p>
         </div>
       ) : (

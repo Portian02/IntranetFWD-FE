@@ -2,7 +2,7 @@ import Modal from "../../../Modal/Modal.js";
 import { useModal } from "../../../../hooks/useModal.js";
 import UpdateCalendarForm from "../UpDate/index.jsx";
 import "./btn.css";
-const UpdateModalsAdmonnition = ({ id, initialData }) => {
+const UpdateModalsCalendar = ({ id, initialData }) => {
   const [isOpenUpdate, openUdating, closeUpdate] = useModal(false); //
   return (
     <div>
@@ -13,11 +13,11 @@ const UpdateModalsAdmonnition = ({ id, initialData }) => {
       </svg>
     </button>
       <Modal isOpen={isOpenUpdate} closeModal={closeUpdate}>
-        <h3>Updating the Admonition</h3>
+        <h3 className="title-modal" >Updating the Calendar</h3>
         <UpdateCalendarForm id={id} initialData={initialData} />
       </Modal>
     </div>
   );
 };
 
-export default UpdateModalsAdmonnition;
+export default UpdateModalsCalendar;

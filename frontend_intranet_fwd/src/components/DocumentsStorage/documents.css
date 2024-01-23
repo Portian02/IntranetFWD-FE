@@ -1,0 +1,89 @@
+.container-documents-div {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide into two columns */
+    gap: 20px; /* Add gap between columns */
+}
+
+.title {
+    /* Estilos para el título */
+    font-size: 24px;
+    font-weight: bold;
+    color: #918585;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.loading {
+    /* Estilos para el componente de carga */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+
+
+.document-card {
+    /* Estilos para cada tarjeta de documento */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.name-document {
+    /* Estilos para el nombre del documento */
+    font-weight: bold;
+}
+
+.Body-document-info {
+    /* Estilos para la información del documento */
+    margin-top: 5px;
+}
+
+.card-footer {
+    /* Estilos para el pie de tarjeta */
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* Responsive Styles for Mobile Devices */
+@media (max-width: 768px) {
+    .container-documents-div {
+        grid-template-columns: 1fr; /* Change to single column layout */
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .document-card {
+        padding: 5px;
+    }
+
+    .card-footer {
+        text-align: left;
+    }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

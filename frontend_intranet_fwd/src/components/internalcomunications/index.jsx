@@ -5,7 +5,7 @@ import { fetchCommunicationInternals } from "../../services/ApiCommunications";
 import Modals from "../../components/internalcomunications/modalInternalCommunication/modals";
 import MyButton from "./DeleteCommunication/ButtonDelete";
 import UpdateModals from "./updatecommunications/modalToUpdate";
-import HamsterWheel from "../loader";
+import Loading from "../loader";
 const Internalcommunications = () => {
   const [comunications, setcomunication] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -56,7 +56,7 @@ const Internalcommunications = () => {
       <h2 className="internal-communications__title">Lista de comunicados</h2>
       {isLoading ? (
         <div className="loading">
-          <HamsterWheel />
+        <Loading/>
           <p>Loading data ...</p>
         </div>
       ) : (

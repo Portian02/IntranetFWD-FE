@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { updateDocument } from "../../../../services/ApiDocuments";
+import { fetchUsers } from "../../../../services/ApiUsers";
+
 import "./updateform.css";
 function UpdateDocumentForm({ id, initialData }) {
   const [data, setData] = useState(initialData);
+  const [getUsers,  setGetUsers] = useState([]);
 
   const handleChange = (event) => {
     setData({
@@ -22,10 +25,25 @@ function UpdateDocumentForm({ id, initialData }) {
     window.location.reload();
   };
 
+  // with this function we get the users
+ useEffect(() => {
+  async function GetUsers() {
+    try {
+      const data = await fetchUsers();
+      setGetUsers(data);
+    } catch (error) {
+      console.error("Failed to load admonitions", error);
+    }
+  }
+  GetUsers();
+  }, []);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Status:
+    <form onSubmit={handleSubmit} className="form-modal-update">
+      <div className="container-form-div">
+
+      <label className="label">
+        Status
         <input
           type="text"
           name="status_admonition"
@@ -34,18 +52,26 @@ function UpdateDocumentForm({ id, initialData }) {
           className="title-input"
         />
       </label>
-      <label>
-        user:
-        <input
-          type="text"
+      <label className="label">
+        user
+        <select
           name="user_id"
           value={data?.user_id}
           onChange={handleChange}
           className="title-input"
-        />
+        >
+          <optgroup label="Students">
+              {getUsers
+                .filter(user => user.role === "student")
+                .map(user => (
+                  <option key={user.id} value={user.id}>{user.username}</option>
+                ))}
+          </optgroup>
+        </select>
       </label>
-      <label>
-        admonition Type:
+      
+      <label className="label">
+        admonition Type
         <input
           name="admonition_types_id"
           value={data?.admonition_types_id}
@@ -56,6 +82,7 @@ function UpdateDocumentForm({ id, initialData }) {
       <button type="submit" className="submit-button">
         Update Admonition
       </button>
+      </div>
     </form>
   );
 }

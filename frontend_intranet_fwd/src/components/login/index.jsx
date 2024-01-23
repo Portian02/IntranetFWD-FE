@@ -25,9 +25,6 @@ const Login = ({ setCurrUser, setShow }) => {
         localStorage.setItem("token", data.jti);
         localStorage.setItem("role", data.role);
         localStorage.setItem("id", data.id);
-        console.log(localStorage.getItem("role"));
-        console.log(data.role);
-        console.log("SOY EL USUARIO",data?.id)
         localStorage.setItem("id_usuario_log", data?.id);
         // setCurrUser(data);
 
@@ -42,10 +39,7 @@ const Login = ({ setCurrUser, setShow }) => {
         console.log("EL USUARIO NO TIENE ROLES");
       }
 
-      console.log(
-        "holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-      );
-
+   
     
       const token = localStorage.getItem("token"); // Ajusta esto según la estructura de tu respuesta
     

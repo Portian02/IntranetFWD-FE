@@ -19,7 +19,6 @@ const AnnouncementForm = ({ setCurrAnnouncement, setShow }) => {
       if (!response.ok) throw data.error;
 
 
-      localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrAnnouncement(data);
     } catch (error) {
       console.error("Error:", error);

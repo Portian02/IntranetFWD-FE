@@ -18,7 +18,6 @@ const CalendarForm = ({ setCurrCalendarevent, setShow }) => {
       const data = await response.json();
       console.log("Soy Data", data);
       if (!response.ok) throw data.error;
-      localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrCalendarevent(data);
       window.location.reload();
     } catch (error) {

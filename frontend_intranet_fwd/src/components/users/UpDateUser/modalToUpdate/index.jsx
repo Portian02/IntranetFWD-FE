@@ -13,7 +13,7 @@ const UpdateModalsUser = ({ id, initialData }) => {
       </svg>
     </button>
       <Modal isOpen={isOpenUpdate} closeModal={closeUpdate}>
-        <h3>Updating the Communication</h3>
+        <h3 className="title-modal">Updating the Communication</h3>
         <UpdateUserForm id={id} initialData={initialData} />
       </Modal>
     </div>

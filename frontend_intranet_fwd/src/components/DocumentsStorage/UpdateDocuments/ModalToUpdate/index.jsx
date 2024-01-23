@@ -2,7 +2,7 @@ import Modal from "../../../Modal/Modal.js";
 import { useModal } from "../../../../hooks/useModal.js";
 import UpdateDocumentForm from "../UpDate/index.jsx";
 import "./btn.css";
-const UpdateModalsAdmonnition = ({ id, initialData }) => {
+const UpdateModalsDocument = ({ id, initialData }) => {
   const [isOpenUpdate, openUdating, closeUpdate] = useModal(false); //
   return (
     <div>
@@ -13,11 +13,11 @@ const UpdateModalsAdmonnition = ({ id, initialData }) => {
       </svg>
     </button>
       <Modal isOpen={isOpenUpdate} closeModal={closeUpdate}>
-        <h3>Updating the Admonition</h3>
+        <h3 className="title-modal">Updating the Admonition</h3>
         <UpdateDocumentForm id={id} initialData={initialData} />
       </Modal>
     </div>
   );
 };
 
-export default UpdateModalsAdmonnition;
+export default UpdateModalsDocument;

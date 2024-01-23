@@ -13,7 +13,7 @@ const UpdateModalsAdmonnition = ({ id, initialData }) => {
       </svg>
     </button>
       <Modal isOpen={isOpenUpdate} closeModal={closeUpdate}>
-        <h3>Updating the Admonition</h3>
+        <h3 className="title-modal">Updating the Admonition</h3>
         <UpdateAdmonitionForm id={id} initialData={initialData} />
       </Modal>
     </div>
