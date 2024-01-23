@@ -13,7 +13,7 @@ export async function fetchDocument() {
     }
   }
 
-export async function deleteDocuments(id) {
+  export async function deleteDocuments(id) {
     const url = `http://localhost:3001/api/documents_storages/${id}`;
     try {
       const response = await fetch(url, {
@@ -21,21 +21,22 @@ export async function deleteDocuments(id) {
       });
   
       if (!response.ok) {
+        console.error('Failed to delete admonition. Response:', response);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
   
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error('Failed to delete admonition', error);
+      console.error('Error in deleteDocuments:', error);
       throw error;
     }
   }
+  
 //this is the service that updates the data from the API Admonitions
 export async function updateDocument(id, updatedData) {
-    const url = `http://localhost:3001/api/documents_storages/${id}`;
     try {
-      const response = await fetch(url, {
+      const response = await fetch(`http://localhost:3001/api/documents_storages/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

@@ -23,8 +23,9 @@ function UpdateAdmonitionForm({ id, initialData }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form onSubmit={handleSubmit} className="form-modal-update">
+    <div className="container-form-div">
+      <label htmlFor="status_admonition" className="label">
         Status:
         <input
           type="text"
@@ -34,8 +35,8 @@ function UpdateAdmonitionForm({ id, initialData }) {
           className="title-input"
         />
       </label>
-      <label>
-        user:
+      <label htmlFor="user_id" className="label">
+        User:
         <input
           type="text"
           name="user_id"
@@ -44,8 +45,8 @@ function UpdateAdmonitionForm({ id, initialData }) {
           className="title-input"
         />
       </label>
-      <label>
-        admonition Type:
+      <label htmlFor="admonition_types_id" className="label">
+        Admonition Type:
         <input
           name="admonition_types_id"
           value={data?.admonition_types_id}
@@ -56,6 +57,7 @@ function UpdateAdmonitionForm({ id, initialData }) {
       <button type="submit" className="submit-button">
         Update Admonition
       </button>
+    </div>
     </form>
   );
 }

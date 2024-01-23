@@ -5,9 +5,6 @@
   padding: 5px; /* Decreased padding to 5px */
 }
 
-
-
-
 .navbar__list {
   list-style-type: none;
   display: flex;
@@ -100,6 +97,16 @@
   }
 
   .navbar__dropdown:hover .navbar__dropdown-content {
+    display: block;
+  }
+
+  /* Added responsive styles for dropdown list */
+  .navbar__dropdown-list {
+    display: none;
+    padding-left: 20px;
+  }
+
+  .navbar__dropdown:hover .navbar__dropdown-list {
     display: block;
   }
 }

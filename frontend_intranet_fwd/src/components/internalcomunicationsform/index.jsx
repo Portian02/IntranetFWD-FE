@@ -29,7 +29,6 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
       const data = await response.json();
       console.log("Soy Data", data);
       if (!response.ok) throw data.error;
-      localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrCommunication(data);
     } catch (error) {
       console.log("error", error);

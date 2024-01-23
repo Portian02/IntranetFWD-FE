@@ -23,39 +23,41 @@ function UpdateCalendarForm({ id, initialData }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Title:
-        <input
-          type="text"
-          name="title"
-          value={data?.title}
-          onChange={handleChange}
-          className="title-input"
-        />
-      </label>
-      <label>
-        description:
-        <input
-          type="text"
-          name="description"
-          value={data?.description}
-          onChange={handleChange}
-          className="title-input"
-        />
-      </label>
-      <label>
-        url:
-        <input
-          name="url"
-          value={data?.url}
-          onChange={handleChange}
-          className="content-textarea"
-        />
-      </label>
-      <button type="submit" className="submit-button">
-        Update Calendar
-      </button>
+    <form onSubmit={handleSubmit} className="form-modal-update">
+      <div className="conatiner-form-div">
+        <label className="form-label">
+          Title:
+          <input
+            type="text"
+            name="title"
+            value={data?.title}
+            onChange={handleChange}
+            className="title-input"
+          />
+        </label>
+        <label className="form-label">
+          Description:
+          <input
+            type="text"
+            name="description"
+            value={data?.description}
+            onChange={handleChange}
+            className="description-input"
+          />
+        </label>
+        <label className="form-label">
+          URL:
+          <input
+            name="url"
+            value={data?.url}
+            onChange={handleChange}
+            className="url-input"
+          />
+        </label>
+        <button type="submit" className="submit-button">
+          Update Calendar
+        </button>
+      </div>
     </form>
   );
 }

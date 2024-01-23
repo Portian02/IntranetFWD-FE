@@ -23,68 +23,77 @@ function UpdateUserForm({ id, initialData }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input
-          type="text"
-          name="username"
-          value={data.username}
-          onChange={handleChange}
-          className="title-input"
-        />
-      </label>
-      <label>
-        Number of Identification:
-        <input
-          name="identification"
-          value={data.identification}
-          onChange={handleChange}
-          className="content-textarea"
-        />
-      </label>
-      <label>
-        number:
-        <input
-          type="text"
-          name="number"
-          value={data.number}
-          onChange={handleChange}
-          className="title-input"
-        />
-      </label>
-      <label>
-        Role:
-        <input
-          type="text"
-          name="role"
-          value={data.role}
-          onChange={handleChange}
-          className="title-input"
-        />
-      </label>
-      <label>
-        type_user_id:
-        <input
-          name="type_user_id"
-          value={data.type_user_id}
-          onChange={handleChange}
-          className="content-textarea"
-        />
-      </label>
-      <label>
-        Borndate:
-        <input
-          name="borndate"
-          type="date"
-          value={data.borndate}
-          onChange={handleChange}
-          className="content-textarea"
-        />
-      </label>
-      <button type="submit" className="submit-button">
-        Update Communication
-      </button>
+    <form onSubmit={handleSubmit} className="form-modal-update">
+      <div className="conatiner-form-div">
+        <label className="Name-label">
+          Name:
+          <input
+            type="text"
+            name="username"
+            value={data.username}
+            onChange={handleChange}
+            className="form-input"
+          />
+        </label>
+        <label className="ID-label">
+          Number of Identification:
+          <input
+            name="identification"
+            value={data.identification}
+            onChange={handleChange}
+            className="form-input"
+          />
+        </label>
+        <label className="number-label">
+          number:
+          <input
+            type="text"
+            name="number"
+            value={data.number}
+            onChange={handleChange}
+            className="form-input"
+          />
+        </label>
+        <label className="role-label">
+          Role:
+          <select
+            name="role"
+            value={data.role}
+            onChange={handleChange}
+            className="form-input"
+          >
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+        <label className="type_user_id-label">
+          type_user_id:
+          <select
+            name="type_user_id"
+            value={data.type_user_id}
+            onChange={handleChange}
+            className="form-input"
+          >
+            <option value="1">Student</option>
+            <option value="2">Teacher</option>
+            <option value="3">Admin</option>
+          </select>
+        </label>
+        <label className="borndate-label">
+          Borndate:
+          <input
+            name="borndate"
+            type="date"
+            value={data.borndate}
+            onChange={handleChange}
+            className="form-input"
+          />
+        </label>
+        <button type="submit" className="submit-button">
+          Update Communication
+        </button>
+      </div>
     </form>
   );
 }

@@ -4,7 +4,7 @@ import "./admonitions.css";
 const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
   const formRef = useRef();
   const [getUsers,  setGetUsers] = useState([]);
-
+  const user_id = localStorage.getItem("id")
 
   const addAdmonition = async (admonitionInfo, setCurrAdmonition) => {
     const url = "http://localhost:3001/api/admonitions"; 
@@ -21,7 +21,6 @@ console.log("llega?", response);
       const data = await response.json();
       if (!response.ok) throw data.error;
 
-      localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrAdmonition(data);
     } catch (error) {
       console.log("error", error);
@@ -89,12 +88,13 @@ console.log("llega?", response);
           className="admonition-add-input"
         />
         <br />
-        <label htmlFor="responsable_id">Responsable ID:</label>
+       
         <input
           type="text"
           name="responsable_id"
           id="responsable_id"
           placeholder="Responsable ID"
+          defaultValue={user_id}
           className="admonition-add-input"
         />
         <br />
@@ -118,14 +118,17 @@ console.log("llega?", response);
         </label>
         <br />
         <br />
-        <label htmlFor="admonition_type_id">Admonition Type ID:</label>
-        <input
-          type="text"
+        <label htmlFor="admonition_type_id">Admonition Type</label>
+        <select
           name="admonition_type_id"
           id="admonition_type_id"
-          placeholder="Admonition Type ID"
           className="admonition-add-input"
-        />
+        >
+          <option value="5">Late</option>
+          <option value="6">Behavior</option>
+          <option value="7">Technique</option>
+          <option value="8">Absence</option>
+        </select>
         
         <br />
         <input  type="submit" value="Submit" className="admonition-add-submit" />

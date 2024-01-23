@@ -5,7 +5,7 @@ import ButtonDeleteJustification from './DeleteJustification/ButtonDelete';
 import ModalsJustificationsAdd from './ModalToAddJustification/modals';
 import UpdateModalsJustification from './UpDateJustification/modalToUpdate';
 import './justification.css';
-import HamsterWheel from '../loader';
+import Loading from '../loader';
 const Justifications = () => {
   const [justifications, setJustifications] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -29,7 +29,7 @@ const Justifications = () => {
       <Navbar/>
       {isLoading ? (
         <div className="loading">
-          <HamsterWheel />
+          <Loading />
           <p>Loading data ...</p>
         </div>
       ) : (
@@ -44,6 +44,7 @@ const Justifications = () => {
                 <div className="justification-user-id">{justification.user_id}</div>
                 <div className="justification-type-id">{justification.justification_type_id}</div>
                 <div className="justification-responsable-id">{justification.responsable_id}</div>
+                
                 <div className='btns-communications'>
                 {role === "admin" && (
                   <ButtonDeleteJustification id={justification.id} />

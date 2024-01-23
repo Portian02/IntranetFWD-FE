@@ -4,7 +4,12 @@ import Navbar from "../NavBar";
 import UpdateModalsAdmonnition from "./UpdateAdmonitions/ModalToUpdate";
 import ButtonDeleteAdmonition from "./DeleteAdmonitions/ButtonDelete";
 import ModalsAdmonitionAdd from "./AdmonitionModalToAdd/modals";
+
+import { fetchUsers } from "../../services/ApiUsers";
+
+
 const Admonition = () => {
+  const [getUsers,  setGetUsers] = useState([]);
   const [admonitions, setAdmonitions] = useState([]);
   const [loading, setLoading] = useState(true);
   
@@ -22,6 +27,27 @@ const Admonition = () => {
 
     loadAdmonitions();
   }, []);
+
+
+ useEffect(() => {
+  async function GetUsers() {
+    try {
+      const data = await fetchUsers();
+      setGetUsers(data);
+    } catch (error) {
+      console.error("Failed to load admonitions", error);
+    }
+  }
+  GetUsers();
+  }, []);
+
+
+  console.log("soy los usuarios",getUsers)
+  console.log("soy la amonestacion",admonitions)
+
+  const usuariosFiltrados = getUsers.filter(usuario => admonitions.some(amonestacion => amonestacion.user_id === usuario.id));
+console.log(usuariosFiltrados)
+
   return (
     <div>
       <Navbar />
@@ -39,7 +65,7 @@ const Admonition = () => {
       ) : (
         <div className="container-admonition-events">
           <ul className="justifications">
-            {admonitions.map((admonition) => (
+            {admonitions.map((admonition)  => (
               <div className="card" key={admonition.id}>
                 <p className="card-title">Status: {admonition.status_admonition}</p>
                 {console.log("soy el status:",admonition.status_admonition)}
@@ -61,6 +87,7 @@ const Admonition = () => {
               </div>
             ))}
           </ul>
+          
           {role === "admin"&&(
           <ModalsAdmonitionAdd />
           )}

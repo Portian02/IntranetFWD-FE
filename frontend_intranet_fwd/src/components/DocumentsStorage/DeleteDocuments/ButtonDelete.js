@@ -1,16 +1,17 @@
-import { deleteAdmonition } from "../../../services/ApiAdmonitions";
+import { deleteDocuments } from "../../../services/ApiDocuments";
 import "./button.css";
 
-
 const ButtonDeleteDocument = ({ id }) => {
+  
   const handleDelete = async () => {
     try {
-      console.log("Hola soy el id de la Amonestacion", id);
-      const data = await deleteAdmonition(id);
+      console.log("Hola soy el id de la Document", id);
+      
+      const data = await deleteDocuments(id);
       window.location.reload();
-      console.log("Hola soy la data de la Amonestacion", data);
+      console.log("Hola soy la data de la Document", data);
     } catch (error) {
-      console.error("Failed to delete admonition", error);
+      console.error("Failed to delete document", error);
     }
   };
   return (

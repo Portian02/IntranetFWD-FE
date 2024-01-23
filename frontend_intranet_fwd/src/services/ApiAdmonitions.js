@@ -54,3 +54,4 @@ export async function updateAdmonition(id, updatedData) {
       throw error;
     }
   }
+
