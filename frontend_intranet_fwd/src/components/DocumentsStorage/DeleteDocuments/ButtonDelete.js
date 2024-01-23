@@ -2,8 +2,8 @@ import { deleteDocuments } from "../../../services/ApiDocuments";
 import Swal from "sweetalert2";
 import "./button.css";
 
-
 const ButtonDeleteDocument = ({ id }) => {
+  
   const handleDelete = async () => {
     try {
       const result = await Swal.fire({

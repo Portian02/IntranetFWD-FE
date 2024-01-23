@@ -99,6 +99,16 @@
   .navbar__dropdown:hover .navbar__dropdown-content {
     display: block;
   }
+
+  /* Added responsive styles for dropdown list */
+  .navbar__dropdown-list {
+    display: none;
+    padding-left: 20px;
+  }
+
+  .navbar__dropdown:hover .navbar__dropdown-list {
+    display: block;
+  }
 }
 
 /* Logout Styles */

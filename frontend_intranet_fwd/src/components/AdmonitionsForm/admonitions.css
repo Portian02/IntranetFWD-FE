@@ -9,6 +9,11 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
+  #responsable_id{
+  display: none;
+  }
+
+
   .admonition-add-form {
     display: flex;
     flex-direction: column;

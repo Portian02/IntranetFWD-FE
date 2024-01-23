@@ -16,6 +16,11 @@
   transition-duration: .3s;
 }
 
+
+.title-modal{
+  color:aliceblue
+}
+
 .svg {
   width: 13px;
   position: absolute;

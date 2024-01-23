@@ -13,14 +13,14 @@ export async function fetchDocument() {
     }
   }
 
-export async function deleteDocuments(id) {
-    
+  export async function deleteDocuments(id) {
     try {
       const response = await fetch(`http://localhost:3001/api/documents_storages/${id}`, {
         method: "DELETE",
       });
   
       if (!response.ok) {
+        console.error('Failed to delete admonition. Response:', response);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
   
@@ -33,9 +33,8 @@ export async function deleteDocuments(id) {
   }
 
 export async function updateDocument(id, updatedData) {
-    const url = `http://localhost:3001/api/documents_storages/${id}`;
     try {
-      const response = await fetch(url, {
+      const response = await fetch(`http://localhost:3001/api/documents_storages/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

@@ -5,7 +5,7 @@ import Navbar from "../NavBar";
 import ButtonDeleteUser from "./DeleteUser/ButtonDelete";
 import ModalsUserAdd from "./ModalToAddUser/modals";
 import UpdateModalsUser from "./UpDateUser/modalToUpdate";
-import HamsterWheel from "../loader";
+import Loading from "../loader";
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Agregar estado para el loading
@@ -30,7 +30,7 @@ const UserList = () => {
       <h2 className="user-list-title">Lista de Usuarios</h2>
       {isLoading ? (
         <div className="loading">
-          <HamsterWheel />
+          <Loading />
           <p>Loading data ...</p>
         </div>
       ) : (

@@ -23,8 +23,9 @@ function UpdateCommunicationForm({ id, initialData }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form onSubmit={handleSubmit} className="form-modal-update">
+      <div className="conatiner-form-div">
+      <label className="title-label">
         Title:
         <input
           type="text"
@@ -34,7 +35,8 @@ function UpdateCommunicationForm({ id, initialData }) {
           className="title-input"
         />
       </label>
-      <label>
+      
+      <label className="content-label">
         Content:
         <textarea
           name="content"
@@ -46,6 +48,7 @@ function UpdateCommunicationForm({ id, initialData }) {
       <button type="submit" className="submit-button">
         Update Communication
       </button>
+      </div>
     </form>
   );
 }

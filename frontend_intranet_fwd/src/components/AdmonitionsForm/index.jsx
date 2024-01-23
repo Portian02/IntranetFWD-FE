@@ -1,7 +1,10 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
+import { fetchUsers } from "../../services/ApiUsers";
 import "./admonitions.css"; 
 const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
   const formRef = useRef();
+  const [getUsers,  setGetUsers] = useState([]);
+  const user_id = localStorage.getItem("id")
 
   const addAdmonition = async (admonitionInfo, setCurrAdmonition) => {
     const url = "http://localhost:3001/api/admonitions"; 
@@ -18,7 +21,6 @@ console.log("llega?", response);
       const data = await response.json();
       if (!response.ok) throw data.error;
 
-      localStorage.setItem("token", response.headers.get("Authorization"));
       setCurrAdmonition(data);
     } catch (error) {
       console.log("error", error);
@@ -49,6 +51,21 @@ console.log("llega?", response);
     addAdmonition(admonitionInfo, setCurrAdmonition);
     e.target.reset();
   };
+// with this function we get the users
+ useEffect(() => {
+  async function GetUsers() {
+    try {
+      const data = await fetchUsers();
+      setGetUsers(data);
+    } catch (error) {
+      console.error("Failed to load admonitions", error);
+    }
+  }
+  GetUsers();
+  }, []);
+
+
+
 
   return (
     <div className="admonition-add-container">
@@ -71,32 +88,47 @@ console.log("llega?", response);
           className="admonition-add-input"
         />
         <br />
-        <label htmlFor="responsable_id">Responsable ID:</label>
+       
         <input
           type="text"
           name="responsable_id"
           id="responsable_id"
           placeholder="Responsable ID"
+          defaultValue={user_id}
           className="admonition-add-input"
         />
         <br />
-        <label htmlFor="userid">User ID:</label>
-        <input
-          type="text"
-          name="userid"
-          id="userid"
-          placeholder="User ID"
-          className="admonition-add-input"
-        />
+        <label>
+          <select
+            required
+            name="type_user_id"
+            id="type_user_id"
+            className="input"
+          >
+            <option value="">Select User</option>
+            <optgroup label="Students">
+              {getUsers
+                .filter(user => user.role === "student")
+                .map(user => (
+                  <option key={user.id} value={user.id}>{user.username}</option>
+                ))}
+            </optgroup>
+          </select>
+          <span>User</span>
+        </label>
         <br />
-        <label htmlFor="admonition_type_id">Admonition Type ID:</label>
-        <input
-          type="text"
+        <br />
+        <label htmlFor="admonition_type_id">Admonition Type</label>
+        <select
           name="admonition_type_id"
           id="admonition_type_id"
-          placeholder="Admonition Type ID"
           className="admonition-add-input"
-        />
+        >
+          <option value="5">Late</option>
+          <option value="6">Behavior</option>
+          <option value="7">Technique</option>
+          <option value="8">Absence</option>
+        </select>
         
         <br />
         <input  type="submit" value="Submit" className="admonition-add-submit" />
