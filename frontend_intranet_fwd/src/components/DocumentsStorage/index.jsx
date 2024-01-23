@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchDocument } from "../../services/ApiDocuments";
+
 import Navbar from "../NavBar";
 import ButtonDeleteDocument from "./DeleteDocuments/ButtonDelete";
 import ModalsDocumentsAdd from "./DocumentModalToAdd/modals";
@@ -25,6 +26,8 @@ const DocumentsStorage = () => {
     loadDocumentsStorage();
   }, []);
 
+  console.log("documentsStorage", documentsStorage);
+  
   return (
     <div>
       <Navbar />

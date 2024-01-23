@@ -1,19 +1,23 @@
 import React, { useRef } from "react";
-
+import Swal from "sweetalert2";
 const DocumentsStorageForm = ({ setCurrDocumentsStorage, setShow }) => {
   const formRef = useRef();
 
-  const addDocumentsStorage = async (DocumentsStorage,setCurrDocumentsStorage) => {
-    
-
+  const addDocumentsStorage = async (
+    DocumentsStorage,
+    setCurrDocumentsStorage
+  ) => {
     try {
-      const response = await fetch("http://localhost:3001/api/documents_storages", {
-        method: "post",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(DocumentsStorage),
-      });
+      const response = await fetch(
+        "http://localhost:3001/api/documents_storages",
+        {
+          method: "post",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(DocumentsStorage),
+        }
+      );
 
       console.log("Llega?", response);
       const data = await response.json();
@@ -44,9 +48,29 @@ const DocumentsStorageForm = ({ setCurrDocumentsStorage, setShow }) => {
 
     console.log("Soy data", DocumentsStorage);
 
-    addDocumentsStorage(DocumentsStorage, setCurrDocumentsStorage);
-    e.target.reset();
+    Swal.fire({
+      title: `Guardar documento ${data.name}`,
+      text: "¿Deseas guardar este documento?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonText: "Guardar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Aquí podrías agregar la lógica para guardar el documento
+        Swal.fire("Guardado!", "El documento ha sido guardado.", "success");
+
+        // Aquí podrías agregar la lógica para guardar el documento
+        addDocumentsStorage(DocumentsStorage, setCurrDocumentsStorage);
+        e.target.reset();
+        window.location.reload();
+        
+      }
+    });
   };
+  // const handleSaveDocument = (documentName) => {
+    
+  // };
 
   return (
     <div className="documents-storage-add-container">
