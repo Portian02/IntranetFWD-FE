@@ -24,7 +24,7 @@ const ButtonDeleteDocument = ({ id }) => {
         // Verificar si la respuesta es válida JSON antes de intentar analizarla
         if (response.headers["content-type"].includes("application/json")) {
           const data = await response.json();
-          console.log("Hola soy la data de la Document", data);
+          console.log(" Document Data", data);
         }
 
         Swal.fire("Deleted!", "The document has been deleted.", "success");
