@@ -1,18 +1,44 @@
-import { deleteAdmonition } from "../../../services/ApiAdmonitions";
+import { deleteDocuments } from "../../../services/ApiDocuments";
+import Swal from "sweetalert2";
 import "./button.css";
 
 
 const ButtonDeleteDocument = ({ id }) => {
   const handleDelete = async () => {
     try {
-      console.log("Hola soy el id de la Amonestacion", id);
-      const data = await deleteAdmonition(id);
-      window.location.reload();
-      console.log("Hola soy la data de la Amonestacion", data);
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it",
+        cancelButtonText: "Cancel",
+      });
+
+      if (result.isConfirmed) {
+        console.log("Hola soy el id del Document", id);
+        const response = await deleteDocuments(id);
+
+        // Verificar si la respuesta es válida JSON antes de intentar analizarla
+        if (response.headers["content-type"].includes("application/json")) {
+          const data = await response.json();
+          console.log("Hola soy la data de la Document", data);
+        }
+
+        Swal.fire("Deleted!", "The document has been deleted.", "success");
+        window.location.reload();
+      } else {
+        Swal.fire("Cancelled", "The document is safe :)", "info");
+      }
     } catch (error) {
-      console.error("Failed to delete admonition", error);
+      console.error("Failed to delete Document", error);
+      Swal.fire("Error", "Failed to delete the document.", "error");
     }
   };
+
+
   return (
     <button onClick={handleDelete} className="button">
     <svg

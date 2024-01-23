@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { fetchDocument } from "../../services/ApiDocuments";
+
 import Navbar from "../NavBar";
 import ButtonDeleteDocument from "./DeleteDocuments/ButtonDelete";
 import ModalsDocumentsAdd from "./DocumentModalToAdd/modals";
+
 const DocumentsStorage = () => {
   const [documentsStorage, setDocumentsStorage] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,7 +26,7 @@ const DocumentsStorage = () => {
   }, []);
 
   console.log("documentsStorage", documentsStorage);
-
+  
   return (
     <div>
       <Navbar />
