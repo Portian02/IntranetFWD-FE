@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import "./justifications.css"; 
-
+import { fetchUsers } from "../../services/ApiUsers";
 const JustificationForm = ({ setCurrJustification, setShow }) => {
   const formRef = useRef();
-
+  const [getUsers,  setGetUsers] = useState([]);
+  const user_id = localStorage.getItem("id")
   const addJustification = async (justificationInfo) => {
     const urladd = "http://localhost:3001/api/justifications"; 
     try {
@@ -46,7 +47,22 @@ const JustificationForm = ({ setCurrJustification, setShow }) => {
     e.target.reset();
   };
 
-  return (
+
+// with this function we get the users
+useEffect(() => {
+  async function GetUsers() {
+    try {
+      const data = await fetchUsers();
+      setGetUsers(data);
+    } catch (error) {
+      console.error("Failed to load admonitions", error);
+    }
+  }
+  GetUsers();
+  }, []);
+
+
+return (
     <div className="justification-add-container">
       <form ref={formRef} onSubmit={handleSubmit} className="justification-add-form">
         <label htmlFor="status_justification">Status:</label>
@@ -67,32 +83,47 @@ const JustificationForm = ({ setCurrJustification, setShow }) => {
           className="justification-add-input"
         />
         <br />
-        <label htmlFor="responsable_id">Responsable:</label>
         <input
           type="text"
           name="responsable_id"
           id="responsable_id"
+          defaultValue={user_id}
           placeholder="Responsable ID"
           className="justification-add-input"
         />
         <br />
-        <label htmlFor="userid">User:</label>
-        <input
-          type="text"
-          name="userid"
-          id="userid"
-          placeholder="User ID"
-          className="justification-add-input"
-        />
+        
+        <label htmlFor="type_user_id"> Student </label>
+          <select
+            required
+            name="type_user_id"
+            id="type_user_id"
+            className="input"
+          >
+            <option value="">Select Students</option>
+            <optgroup label="Students">
+              {getUsers
+                .filter(user => user.role === "student")
+                .map(user => (
+                  <option key={user.id} value={user.id}>{user.username}</option>
+                ))}
+            </optgroup>
+          </select>
         <br />
+
         <label htmlFor="justification_types_id">Justification Type:</label>
-        <input
-          type="text"
+        <select
           name="justification_types_id"
           id="justification_types_id"
-          placeholder="Justification Type"
           className="justification-add-input"
-        />
+        >
+          <option value="1">Late Unjustified</option>
+          <option value="2">Late Justified</option>
+          <option value="3">Absence Unjustified</option>
+          <option value="4">Absence Justified</option>
+          <option value="5">Early Departure Unjustified</option>
+          <option value="6">Early Departure Justified</option>
+        </select>
         <br />
         <input type="submit" value="Submit" className="justification-add-submit" />
       </form>

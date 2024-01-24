@@ -45,15 +45,15 @@ const Justifications = () => {
                 <div className="justification-type-id">{justification.justification_type_id}</div>
                 <div className="justification-responsable-id">{justification.responsable_id}</div>
                 
-                <div className='btns-communications'>
+               
                 {role === "admin" && (
                   <ButtonDeleteJustification id={justification.id} />
                 )}
                 {role === "admin" && (
                   <UpdateModalsJustification id={justification.id} initialData={justification} />
                 )}
-                </div>
               </div>
+              
             ))}
           </ul>
         </div>
