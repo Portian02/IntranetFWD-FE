@@ -69,6 +69,8 @@ const Navbar = ({currUser, setCurrUser}) => {
       <div className="logout-btn">
     {currUser? "" : <Logout setCurrUser={setCurrUser}/>}
       </div>
+      
+    
 
        
     </nav>
