@@ -44,8 +44,8 @@ const DocumentsStorage = () => {
               </div>
               {role === "admin" && (
                 <div className="card-footer">
-                  <ButtonDeleteDocument documentId={document.id} />
-                  <UpdateModalsDocument document={document} />
+                  <ButtonDeleteDocument id={document.id} />
+                  <UpdateModalsDocument id={document.id} document={document} />
                 </div>
               )}
             </div>

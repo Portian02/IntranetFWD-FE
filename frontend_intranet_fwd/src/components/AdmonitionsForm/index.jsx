@@ -113,8 +113,8 @@ console.log("llega?", response);
                   <option key={user.id} value={user.id}>{user.username}</option>
                 ))}
             </optgroup>
-          </select>
           <span>User</span>
+          </select>
         </label>
         <br />
         <br />

@@ -23,8 +23,9 @@ function UpdateJustificationForm({ id, initialData }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form onSubmit={handleSubmit} className="form-modal-update" >
+    div  <div className="container-form-div">
+      <label className="label">
         Status:  
         <input
           type="text"
@@ -34,7 +35,7 @@ function UpdateJustificationForm({ id, initialData }) {
           className="title-input"
         />
       </label>
-      <label>
+      <label className="label">
         User:
         <input
           name="content"
@@ -43,7 +44,7 @@ function UpdateJustificationForm({ id, initialData }) {
           className="content-textarea"
         />
       </label>
-      <label>
+      <label className="label">
         Justification Type:
         <input
           name="content"
@@ -55,6 +56,7 @@ function UpdateJustificationForm({ id, initialData }) {
       <button type="submit" className="submit-button">
         Update Communication
       </button>
+    </div>
     </form>
   );
 }
