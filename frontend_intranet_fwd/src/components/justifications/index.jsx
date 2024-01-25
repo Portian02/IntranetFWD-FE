@@ -47,7 +47,7 @@ const Justifications = () => {
                 
                
                 {role === "admin" && (
-                  <ButtonDeleteJustification id={justification.id} />
+                  <ButtonDeleteJustification id={justification.id}/>
                 )}
                 {role === "admin" && (
                   <UpdateModalsJustification id={justification.id} initialData={justification} />
@@ -64,5 +64,6 @@ const Justifications = () => {
     </div>
   );
 };
+
 
 export default Justifications;

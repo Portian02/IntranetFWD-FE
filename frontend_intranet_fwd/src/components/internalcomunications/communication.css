@@ -1,4 +1,4 @@
-
+/* 
 
 .internal-communications {
     margin: 20px;
@@ -6,14 +6,14 @@
     background-color: #f2f2f2;
     border: 1px solid #ccc;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Divide en dos columnas */
-    gap: 20px; /* Agrega espacio entre columnas */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
 }
 
 .internal-communications__title {
     font-size: 28px;
     margin-bottom: 10px;
-    color: #003366; /* Color primario */
+    color: #003366; 
     text-decoration: underline;
 }
 
@@ -24,14 +24,14 @@
 
 .internal-communications__item {
     margin-bottom: 20px;
-    animation: fade-in 0.5s ease-in-out; /* Aplica animación de desvanecimiento */
-    transition: background-color 0.3s ease-in-out; /* Agrega transición de color de fondo */
+    animation: fade-in 0.5s ease-in-out; 
+    transition: background-color 0.3s ease-in-out; 
 }
 
 .comunication-content {
     font-size: 18px;
     margin-bottom: 5px;
-    color: #333; /* Color de texto principal */
+    color: #333; 
 }
 
 .comunication-date {
@@ -45,14 +45,14 @@
     color: #888;
 }
 
-/* Efecto al pasar el mouse */
+
 .internal-communications__item:hover {
     background-color: #e6e6e6;
     cursor: pointer;
-    transform: scale(1.05); /* Escala el elemento al pasar el mouse */
+    transform: scale(1.05); 
 }
 
-/* Animación */
+
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -68,4 +68,4 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
+} */

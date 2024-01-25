@@ -6,6 +6,8 @@
 .Btn {
   position: relative;
   display: flex;
+  left: 65%;
+  bottom: 5px;
   align-items: center;
   justify-content: flex-start;
   width: 100px;
@@ -19,6 +21,9 @@
   border-radius: 10px;
   box-shadow: 5px 5px 0px rgb(140, 32, 212);
   transition-duration: .3s;
+
+
+
 }
 
 .svg {

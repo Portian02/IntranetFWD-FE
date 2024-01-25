@@ -20,7 +20,7 @@ export async function fetchDocument() {
       });
   
       if (!response.ok) {
-        console.error('Failed to delete admonition. Response:', response);
+        console.error('Failed to delete document Response:', response);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
   
