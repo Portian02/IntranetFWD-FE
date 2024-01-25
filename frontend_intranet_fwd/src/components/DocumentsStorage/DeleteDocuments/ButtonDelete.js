@@ -1,5 +1,6 @@
-import { deleteDocuments } from "../../../services/ApiDocuments";
+import "./button.css";
 import Swal from "sweetalert2";
+import { deleteDocuments } from "../../../services/ApiDocuments";
 import "./button.css";
 
 const ButtonDeleteDocument = ({ id }) => {
@@ -28,7 +29,6 @@ const ButtonDeleteDocument = ({ id }) => {
         }
 
         Swal.fire("Deleted!", "The document has been deleted.", "success");
-        window.location.reload();
       } else {
         Swal.fire("Cancelled", "The document is safe :)", "info");
       }

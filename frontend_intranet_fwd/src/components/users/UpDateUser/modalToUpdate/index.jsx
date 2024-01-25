@@ -21,3 +21,6 @@ const UpdateModalsUser = ({ id, initialData }) => {
 };
 
 export default UpdateModalsUser;
+
+
+

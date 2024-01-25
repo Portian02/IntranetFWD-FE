@@ -1,9 +1,15 @@
 /* FILEPATH: /c:/Frontend-IntranetFWD/IntranetFWD-FE/frontend_intranet_fwd/src/components/NavBar/Navbar.css */
 
+
+
+
 .navbar {
   background-color: #df2c8e;
   padding: 5px; /* Decreased padding to 5px */
 }
+
+
+
 
 .navbar__list {
   list-style-type: none;
@@ -115,3 +121,8 @@
 .navbar__logout {
   margin-left: auto; /* Added this block to move logout to the right */
 }
+
+
+
+
+

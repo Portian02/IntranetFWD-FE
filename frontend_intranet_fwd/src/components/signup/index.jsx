@@ -123,6 +123,7 @@ const Signup = ({ setCurrUser, setShow }) => {
           name="borndate"
           className="input"
         />
+        <span>Born Date</span>
       
       </label>
 
@@ -138,7 +139,7 @@ const Signup = ({ setCurrUser, setShow }) => {
         <option value="2">Teacher</option>
         <option value="3">Admin</option>
       </select>
-    
+        <span>Type</span>
     </label>
 
       <label>

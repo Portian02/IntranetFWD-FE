@@ -15,6 +15,9 @@
   overflow: hidden;
   position: relative;
   gap: 2px;
+
+  top: 40px;
+  
 }
 
 .svgIcon {

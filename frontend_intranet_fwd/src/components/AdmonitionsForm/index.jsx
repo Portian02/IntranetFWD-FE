@@ -114,7 +114,7 @@
           name="responsable_id"
           id="responsable_id"
           placeholder="Responsable ID"
-          defaultValue={user_id}
+          defaultValue={responsable_id}
           className="admonition-add-input"
         />
         <br />

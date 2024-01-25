@@ -21,6 +21,7 @@ const AnnouncementForm = ({ setCurrAnnouncement, setShow }) => {
       setCurrAnnouncement(data);
     } catch (error) {
       console.error("Error:", error);
+      window.location.reload();
     }
   };
 

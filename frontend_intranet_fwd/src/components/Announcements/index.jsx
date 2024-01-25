@@ -5,8 +5,7 @@ import Navbar from "../NavBar";
 import ButtonDeleteAnnouncement from "./DeleteAnnouncement/ButtonDelete";
 import ModalsAnnouncementAdd from "./AnnouncementsModalToAdd/modals";
 import UpdateModalsAnnouncement from "./UpdateAnnouncement/ModalToUpdate";
-import HamsterWheel from "../loader";
-
+import Loading from "../loader";
 const Announcement = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,8 +33,7 @@ const Announcement = () => {
       <h2 className="title">Lista de Anuncios</h2>
       {loading ? (
         <div className="loading">
-          
-         
+          <Loading/>      
         </div>
       ) : (
         <div className="container-announcement-events">
@@ -47,9 +45,6 @@ const Announcement = () => {
                 <p className="small-desc">{announcement.description}</p>
                 <div>
                   <span>Date:</span> {announcement.date}
-                </div>
-                <div className="go-corner">
-                  <div className="go-arrow">→</div>
                 </div>
                   {role === "admin" && (
                 <div className="btns">

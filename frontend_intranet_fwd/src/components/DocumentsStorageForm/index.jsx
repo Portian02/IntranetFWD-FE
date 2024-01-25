@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Swal from "sweetalert2";
+import "./documentForm.css"
 const DocumentsStorageForm = ({ setCurrDocumentsStorage, setShow }) => {
   const formRef = useRef();
 
