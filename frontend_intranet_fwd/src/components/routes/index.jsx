@@ -12,7 +12,7 @@ import Admonitions from "../Admonitions";
 import Justification from "../justifications";
 import DocumentsStorage from "../DocumentsStorage";
 import NoAuth from "../../pages/NoAuth";
-import Profile from "../../pages/profile";
+import Profile from "../profile";
 import DocumentsStorageForm from "../DocumentsStorageForm";
 const Routing = () => {
   const role = localStorage.getItem("role");
@@ -28,6 +28,8 @@ const Routing = () => {
       <Route path="/admonitions" element={<Admonitions/>} />
       <Route path="/justifications" element={<Justification/>} />
       <Route path="/documentsStorage" element={<DocumentsStorage/>} />
+      <Route path="/profile" element={<Profile/>} />
+      {/* <Route path="/profile" element={<Profile/>} /> */}
       {role === "admin" ? (
         <Route path="/users" element={<UserList />} />
       ) : (
@@ -40,7 +42,8 @@ const Routing = () => {
       <Route path="/admonitions" element={<Admonitions />} />
       <Route path="/justifications" element={<Justification />} />
       <Route path="/documentsStorage/new" element={<DocumentsStorageForm/>} />
-      <Route path="/profile" element={<Profile />} />
+      {/* <Route path="/profile" element={<Profile />} /> */}
+       <Route path="/profile" element={<Profile/>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

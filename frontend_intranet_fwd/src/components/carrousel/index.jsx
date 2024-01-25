@@ -44,7 +44,7 @@ const Carousel1 = () => {
       <Link to="/princess">
         <img
           className="d-block w-100"
-          src="https://static.wixstatic.com/media/aaad85_a4ae89c8cc474705bacd2a687ab2f92c~mv2.jpg/v1/fill/w_840,h_485,fp_0.70_0.24,q_85,usm_0.66_1.00_0.01,enc_auto/PHOTO-2023-11-13-20-40-17%202.jpg"
+          src="images\Reclutamiento.jpg"
           alt="img"
         />
       </Link>

@@ -1,7 +1,7 @@
 //this is the service that fetches the data from the API Admonitions
 export async function fetchDocument() {
     try {
-      const response = await fetch("http://localhost:3001/api/documents_storages  ");
+      const response = await fetch("http://localhost:3001/api/documents_storages");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

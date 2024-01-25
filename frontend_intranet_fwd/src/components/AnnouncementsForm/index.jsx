@@ -1,11 +1,11 @@
 import { useRef } from "react";
-
+import Swal from "sweetalert2";
 
 const AnnouncementForm = ({ setCurrAnnouncement, setShow }) => {
   const formRef = useRef();
 
   const addAnnouncement = async (announcementInfo, setCurrAnnouncement) => {
-    const url = "http://localhost:3001/api/announcements"; 
+    const url = "http://localhost:3001/api/announcements";
     try {
       const response = await fetch(url, {
         method: "post",
@@ -17,7 +17,6 @@ const AnnouncementForm = ({ setCurrAnnouncement, setShow }) => {
 
       const data = await response.json();
       if (!response.ok) throw data.error;
-
 
       setCurrAnnouncement(data);
     } catch (error) {
@@ -37,14 +36,36 @@ const AnnouncementForm = ({ setCurrAnnouncement, setShow }) => {
         date: data.date,
       },
     };
-    addAnnouncement(announcementInfo, setCurrAnnouncement);
-    e.target.reset();
+
+
+    Swal.fire({
+      title: `Do you want to save the changes? ${data.content}`,
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+     
+      if (result.isConfirmed) {
+        Swal.fire("Saved!", "", "success");
+         
+          addAnnouncement(announcementInfo, setCurrAnnouncement);
+          e.target.reset();
+          window.location.reload();
+      } else if (result.isDenied || result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire("Changes are not saved", "", "info");
+        window.location.reload();
+
+       
+      }
+    });
   };
-return (
+
+  return (
     <div className="container">
       <form ref={formRef} onSubmit={handleSubmit} className="form">
         <p className="title">Announcement Form</p>
-        <label htmlFor="content">Content:</label>
+        <label htmlFor="content">Title:</label>
         <input
           type="text"
           name="content"

@@ -21,7 +21,7 @@ const ButtonDeleteDocument = ({ id }) => {
       if (result.isConfirmed) {
         console.log("Hola soy el id del Document", id);
         const response = await deleteDocuments(id);
-
+        
         // Verificar si la respuesta es válida JSON antes de intentar analizarla
         if (response.headers["content-type"].includes("application/json")) {
           const data = await response.json();
@@ -33,8 +33,9 @@ const ButtonDeleteDocument = ({ id }) => {
         Swal.fire("Cancelled", "The document is safe :)", "info");
       }
     } catch (error) {
-      Swal.fire("Error", "Failed to delete the document.", "error");
-        window.location.reload();
+      console.error("Failed to delete Document", error);
+      Swal.fire("Error", "The document has not been deleted.", "error");
+    window.location.reload();
     }
   };
 

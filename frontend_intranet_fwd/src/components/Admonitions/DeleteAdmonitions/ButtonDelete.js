@@ -10,7 +10,7 @@ const ButtonDeleteAdmonition = ({ id }) => {
       window.location.reload();
       console.log("Hola soy la data de la Amonestacion", data);
     } catch (error) {
-      console.error("Failed to delete admonition", error);
+      window.location.reload();
     }
   };
   return (
