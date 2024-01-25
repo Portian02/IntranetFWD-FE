@@ -4,20 +4,20 @@ import "./admonitions.css";
 const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
   const formRef = useRef();
   const [getUsers,  setGetUsers] = useState([]);
-  const user_id = localStorage.getItem("id")
+  const responsable_id = localStorage.getItem("id")
 
   const addAdmonition = async (admonitionInfo, setCurrAdmonition) => {
-    const url = "http://localhost:3001/api/admonitions"; 
+    
 
     try {
-      const response = await fetch(url, {
+      const response = await fetch( "http://localhost:3001/api/admonitions" , {
         method: "post",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify(admonitionInfo),
       });
-console.log("llega?", response);
+    console.log("llega?", response);
       const data = await response.json();
       if (!response.ok) throw data.error;
 
@@ -94,7 +94,7 @@ console.log("llega?", response);
           name="responsable_id"
           id="responsable_id"
           placeholder="Responsable ID"
-          defaultValue={user_id}
+          defaultValue={responsable_id}
           className="admonition-add-input"
         />
         <br />

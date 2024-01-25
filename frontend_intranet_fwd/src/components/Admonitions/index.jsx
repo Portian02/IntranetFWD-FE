@@ -4,9 +4,9 @@ import Navbar from "../NavBar";
 import UpdateModalsAdmonnition from "./UpdateAdmonitions/ModalToUpdate";
 import ButtonDeleteAdmonition from "./DeleteAdmonitions/ButtonDelete";
 import ModalsAdmonitionAdd from "./AdmonitionModalToAdd/modals";
-
+import "./admonition.css"
 import { fetchUsers } from "../../services/ApiUsers";
-
+import Loading from "../loader";
 
 const Admonition = () => {
   const [getUsers,  setGetUsers] = useState([]);
@@ -51,46 +51,32 @@ console.log(usuariosFiltrados)
   return (
     <div>
       <Navbar />
-      <h2 className="title">Lista de Amonestaciones</h2>
+      <h2 className="title-admonition">Lista de Amonestaciones</h2>
       {loading ? (
         <div className="loading">
-            <section className="loader">
-                <div className="slider" style={{ "--i": 0 }}></div>
-                <div className="slider" style={{ "--i": 1 }}></div>
-                <div className="slider" style={{ "--i": 2 }}></div>
-                <div className="slider" style={{ "--i": 3 }}></div>
-                <div className="slider" style={{ "--i": 4 }}></div>
-            </section>
+          <Loading/>
         </div>
       ) : (
-        <div className="container-admonition-events">
-          <ul className="justifications">
-            {admonitions.map((admonition)  => (
-              <div className="card" key={admonition.id}>
+        <div className="admonition-container">
+          <ul className="justifications-list">
+            {admonitions.map((admonition) => (
+              <div className="admonition-card" key={admonition.id}>
                 <p className="card-title">Status: {admonition.status_admonition}</p>
-                {console.log("soy el status:",admonition.status_admonition)}
-                <p className="small-desc">Fecha: {admonition.date}</p>
+                {console.log("soy el status:", admonition.status_admonition)}
                 <p>Responsable ID: {admonition.responsable_id}</p>
                 <p>Usuario ID: {admonition.user_id}</p>
                 <p>admonition_type_id: {admonition.admonition_type_id}</p>
-                <div className="go-corner">
-                  <div className="go-arrow">→</div>
-                </div>
-                {role === "admin"&&(
-                <ButtonDeleteAdmonition id={admonition.id} />
-                )}
-                {role === "admin"&&(
-                <UpdateModalsAdmonnition
-                  id={admonition.id}
-                  initialData={admonition}/>
+                <p className="card-date">Fecha: {admonition.date}</p>
+               
+                 {role === "admin" && <ButtonDeleteAdmonition id={admonition.id} />}
+               {role === "admin" && (
+                  <UpdateModalsAdmonnition id={admonition.id} initialData={admonition} />
                 )}
               </div>
             ))}
           </ul>
-          
-          {role === "admin"&&(
-          <ModalsAdmonitionAdd />
-          )}
+
+          {role === "admin" && <ModalsAdmonitionAdd />}
         </div>
       )}
     </div>

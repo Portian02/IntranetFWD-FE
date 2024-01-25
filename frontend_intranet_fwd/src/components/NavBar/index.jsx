@@ -12,6 +12,7 @@ const Navbar = ({currUser, setCurrUser}) => {
 
   const role = localStorage.getItem("role");
   return (
+    
     <nav className="navbar">
       <Logo className="navbar__logo" /> {/* Agregar el componente de Logo */}
       <ul className="navbar__list">
@@ -74,6 +75,7 @@ const Navbar = ({currUser, setCurrUser}) => {
 
        
     </nav>
+
   );
 };
 

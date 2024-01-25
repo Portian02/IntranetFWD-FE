@@ -19,9 +19,9 @@ const CalendarForm = ({ setCurrCalendarevent, setShow }) => {
       console.log("Soy Data", data);
       if (!response.ok) throw data.error;
       setCurrCalendarevent(data);
-      window.location.reload();
     } catch (error) {
       console.log("error", error);
+      window.location.reload();
     }
   };
   const handleSubmit = (e) => {
