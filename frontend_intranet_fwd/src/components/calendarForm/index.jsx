@@ -28,6 +28,7 @@ const CalendarForm = ({ setCurrCalendarevent, setShow }) => {
     e.preventDefault();
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
+    console.log("Soy data", data);
     const calendar_eventInfo = {
       calendar_event: {
         title: data.title,
