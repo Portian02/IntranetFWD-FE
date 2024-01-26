@@ -1,13 +1,13 @@
 import React from 'react';
-import { useAuth } from 'tu-libreria-de-autenticacion';
-import { Redirect, Outlet } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import {Navigate, Outlet} from 'react-router-dom';
 const PrivateRoute = () => {
-    const { isAuthenticated } = useAuth();
+    const { auth } = useAuth();
 
-    return isAuthenticated() ? (
+    return auth.user ? (
         <Outlet />
     ) : (
-        <Redirect to="/login" />
+        <Navigate to="/" />
     );
 };
 

@@ -8,7 +8,7 @@
   const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
     const formRef = useRef();
     const [getUsers,  setGetUsers] = useState([]);
-    const user_id = localStorage.getItem("id")
+    const responsable_id = localStorage.getItem("id")
     const addAdmonition = async (admonitionInfo, setCurrAdmonition) => {
       try {
 

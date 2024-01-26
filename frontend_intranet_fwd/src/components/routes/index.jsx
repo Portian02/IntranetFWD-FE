@@ -29,7 +29,6 @@ const Routing = () => {
       <Route path="/justifications" element={<Justification/>} />
       <Route path="/documentsStorage" element={<DocumentsStorage/>} />
       <Route path="/profile" element={<Profile/>} />
-      {/* <Route path="/profile" element={<Profile/>} /> */}
       {role === "admin" ? (
         <Route path="/users" element={<UserList />} />
       ) : (
@@ -42,8 +41,6 @@ const Routing = () => {
       <Route path="/admonitions" element={<Admonitions />} />
       <Route path="/justifications" element={<Justification />} />
       <Route path="/documentsStorage/new" element={<DocumentsStorageForm/>} />
-      {/* <Route path="/profile" element={<Profile />} /> */}
-       <Route path="/profile" element={<Profile/>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
