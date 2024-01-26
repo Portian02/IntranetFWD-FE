@@ -14,6 +14,7 @@ import DocumentsStorage from "../DocumentsStorage";
 import NoAuth from "../../pages/NoAuth";
 import Profile from "../profile";
 import DocumentsStorageForm from "../DocumentsStorageForm";
+import RegulationDocuments from "../Regulations";
 const Routing = () => {
   const role = localStorage.getItem("role");
   return (
@@ -41,6 +42,9 @@ const Routing = () => {
       <Route path="/admonitions" element={<Admonitions />} />
       <Route path="/justifications" element={<Justification />} />
       <Route path="/documentsStorage/new" element={<DocumentsStorageForm/>} />
+      <Route path="/regulationDocuments" element={<RegulationDocuments/>} />
+      {/* <Route path="/profile" element={<Profile />} /> */}
+       <Route path="/profile" element={<Profile/>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

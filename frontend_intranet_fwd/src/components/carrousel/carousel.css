@@ -11,3 +11,8 @@
       display: none;
     }
   }
+
+  .images{
+    width: 550px;
+    height: 500px;
+  }

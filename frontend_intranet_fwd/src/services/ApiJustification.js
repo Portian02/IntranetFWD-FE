@@ -54,9 +54,19 @@ export async function updateJustification(id, updatedJustification) {
     }
   }
 
-
-
-
+export async function fetchJustifications_types() {
+    try {
+      const response = await fetch(`http://localhost:3001/api/justification_types`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Failed to fetch justifications", error);
+      throw error;
+    }
+  }
 
 
 
