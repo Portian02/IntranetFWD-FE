@@ -53,3 +53,16 @@ export async function updateDocument(id, updatedData) {
       throw error;
     }
   }
+  export async function fetchDocumentsTypes() {
+    try {
+      const response = await fetch("http://localhost:3001/api/documents_types");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Failed to fetch documents_storages", error);
+      throw error;
+    }
+  }

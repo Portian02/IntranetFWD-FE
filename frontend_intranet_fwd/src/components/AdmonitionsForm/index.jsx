@@ -8,8 +8,9 @@
   const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
     const formRef = useRef();
     const [getUsers,  setGetUsers] = useState([]);
-    const user_id = localStorage.getItem("id")
+    const responsable_id = localStorage.getItem("id")
     const addAdmonition = async (admonitionInfo, setCurrAdmonition) => {
+      
       try {
 
      const response = await fetch("http://localhost:3001/api/admonitions", {
@@ -78,6 +79,7 @@
         const data = await fetchUsers();
         setGetUsers(data);
       } catch (error) {
+        
         console.error("Failed to load admonitions", error);
       }
     }
@@ -89,6 +91,7 @@
 
   return (
     <div className="admonition-add-container">
+      
       <form ref={formRef} onSubmit={handleSubmit} className="admonition-add-form">
         <label htmlFor="status_admonition">Status:</label>
         <input
@@ -97,7 +100,9 @@
           id="status_admonition"
           placeholder="Status"
           className="admonition-add-input"
+          
         />
+
         <br />
         <label htmlFor="date">Date:</label>
         <input
