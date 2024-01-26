@@ -1,25 +1,8 @@
-/* .user-list {
+.user-list {
   display: grid;
-  flex-direction: row;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+  grid-gap: 5px;
   gap: 30px;
-}
-
-.btns {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.btns > *:first-child {
-  margin-right: auto;
-}
-
-.btns > *:last-child {
-  margin-left: auto;
 }
 
 .user-card {
@@ -27,44 +10,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 250px;
-  height: 250px;
+  width: 300px; /* Increased width */
+  height: 250px; /* Increased height */
   padding: 10px;
   border: none;
   border-top: 20px solid blue;
-  border-image: linear-gradient(to right, #ffcb05, #df2c8e, #008fd4, #008fd3); 
-  border-image-slice: 1; 
+  border-image: linear-gradient(to right, #ffcb05, #df2c8e, #008fd4, #008fd3);
+  border-image-slice: 1;
   border-radius: 5px;
   transition: background-color 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
-  background-color: #f9f9f9; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  background-color: #f9f9f9;
+  cursor: pointer;
 }
-
 .user-card:hover {
   background-color: #f5f5f5;
-  transform: scale(1.05);
 }
 
 .user-info {
-  display: grid; 
-  grid-template-columns: auto 1fr; 
+  display: flex;
   align-items: center;
-  gap: 10px; 
+  flex-wrap: wrap;
 }
 
 .user-id {
   font-weight: bold;
+  margin-right: 10px;
 }
 
 .user-details {
-  display: grid; 
-  grid-template-columns: auto 1fr; 
-  gap: 10px; 
+  display: flex;
+  flex-direction: column;
   margin-left: 10px;
-}
-
-.user-username {
-  font-weight: bold;
 }
 
 .user-email,
@@ -72,7 +49,58 @@
 .user-number {
   font-size: 14px;
   color: #555;
-  overflow: hidden;
-  text-overflow: ellipsis; 
-} */
-/* -----------------------------------------Loader----------------------------------------------------- */
+  margin-top: 5px;
+}
+
+.user-email:hover,
+.user-role:hover,
+.user-number:hover {
+  color: #ffcb05;
+}
+
+.user-card .user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.user-card .user-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.user-card .user-role {
+  font-size: 14px;
+  color: #888;
+}
+
+.user-card .user-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.user-card .user-actions button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.user-card .user-actions .edit-button {
+  background-color: #008fd4;
+  color: #fff;
+}
+
+.user-card .user-actions .delete-button {
+  background-color: #df2c8e;
+  color: #fff;
+}
+
+.user-card .user-actions button:hover {
+  opacity: 0.8;
+}
