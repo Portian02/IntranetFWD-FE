@@ -21,6 +21,11 @@ const Navbar = ({currUser, setCurrUser}) => {
             Home
           </Link>
         </li>
+         <li className="navbar__item">
+          <Link to="/profile" className="navbar__link">
+            Perfil
+          </Link>
+        </li>
         {role === "admin" &&(
         <li className="navbar__item">
           <Link to="/users" className="navbar__link">

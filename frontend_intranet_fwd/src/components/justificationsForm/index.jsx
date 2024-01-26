@@ -1,11 +1,14 @@
 import { useRef, useEffect, useState } from "react";
 import "./justifications.css"; 
 import { fetchUsers } from "../../services/ApiUsers";
+import Swal from "sweetalert2";
 const JustificationForm = ({ setCurrJustification, setShow }) => {
   const formRef = useRef();
   const [getUsers,  setGetUsers] = useState([]);
   const user_id = localStorage.getItem("id")
-  const addJustification = async (justificationInfo) => {
+
+
+  const addJustification = async ( addJustification,setCurrJustification) => {
     const urladd = "http://localhost:3001/api/justifications"; 
     try {
       const response = await fetch(urladd, {
@@ -13,7 +16,7 @@ const JustificationForm = ({ setCurrJustification, setShow }) => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(justificationInfo),
+        body: JSON.stringify(addJustification),
       });
 
       const data = await response.json();
@@ -21,10 +24,18 @@ const JustificationForm = ({ setCurrJustification, setShow }) => {
       setCurrJustification(data);
       setShow(false); // Cierra el modal
 
-      window.location.reload(); // Recarga la página
+       // Recarga la página
     } catch (error) {
-      console.error("Error al agregar justificación", error);
-    }
+    Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500
+        });
+       
+      }
+      setTimeout(function(){ window.location.reload(); }, 2000);
   };
 
   const handleSubmit = (e) => {
@@ -32,17 +43,18 @@ const JustificationForm = ({ setCurrJustification, setShow }) => {
 
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
-
+console.log(data, "soy dataaaaaaaaaaaa JUS")
     const justificationInfo = {
       justifications: {
         status_justification: data.status_justification,
         date: data.date,
         responsable_id: data.responsable_id,
-        user_id: data.userid,
+        user_id: data.type_user_id,
         justification_types_id: data.justification_types_id, 
       },
     };
 
+console.log(justificationInfo)
     addJustification(justificationInfo);
     e.target.reset();
   };
@@ -118,11 +130,11 @@ return (
           className="justification-add-input"
         >
           <option value="1">Late Unjustified</option>
-          <option value="2">Late Justified</option>
-          <option value="3">Absence Unjustified</option>
-          <option value="4">Absence Justified</option>
-          <option value="5">Early Departure Unjustified</option>
-          <option value="6">Early Departure Justified</option>
+          <option value="1">Late Justified</option>
+          <option value="1">Absence Unjustified</option>
+          <option value="1">Absence Justified</option>
+          <option value="1">Early Departure Unjustified</option>
+          <option value="1">Early Departure Justified</option>
         </select>
         <br />
         <input type="submit" value="Submit" className="justification-add-submit" />

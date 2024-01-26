@@ -1,13 +1,16 @@
-import { useRef } from "react";
+import { useRef,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import Logo from "../logo";
+
+
 const Login = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
   const navigate = useNavigate();
 
   const login = async (userInfo, setCurrUser) => {
     const url = "http://localhost:3001/login";
+   
     try {
       const response = await fetch(url, {
         method: "post",
@@ -22,6 +25,10 @@ const Login = ({ setCurrUser, setShow }) => {
         throw new Error("Failed to login");
       } else {
         const data = await response.json();
+
+      
+
+        localStorage.setItem("perfil", data?.username+","+data?.email+","+data?.role+","+data?.number);
         localStorage.setItem("token", data.jti);
         localStorage.setItem("role", data.role);
         localStorage.setItem("id", data.id);
@@ -67,8 +74,10 @@ const Login = ({ setCurrUser, setShow }) => {
     e.target.reset();
   };
 
+
   return (
     <div className="container-login">
+   
       <Logo className="navbar__logo" /> {/* Agregar el componente de Logo */}
       <form ref={formRef} onSubmit={handleSubmit} className="form_main">
         <p className="heading">Login</p>

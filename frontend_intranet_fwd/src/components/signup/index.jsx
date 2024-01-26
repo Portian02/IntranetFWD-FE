@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import "./singup.css";
+import Swal from "sweetalert2";
 
 const Signup = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
@@ -24,7 +25,16 @@ const Signup = ({ setCurrUser, setShow }) => {
       window.location.reload()
     } catch (error) {
       console.log("error", error);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
+     
     }
+    setTimeout(function(){ window.location.reload(); }, 2000);
   };
   const Default_password = "fwd1234"
   const isValidEmail = (email) => {

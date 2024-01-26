@@ -6,8 +6,7 @@ const DocumentsStorageForm = ({ setCurrDocumentsStorage, setShow }) => {
 
   const addDocumentsStorage = async (
     DocumentsStorage,
-    setCurrDocumentsStorage
-  ) => {
+    setCurrDocumentsStorage ) => {
     try {
       const response = await fetch(
         "http://localhost:3001/api/documents_storages",

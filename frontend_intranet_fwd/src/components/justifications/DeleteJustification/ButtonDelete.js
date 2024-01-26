@@ -7,10 +7,12 @@ const ButtonDeleteJustification = ({ id }) => {
     try {
       console.log("Hola soy el id del comunicado", id);
       const data = await deleteJustification(id);
+
       window.location.reload();
       console.log("Hola soy la data del comunicado", data);
     } catch (error) {
-      console.error("Failed to delete communication", error);
+     
+      window.location.reload();
     }
   };
   return (
