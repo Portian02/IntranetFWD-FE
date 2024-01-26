@@ -2,10 +2,12 @@ import { useRef, useEffect, useState } from "react";
 import "./justifications.css"; 
 import { fetchUsers } from "../../services/ApiUsers";
 import Swal from "sweetalert2";
+
 const JustificationForm = ({ setCurrJustification, setShow }) => {
   const formRef = useRef();
   const [getUsers,  setGetUsers] = useState([]);
-  const user_id = localStorage.getItem("id")
+  const user_id = localStorage.getItem("id");
+  
 
 
   const addJustification = async ( addJustification,setCurrJustification) => {
@@ -112,7 +114,7 @@ return (
             id="type_user_id"
             className="input"
           >
-            <option value="">Select Students</option>
+            <option value="" >Select Students</option>
             <optgroup label="Students">
               {getUsers
                 .filter(user => user.role === "student")

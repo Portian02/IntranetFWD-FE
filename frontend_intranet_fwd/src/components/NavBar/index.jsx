@@ -38,6 +38,12 @@ const Navbar = ({currUser, setCurrUser}) => {
           </Link>
         </li>
         <li className="navbar__item">
+          <Link to="/regulationDocuments" className="navbar__link">
+            Regulations FWD
+          </Link>
+        </li>
+
+        <li className="navbar__item">
           <Link to="/calendars" className="navbar__link">
             Calendars
           </Link>
