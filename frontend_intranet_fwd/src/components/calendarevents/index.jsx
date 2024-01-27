@@ -29,7 +29,7 @@ const CalendarList = () => {
   return (
     <div>
       <Navbar />
-      <h2 className="title">Lista de Calendarios</h2>
+      <h2 className="title">Calendar List</h2>
       {loading ? (
         <div className="loading">
           <Loading/>

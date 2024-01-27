@@ -100,18 +100,18 @@ const Justifications = () => {
                 {role === "admin" && (
                   <ButtonDeleteJustification id={justification.id}/>
                 )}
-                {role === "admin" && (
+                {role === "admin" || role === "teacher" ? (
                   <UpdateModalsJustification id={justification.id} initialData={justification} />
-                )}
+                ) : null}
               </div>
               
             ))}
           </ul>
         </div>
       )}
-      {role === "admin" && (
+      {role === "admin" || role === "teacher" ? (
         <ModalsJustificationsAdd/>
-      )}
+      ) : null}
     </div>
   );
 };

@@ -22,7 +22,6 @@ const DocumentsStorage = () => {
         setDocumentsStorage(data);
         setLoading(false);
         const type = await fetchDocumentsTypes();
-        console.log(type, "soy type");
         setDocument_type_id(type);
 
       } catch (error) {
@@ -67,7 +66,9 @@ const DocumentsStorage = () => {
           ))}
         </div>
       )}
-      <ModalsDocumentsAdd />
+      {role === "admin" && (
+        <ModalsDocumentsAdd />
+      )}
     </div>
   );
 };

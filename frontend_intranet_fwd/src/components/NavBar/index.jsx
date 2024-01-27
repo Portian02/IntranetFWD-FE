@@ -23,7 +23,7 @@ const Navbar = ({currUser, setCurrUser}) => {
         </li>
          <li className="navbar__item">
           <Link to="/profile" className="navbar__link">
-            Perfil
+            Profile
           </Link>
         </li>
         {role === "admin" &&(
@@ -39,7 +39,7 @@ const Navbar = ({currUser, setCurrUser}) => {
         </li>
         <li className="navbar__item">
           <Link to="/regulationDocuments" className="navbar__link">
-            Regulations FWD
+            Regulations
           </Link>
         </li>
 

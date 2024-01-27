@@ -61,14 +61,13 @@ const PasswordChange = () => {
 
   return (
     <div>
-      <h2>Cambio de Contraseña</h2>
-      <label>Nueva Contraseña:</label>
+      <label>New Password:</label>
       <input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <label>Confirmar Contraseña:</label>
+      <label>Password Corfimation:</label>
       <input
         type="password"
         value={passwordConfirmation}
