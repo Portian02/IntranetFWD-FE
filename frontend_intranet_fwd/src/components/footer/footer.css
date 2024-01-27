@@ -1,30 +1,54 @@
-.footer-info {
-    background-color: #f2f2f2;
+.contact-form {
+    background-color: #f5f5f5;
     padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.footer-manager {
-    background-color: #e6e6e6;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.footer-creation {
     text-align: center;
-    color: #999999;
 }
 
-.footer-creation p {
-    margin: 0;
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-.footer-creation p::before {
-    content: "\00a9";
+.contact-form .whatsapp {
+    margin-bottom: 20px;
 }
 
-.footer-creation p::after {
-    content: " 2024 IntranetFWD";
+.contact-form .whatsapp p {
+    margin-bottom: 10px;
+}
+
+.contact-form button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button[type="submit"] {
+    background-color: #008cba;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #007aa8;
 }

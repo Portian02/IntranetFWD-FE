@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { updateDocument } from "../../../../services/ApiDocuments";
-import { fetchUsers } from "../../../../services/ApiUsers";
+import { updateDocument, fetchDocumentsTypes } from "../../../../services/ApiDocuments";
 
 import "./updateform.css";
 function UpdateDocumentForm({ id, initialData }) {
   const [data, setData] = useState(initialData);
-  const [getUsers,  setGetUsers] = useState([]);
+  const [document_type_id, setDocument_type_id] = useState([]);
 
   const handleChange = (event) => {
     setData({
@@ -27,15 +26,15 @@ function UpdateDocumentForm({ id, initialData }) {
 
   // with this function we get the users
  useEffect(() => {
-  async function GetUsers() {
+  async function GetDocumnetsType() {
     try {
-      const data = await fetchUsers();
-      setGetUsers(data);
+     const type = await fetchDocumentsTypes();
+      setDocument_type_id(type);
     } catch (error) {
       console.error("Failed to load admonitions", error);
     }
   }
-  GetUsers();
+  GetDocumnetsType();
   }, []);
 
   return (
@@ -43,41 +42,52 @@ function UpdateDocumentForm({ id, initialData }) {
       <div className="container-form-div">
 
       <label className="label">
-        Status
+        Name
         <input
           type="text"
           name="status_admonition"
-          value={data?.status_admonition}
+          value={data?.name}
           onChange={handleChange}
           className="title-input"
         />
       </label>
+
       <label className="label">
-        user
-        <select
-          name="user_id"
-          value={data?.user_id}
+        Description
+        <input
+          type="text"
+          name="description"
+          value={data?.description}
           onChange={handleChange}
           className="title-input"
-        >
-          <optgroup label="Students">
-              {getUsers
-                .filter(user => user.role === "student")
-                .map(user => (
-                  <option key={user.id} value={user.id}>{user.username}</option>
-                ))}
-          </optgroup>
-        </select>
+        />
       </label>
       
-      <label className="label">
-        admonition Type
+            <label className="label">
+        URL
         <input
-          name="admonition_types_id"
-          value={data?.admonition_types_id}
+          type="text"
+          name="status_admonition"
+          value={data?.url}
           onChange={handleChange}
-          className="content-textarea"
+          className="title-input"
         />
+      </label>
+
+      <label className="label">
+        Document Type
+        <select
+          name="document_type_id"
+          value={data?.document_type_id}
+          onChange={handleChange}
+          className="select-input"
+        >
+          {document_type_id.map((type) => (
+            <option key={type.id} value={type.id}>
+              {type.type_name}
+            </option>
+          ))}
+        </select>
       </label>
       <button type="submit" className="submit-button">
         Update Admonition

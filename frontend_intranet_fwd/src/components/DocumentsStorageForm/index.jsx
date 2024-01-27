@@ -1,8 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import { fetchDocumentsTypes } from "../../services/ApiDocuments";
 import Swal from "sweetalert2";
 import "./documentForm.css"
 const DocumentsStorageForm = ({ setCurrDocumentsStorage, setShow }) => {
   const formRef = useRef();
+  const [document_type_id, setDocument_type_id] = React.useState([]);
 
   const addDocumentsStorage = async (
     DocumentsStorage,
@@ -30,6 +32,20 @@ const DocumentsStorageForm = ({ setCurrDocumentsStorage, setShow }) => {
       console.error("Error", error);
     }
   };
+
+    // with this function we get the users
+ useEffect(() => {
+  async function GetDocumnetsType() {
+    try {
+     const type = await fetchDocumentsTypes();
+      setDocument_type_id(type);
+    } catch (error) {
+      console.error("Failed to load admonitions", error);
+    }
+  }
+  GetDocumnetsType();
+  }, []);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,16 +122,17 @@ const DocumentsStorageForm = ({ setCurrDocumentsStorage, setShow }) => {
           className="documents-storage-add-input"
         />
         <br />
-        <label htmlFor="document_type_id">Document_Type:</label>
-        <input
-          type="text"
+        <select
           name="document_type_id"
-          id="document_type_id"
-          placeholder="ID del Tipo de Documento"
-          className="documents-storage-add-input"
-        />
 
-        <br />
+          className="select-input"
+        >
+          {document_type_id.map((type) => (
+            <option key={type.id} value={type.id}>
+              {type.type_name}
+            </option>
+          ))}
+        </select>
         <input
           type="submit"
           value="Submit"

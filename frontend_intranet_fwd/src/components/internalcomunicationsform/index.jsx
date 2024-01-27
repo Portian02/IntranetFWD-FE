@@ -84,18 +84,17 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
 
     const id_comunication=localStorage.getItem("id_registro")
 
-    const valor = parseInt(id_comunication)
-    const valor2 = parseInt(id_user)
+    const communiction = parseInt(id_comunication)
+    const user_receptor = parseInt(id_user)
 
-    console.log("parseado 1",valor)
-    console.log("parseado 2",valor2)
+    console.log("parseado 1",communiction)
+    console.log("parseado 2",user_receptor)
 
-    //let  comunication_id=id_comunication+1
 
         const communicationmid = {
           internal_communications_users: {
-            user_id: valor2, 
-            internal_communication_id: valor +1
+            user_id: user_receptor, 
+            internal_communication_id: communiction +1
           }
       };
 
@@ -166,7 +165,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
       <form ref={formRef} onSubmit={handleSubmit}  className="communicationadd-form">
 
 
-        <label>
+         <label>
           <select
             required
             name="type_user_id"
@@ -191,9 +190,10 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
           </select>
           <span>User</span>
         </label>
+        
         <br />
 
-
+      
 
         <label htmlFor="title">Title:</label>
         <input

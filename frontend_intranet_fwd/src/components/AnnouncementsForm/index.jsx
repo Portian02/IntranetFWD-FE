@@ -91,16 +91,7 @@ const AnnouncementForm = ({ setCurrAnnouncement, setShow }) => {
           className="date input"
         />
         <br />
-        {/* Puedes ajustar el formulario según tus necesidades, por ejemplo, si deseas permitir la carga de documentos /}
-        {/ <label htmlFor="document">Document:</label>
-        <input
-          type="URL or File"
-          name="document"
-          id="document"
-          placeholder="Document"
-          className="document input"
-        />
-        <br /> */}
+    
         <input type="submit" value="Submit" className="btn" />
       </form>
       <br />

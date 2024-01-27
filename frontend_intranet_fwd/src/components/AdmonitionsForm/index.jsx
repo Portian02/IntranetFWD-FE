@@ -1,5 +1,6 @@
   import { useRef, useEffect, useState } from "react";
   import { fetchUsers } from "../../services/ApiUsers";
+import { fetchAdmonitionstypes } from "../../services/ApiAdmonitions";
   import "./admonitions.css"; 
   import Swal from "sweetalert2";
 
@@ -8,6 +9,7 @@
   const AdmonitionForm = ({ setCurrAdmonition, setShow }) => {
     const formRef = useRef();
     const [getUsers,  setGetUsers] = useState([]);
+    const [getAdmonitions_types,  setGetAdmonitions_types] = useState([]);
     const responsable_id = localStorage.getItem("id")
     const addAdmonition = async (admonitionInfo, setCurrAdmonition) => {
       
@@ -72,19 +74,23 @@
       addAdmonition(admonitionInfo, setCurrAdmonition);
       e.target.reset();
     };
-  // with this function we get the users
+  // with this function we get the users  
   useEffect(() => {
-    async function GetUsers() {
+    async function GetUsersandType() {
       try {
         const data = await fetchUsers();
         setGetUsers(data);
+        const type = await fetchAdmonitionstypes();
+        setGetAdmonitions_types(type);
       } catch (error) {
         
         console.error("Failed to load admonitions", error);
       }
     }
-    GetUsers();
+    GetUsersandType();
     }, []);
+
+
 
 
 
@@ -94,14 +100,15 @@
       
       <form ref={formRef} onSubmit={handleSubmit} className="admonition-add-form">
         <label htmlFor="status_admonition">Status:</label>
-        <input
-          type="text"
+        <select
           name="status_admonition"
           id="status_admonition"
-          placeholder="Status"
           className="admonition-add-input"
-          
-        />
+        >
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+          <option value="in_progress">In Progress</option>
+        </select>
 
         <br />
         <label htmlFor="date">Date:</label>
@@ -149,12 +156,11 @@
           id="admonition_type_id"
           className="admonition-add-input"
         >
-          <option value="1">Late</option>
-          <option value="1">Behavior</option>
-          <option value="1">Technique</option>
-          <option value="1">Absence</option>
+          {getAdmonitions_types.map(admonitionType => (
+            <option key={admonitionType.id} value={admonitionType.id}>{admonitionType.name}</option>
+          ))}
         </select>
-        
+
         <br />
         <input  type="submit" value="Submit" className="admonition-add-submit" />
       </form>
