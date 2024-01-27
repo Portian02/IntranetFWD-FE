@@ -1,0 +1,17 @@
+
+body {
+
+  font-family: roboto;
+}
+
+.container {
+    width: 30%;
+  height: 90%;
+ 
+background-color: #72d9e4;
+ 
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}

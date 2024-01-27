@@ -1,0 +1,71 @@
+/* 
+
+.internal-communications {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
+}
+
+.internal-communications__title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #003366; 
+    text-decoration: underline;
+}
+
+.internal-communications__list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.internal-communications__item {
+    margin-bottom: 20px;
+    animation: fade-in 0.5s ease-in-out; 
+    transition: background-color 0.3s ease-in-out; 
+}
+
+.comunication-content {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333; 
+}
+
+.comunication-date {
+    font-size: 14px;
+    color: #888;
+    padding-bottom: 15px;
+}
+
+.comunication-username {
+    font-size: 14px;
+    color: #888;
+}
+
+
+.internal-communications__item:hover {
+    background-color: #e6e6e6;
+    cursor: pointer;
+    transform: scale(1.05); 
+}
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */

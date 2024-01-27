@@ -1,0 +1,18 @@
+.container-image {
+    padding-top: 2rem;
+    padding-left: 14rem;
+    padding-right: 14rem;
+    padding-bottom: 8rem;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 630px) {
+    .carusel {
+      display: none;
+    }
+  }
+
+  .images{
+    width: 550px;
+    height: 500px;
+  }

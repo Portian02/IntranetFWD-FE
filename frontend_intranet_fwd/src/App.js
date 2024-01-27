@@ -1,20 +1,21 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import UserList from "./components/users/index"; // Ajusta la ruta según la ubicación de tu componente
-import Navbar from "./components/NavBar/index";
-import Formuser from "./components/formuser";
-import InternalCommunicationsForm from "./components/internalcomunicationsform";
-const App = () => {
+import Routing from "./components/routes";
+import './App.css';
+import { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import { AuthProvider } from "./context/AuthContext";
+const App=()=>{
+
+  const [currUser, setCurrUser] = useState(null);
+  
   return (
-    <Routes>
-      <Route element={<Navbar />}>
-        <Route path="users" element={<UserList />} />
-        <Route path="users/new" element={<Formuser />} />
-        {/* <Route path="communications" element={<InternalCommunications />} /> */}
-        <Route path="communications/new" element={< InternalCommunicationsForm />} />
-      </Route>
-    </Routes>
-  );
-};
+    <div className="App">
+    {/* <AuthProvider> */}
+      <Routing currUser={currUser} setCurrUser={setCurrUser} /> 
+    {/* </AuthProvider> */}
+
+   </div>
+  )
+}
 
 export default App;
