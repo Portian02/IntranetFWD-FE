@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {  fetchDocument } from '../../services/ApiDocuments';
+import Navbar from '../NavBar';
 
 const RegulationDocuments = () => {
   const [reglamentos, setReglamentos] = useState([]);
@@ -26,6 +27,7 @@ const RegulationDocuments = () => {
 
   return (
     <div>
+      <Navbar/>
       <h2>Reglamentos FWD</h2>
       {loading ? (
         <div>Loading...</div>

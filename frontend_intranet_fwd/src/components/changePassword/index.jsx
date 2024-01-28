@@ -1,4 +1,3 @@
-// En tu componente React (por ejemplo, PasswordChangeComponent.js)
 
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
@@ -61,7 +60,7 @@ const PasswordChange = () => {
 
   return (
     <div>
-      <h2>Cambio de Contraseña</h2>
+      
       <label>Nueva Contraseña:</label>
       <input
         type="password"

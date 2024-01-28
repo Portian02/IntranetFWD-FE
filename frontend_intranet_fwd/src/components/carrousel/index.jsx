@@ -2,9 +2,9 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import   "./carousel.css";
 import { Link } from "react-router-dom";
-import inaguración from "./Inaguracion_FWD_2023.jpeg";
+import webiner from "./MariTalks.png";
 import inscribete from "./Inscripciones.jpeg";
-import reclutamiento from "./Reclutamiento.jpeg";
+import genera from "./FirtGene.jpeg";
 import invitaciones from "./Invitaciones.jpeg";
 const Carousel1 = () => {
   return (
@@ -18,19 +18,19 @@ const Carousel1 = () => {
      <img className="images"src={inscribete} alt="" />
       </Link>
       <Carousel.Caption>
-        <h5>Relajate</h5>
-        <p>un carrusel puede ser de ayuda</p>
+        <h5>Are you ready to be part of our team?😎👌</h5>
+        <p>Participate in the recruitment process from February 5 to 15</p>
       </Carousel.Caption>
     </Carousel.Item>
     {/* {/ // ---------------------------------------------------------------------------  */} 
 
 <Carousel.Item className="container-image" interval={2000}>
       <Link to="/princess">
-       <img className="images" src={inaguración} alt="" />
+       <img className="image" src={webiner} alt="" />
       </Link>
       <Carousel.Caption>
-        <h5>Evoluciona</h5>
-        <p>Mantente actualizado con nosotros con las nuevas tecnologias</p>
+        <h5>Webiner with Mariana Rodriguez. </h5>
+        <p>Today at 5 </p>
       </Carousel.Caption>
     </Carousel.Item>
     {/* // ---------------------------------------------------------------------------  */}
@@ -39,19 +39,19 @@ const Carousel1 = () => {
         <img className="images" src={invitaciones} alt="" />
       </Link>
       <Carousel.Caption>
-        <h5>Invitaciones</h5>
-        <p>Invitaciones a eventos</p>
+        <h5>Graduation 2024.</h5>
+        <p> We cannot but be excited for this day.</p>
       </Carousel.Caption>
     </Carousel.Item>
 
     <Carousel.Item className="container-image" interval={2000}>
       <Link to="/princess">
-        <img className="images" src={reclutamiento} alt="" />
+        <img className="images" src={genera} alt="" />
         
       </Link>
       <Carousel.Caption>
-        <h5>Apresurate</h5>
-        <p>e inscribete a nuestro programa</p>
+        <h5>First Generation</h5>
+        <p> This is our first generation FWD 2023</p>
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>
