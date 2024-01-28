@@ -34,9 +34,6 @@ const Admonition = () => {
 
 
 
-  console.log("soy los usuarios",getUsers)
-  console.log("soy la amonestacion",admonitions)
-
 
   return (
     <div>
