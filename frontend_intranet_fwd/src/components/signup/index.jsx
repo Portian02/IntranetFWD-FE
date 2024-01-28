@@ -37,10 +37,21 @@ const Signup = ({ setCurrUser, setShow }) => {
     setTimeout(function(){ window.location.reload(); }, 2000);
   };
   const Default_password = "fwd1234"
+  const isValidEmail = (email) => {
+    const emailRegex = /^[A-Za-z0-9._%+-]+@fwdcostarica\.com$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
+    
+    if (!isValidEmail(data.email)) {
+      alert("El dominio de correo electrónico no es válido. Por favor, utiliza el dominio @fwdcostarica.com");
+      return;
+    }
+
     const userInfo = {
       user: {
         identification: data.identification,
@@ -54,6 +65,7 @@ const Signup = ({ setCurrUser, setShow }) => {
         role: data.role,
       },
     };
+    
     signup(userInfo, setCurrUser);
     e.target.reset();
   };

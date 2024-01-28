@@ -34,14 +34,11 @@ const Admonition = () => {
 
 
 
-  console.log("soy los usuarios",getUsers)
-  console.log("soy la amonestacion",admonitions)
-
 
   return (
     <div>
       <Navbar />
-      <h2 className="title-admonition">Lista de Amonestaciones</h2>
+      <h2 className="title-admonition">Admonitions</h2>
       {loading ? (
         <div className="loading">
           <Loading/>
@@ -59,23 +56,24 @@ const Admonition = () => {
                 <p key={user.id}>Responsable: {user.username}</p>))
                 }
                 {getUsers.map((user) => (user.id == admonition.user_id) && (
-                <p key={user.id}>Usuario: {user.username}</p>))}
+                <p key={user.id}>User: {user.username}</p>))}
                 <div className="admonitio_type">
                 {admonition_type_id.map((admonition_type) => (admonition_type.id === admonition.admonition_types_id) && (
-                              <p key={admonition_type.id}>Tipo de Amonestacion: {admonition_type.name}</p>))}
+                              <p key={admonition_type.id}>Type: {admonition_type.name}</p>))}
                 </div>
                
-                <p className="card-date">Fecha: {admonition.date}</p>
+                <p className="card-date">Date: {admonition.date}</p>
                
                  {role === "admin" && <ButtonDeleteAdmonition id={admonition.id} />}
-               {role === "admin" && (
+
+               {role === "admin" || role === "teacher" ? (
                   <UpdateModalsAdmonnition id={admonition.id} initialData={admonition} />
-                )}
+                ): null}
               </div>
             ))}
           </ul>
 
-          {role === "admin" && <ModalsAdmonitionAdd />}
+          {role === "admin" || role === "teacher" ? ( <ModalsAdmonitionAdd />): null}
         </div>
       )}
     </div>

@@ -14,7 +14,7 @@ const Carousel1 = () => {
 
     {/* // ---------------------------------------------------------------------------  */}
     <Carousel.Item className="container-image" interval={2000}>
-    <Link to="/princess">
+    <Link to="/announcements">
      <img className="images"src={inscribete} alt="" />
       </Link>
       <Carousel.Caption>
@@ -25,8 +25,8 @@ const Carousel1 = () => {
     {/* {/ // ---------------------------------------------------------------------------  */} 
 
 <Carousel.Item className="container-image" interval={2000}>
-      <Link to="/princess">
-       <img className="image" src={webiner} alt="" />
+      <Link to="/announcements">
+       <img className="images" src={webiner} alt="" />
       </Link>
       <Carousel.Caption>
         <h5>Webiner with Mariana Rodriguez. </h5>
@@ -35,7 +35,7 @@ const Carousel1 = () => {
     </Carousel.Item>
     {/* // ---------------------------------------------------------------------------  */}
     <Carousel.Item className="container-image" interval={2000}>
-      <Link to="/princess">
+      <Link to="/announcements">
         <img className="images" src={invitaciones} alt="" />
       </Link>
       <Carousel.Caption>
@@ -45,7 +45,7 @@ const Carousel1 = () => {
     </Carousel.Item>
 
     <Carousel.Item className="container-image" interval={2000}>
-      <Link to="/princess">
+      <Link to="/announcements">
         <img className="images" src={genera} alt="" />
         
       </Link>

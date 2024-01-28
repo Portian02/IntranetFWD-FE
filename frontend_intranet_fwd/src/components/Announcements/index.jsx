@@ -30,7 +30,7 @@ const Announcement = () => {
     <div>
 
       <Navbar />
-      <h2 className="title">Lista de Anuncios</h2>
+      <h2 className="title-announcements">Announcements</h2>
       {loading ? (
         <div className="loading">
           <Loading/>      
@@ -59,8 +59,12 @@ const Announcement = () => {
           </ul>
         </div>
       )}
+      {role === "admin" && (
         <ModalsAnnouncementAdd />
+      )}
+      
     </div>
+
   );
 };
 

@@ -1,13 +1,14 @@
 import { useRef, useEffect, useState } from "react";
 import "./justifications.css"; 
 import { fetchUsers } from "../../services/ApiUsers";
+import {fetchJustifications_types } from "../../services/ApiJustification";
 import Swal from "sweetalert2";
 
 const JustificationForm = ({ setCurrJustification, setShow }) => {
   const formRef = useRef();
   const [getUsers,  setGetUsers] = useState([]);
   const user_id = localStorage.getItem("id");
-  
+  const [justification_types_id, setJustification_types_id] = useState([]);
 
 
   const addJustification = async ( addJustification,setCurrJustification) => {
@@ -68,12 +69,19 @@ useEffect(() => {
     try {
       const data = await fetchUsers();
       setGetUsers(data);
+      const type = await fetchJustifications_types();
+      setJustification_types_id(type);
     } catch (error) {
-      console.error("Failed to load admonitions", error);
+      console.error("Failed to load users", error);
     }
   }
   GetUsers();
   }, []);
+
+
+
+
+
 
 
 return (
@@ -131,12 +139,10 @@ return (
           id="justification_types_id"
           className="justification-add-input"
         >
-          <option value="1">Late Unjustified</option>
-          <option value="1">Late Justified</option>
-          <option value="1">Absence Unjustified</option>
-          <option value="1">Absence Justified</option>
-          <option value="1">Early Departure Unjustified</option>
-          <option value="1">Early Departure Justified</option>
+          <option value="">Select Justification Type</option>
+          {justification_types_id.map(justification => (
+            <option key={justification.id} value={justification.id}>{justification.name}</option>
+          ))}
         </select>
         <br />
         <input type="submit" value="Submit" className="justification-add-submit" />
