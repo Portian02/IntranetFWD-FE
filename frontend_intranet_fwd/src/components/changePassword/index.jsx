@@ -1,4 +1,3 @@
-// En tu componente React (por ejemplo, PasswordChangeComponent.js)
 
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';

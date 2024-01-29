@@ -8,6 +8,7 @@ const Footer = () => {
                
                 <h3>Quién lo Maneja</h3>
                 <p>Este footer es manejado por el equipo de desarrollo de IntranetFWD.</p>
+
             </div>
     
               <ContactUs/>

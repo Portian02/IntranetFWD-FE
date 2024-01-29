@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../logo";
+import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import Logout from "../logout";
-const Navbar = ({currUser, setCurrUser}) => {
+
+
+const Navbar = ({ currUser, setCurrUser }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
+
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
@@ -12,7 +16,7 @@ const Navbar = ({currUser, setCurrUser}) => {
 
   const role = localStorage.getItem("role");
   return (
-    
+  
     <nav className="navbar">
       <Logo className="navbar__logo" /> {/* Agregar el componente de Logo */}
       <ul className="navbar__list">
@@ -21,17 +25,18 @@ const Navbar = ({currUser, setCurrUser}) => {
             Home
           </Link>
         </li>
-         <li className="navbar__item">
+        <li className="navbar__item">
           <Link to="/profile" className="navbar__link">
             Profile
           </Link>
         </li>
-        {role === "admin" &&(
-        <li className="navbar__item">
-          <Link to="/users" className="navbar__link">
-            Users
-          </Link>
-        </li>)}
+        {role === "admin" && (
+          <li className="navbar__item">
+            <Link to="/users" className="navbar__link">
+              Users
+            </Link>
+          </li>
+        )}
         <li className="navbar__item">
           <Link to="/communications" className="navbar__link">
             Communications
@@ -48,45 +53,52 @@ const Navbar = ({currUser, setCurrUser}) => {
             Calendars
           </Link>
         </li>
-       
+
         <li className="navbar__item">
           <div className="navbar__dropdown">
-            <button className="navbar__dropdown-button" onClick={toggleDropdown}>
+            <button
+              className="navbar__dropdown-button"
+              onClick={toggleDropdown}
+            >
               Others
             </button>
             {dropdownVisible && (
               <div className="navbar__dropdown-content">
-          <Link to="/admonitions" className="navbar__link">
-            Admontions
-          </Link>
-        
-           
-          <Link to="/justifications" className="navbar__link">
-            Justifications
-          </Link>
-        
-         
-          <Link to="/announcements" className="navbar__link">
-            Announcements
-          </Link>
-        
-        <Link to="/DocumentsStorage" className="navbar__link">
-        Documents
-        </Link>
+                <Link to="/admonitions" className="navbar__link">
+                  Admontions
+                </Link>
+
+                <Link to="/justifications" className="navbar__link">
+                  Justifications
+                </Link>
+
+                <Link to="/announcements" className="navbar__link">
+                  Announcements
+                </Link>
+
+                <Link to="/DocumentsStorage" className="navbar__link">
+                  Documents
+                </Link>
               </div>
             )}
           </div>
         </li>
       </ul>
+
+      <Sidebar>
+  <Menu>
+    <SubMenu label="Charts">
+      <MenuItem> Pie charts </MenuItem>
+      <MenuItem> Line charts </MenuItem>
+    </SubMenu>
+    <MenuItem> Documentation </MenuItem>
+    <MenuItem> Calendar </MenuItem>
+  </Menu>
+</Sidebar>;
       <div className="logout-btn">
-    {currUser? "" : <Logout setCurrUser={setCurrUser}/>}
+        {currUser ? "" : <Logout setCurrUser={setCurrUser} />}
       </div>
-      
-    
-
-       
     </nav>
-
   );
 };
 

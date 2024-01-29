@@ -24,6 +24,7 @@ const Home = () => {
           <li className="program-item">Backend Development Program</li>
           <li className="program-item">Full Stack Development Program</li>
         </ul>
+         
 
         <h2 className="section-title">Why choose us</h2>
         <ul className="reasons-list">
@@ -35,6 +36,7 @@ const Home = () => {
         </div>
         <Footer/>
     </div>
+   
   );
 };
 
