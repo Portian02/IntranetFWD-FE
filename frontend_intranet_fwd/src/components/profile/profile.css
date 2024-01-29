@@ -1,17 +1,15 @@
-
 body {
-
-  font-family: roboto;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #c5e8e8;
 }
 
 .container {
-    width: 30%;
-  height: 90%;
- 
-background-color: #72d9e4;
- 
+  background-color: #4b888b;
   padding: 16px;
   margin: 16px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-
+  border: 5px solid ;
+  height: 350px;
 }
+  
+  
