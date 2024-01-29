@@ -1,0 +1,26 @@
+.tittle-regulation {
+    text-align: center;
+    font-size: 36px; /* Increased font size */
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #efeaea;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #ffcb05; /* Updated background color */
+    padding: 10px; /* Added padding */
+    border-radius: 5px; /* Added border radius */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Added box shadow */
+  }
+
+.no-data {
+    border: 2px solid #f8b500; /* Color del borde */
+    background-color: #fff3d1; /* Color de fondo */
+    padding: 50px 0px 50px 0px; /* Espacio interno */
+    margin-left: 70px;
+    margin-right: 70px;
+    border-radius: 5px; /* Borde redondeado */
+    text-align: center; /* Alineación del texto */
+    font-weight: bold; /* Negrita */
+    color: #f8b500; /* Color del texto */
+}

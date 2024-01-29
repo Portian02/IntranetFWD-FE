@@ -14,7 +14,7 @@ const ButtonDeleteAdmonition = ({ id }) => {
     }
   };
   return (
-    <button onClick={handleDelete} className="button">
+    <button onClick={handleDelete} className="button-admonition">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

@@ -1,4 +1,4 @@
-.Btn {
+.Btn-calendar-update {
   position: relative;
   display: flex;
   align-items: center;
@@ -25,11 +25,11 @@
   transition-duration: .3s;
 }
 
-.Btn:hover {
+.Btn-calendar-update:hover {
   color: transparent;
 }
 
-.Btn:hover svg {
+.Btn-calendar-update:hover svg {
   right: 43%;
   margin: 0;
   padding: 0;
@@ -37,7 +37,7 @@
   transition-duration: .3s;
 }
 
-.Btn:active {
+.Btn-calendar-update:active {
   transform: translate(3px , 3px);
   transition-duration: .3s;
   box-shadow: 2px 2px 0px rgb(140, 32, 212);

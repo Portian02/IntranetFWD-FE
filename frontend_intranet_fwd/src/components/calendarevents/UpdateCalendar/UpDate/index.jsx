@@ -24,6 +24,7 @@ function UpdateCalendarForm({ id, initialData }) {
 
   return (
     <form onSubmit={handleSubmit} className="form-modal-update">
+    <h2>Updating Calendar</h2>
       <div className="conatiner-form-div">
         <label className="form-label">
           Title:

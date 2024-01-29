@@ -1,0 +1,55 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.links {
+    margin-top: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+.links:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+.links:active {
+    color: red;
+}
+
+.links:focus {
+    outline: none;
+}
+
+.links:focus-visible {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.links:visited {
+    color: purple;
+}
+
+.links:before {
+    content: "→ ";
+}
+
+.links:after {
+    content: " ←";
+}
+
+.export {
+    display: none;
+}
+
+.export::before {
+    content: "/* CSS for the list */";
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}

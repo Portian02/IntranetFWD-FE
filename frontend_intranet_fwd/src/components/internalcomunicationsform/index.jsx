@@ -1,19 +1,16 @@
 import { useRef,useState,useEffect } from "react";
 import "./CommunicationForm.css";
 import { fetchUsers } from "../../services/ApiUsers";
+
+
 const CommunicationForm = ({ setCurrCommunication, setShow }) => {
+const [getUsers,  setGetUsers] = useState([]);
+const formRef = useRef();
 
-  const [getUsers,  setGetUsers] = useState([]);
+const communicationadd = async (communicationInfo, setCurrCommunication) => {
+   try {
 
-  const formRef = useRef();
-
- 
-  const communicationadd = async (communicationInfo, setCurrCommunication) => {
-
- 
-    try {
-
-      const response = await fetch("http://localhost:3001/api/internal_communications", {
+    const response = await fetch("http://localhost:3001/api/internal_communications", {
 
         method: "post",
         headers: {
@@ -23,9 +20,6 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
         body: JSON.stringify(communicationInfo),
       });
 
-
-      
- 
       const data = await response.json();
       console.log("Soy Data", data);
       if (!response.ok) throw data.error;
@@ -33,28 +27,13 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
     } catch (error) {
       console.log("error", error);
     }
-     
-  
-
-
-    
    communicationuser()
-
-/////////////////////////////////////////////////////////////////////////////////////////
-
   };
-
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     const formData = new FormData(formRef.current);
-
-   
     const data = Object.fromEntries(formData);
-    
- localStorage.setItem("id_registro_user", data.type_user_id);
+    localStorage.setItem("id_registro_user", data.type_user_id);
 
     const communicationInfo = {
       internal_communication: {
@@ -63,20 +42,11 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
     user_id: data.user_id 
    
       },
-
-      
     };
 
- 
-    
-    
     communicationadd(communicationInfo, setCurrCommunication);
     e.target.reset();
   };
-
-
- 
-
 
   const communicationuser = async () => {
 
@@ -99,11 +69,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
       };
 
       console.log("SOY EL JSON" ,communicationmid)
-
-      
-
-
-        try {
+ try {
 
         
         
@@ -166,6 +132,7 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
 
 
          <label>
+          <span>User</span>
           <select
             required
             name="type_user_id"
@@ -188,7 +155,6 @@ const CommunicationForm = ({ setCurrCommunication, setShow }) => {
                 ))}
             </optgroup>
           </select>
-          <span>User</span>
         </label>
         
         <br />

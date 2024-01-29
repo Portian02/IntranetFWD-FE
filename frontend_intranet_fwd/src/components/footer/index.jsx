@@ -6,8 +6,9 @@ const Footer = () => {
         <footer>
             <div className="footer-info">
                
-                <h3>Quién lo Maneja</h3>
-                <p>Este footer es manejado por el equipo de desarrollo de IntranetFWD.</p>
+                <h3>Who manages it?</h3>
+                <p>This footer is managed by the IntranetFWD development team.</p>
+
             </div>
     
               <ContactUs/>

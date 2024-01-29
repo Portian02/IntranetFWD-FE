@@ -90,12 +90,13 @@ const DocumentsStorageForm = ({ setCurrDocumentsStorage, setShow }) => {
 
   return (
     <div className="documents-storage-add-container">
+      <h2 className="documents-storage-add-title">Add Document</h2>
       <form
         ref={formRef}
         onSubmit={handleSubmit}
         className="documents-storage-add-form"
       >
-        <label htmlFor="name">Nombre:</label>
+        <label htmlFor="name">Name:</label>
         <input
           type="text"
           name="name"
@@ -104,7 +105,7 @@ const DocumentsStorageForm = ({ setCurrDocumentsStorage, setShow }) => {
           className="documents-storage-add-input"
         />
         <br />
-        <label htmlFor="description">Descripción:</label>
+        <label htmlFor="description">Description:</label>
         <input
           type="text"
           name="description"

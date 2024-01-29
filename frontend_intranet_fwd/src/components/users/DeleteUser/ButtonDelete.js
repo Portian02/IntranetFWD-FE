@@ -7,14 +7,14 @@ const ButtonDeleteUser = ({ id }) => {
     try {
       console.log("Hola soy el id del User", id);
       const data = await DeleteUser(id);
-      window.location.reload();
       console.log("Hola soy la data del User", data);
     } catch (error) {
+      window.location.reload();
       console.error("Failed to delete User", error);
     }
   };
   return (
-     <button onClick={handleDelete} className="button">
+     <button onClick={handleDelete} className="button-user">
      <svg
        xmlns="http://www.w3.org/2000/svg"
        fill="none"

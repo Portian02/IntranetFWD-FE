@@ -62,37 +62,38 @@ const AnnouncementForm = ({ setCurrAnnouncement, setShow }) => {
   };
 
   return (
-    <div className="container">
-      <form ref={formRef} onSubmit={handleSubmit} className="form">
-        <p className="title">Announcement Form</p>
+    <div className="container-announcements">
+      <form ref={formRef} onSubmit={handleSubmit} className="form-announcemnets">
+        <h2 className="title-announcement">Announcement</h2>
         <label htmlFor="content">Title:</label>
-        <input
+       < input
           type="text"
           name="content"
           id="content"
           placeholder="Content"
-          className="content input"
+          className="input-announcements"
         />
         <br />
         <label htmlFor="description">Description:</label>
-        <textarea
+        <br />
+        <input
           name="description"
           id="description"
           placeholder="Description"
-          className="description input"
+          className="input-announcements"
         />
         <br />
         <label htmlFor="date">Date:</label>
         <input
-          type="date"
+       type="date"
           name="date"
           id="date"
           placeholder="Date"
-          className="date input"
+          className="input-announcements"
         />
         <br />
     
-        <input type="submit" value="Submit" className="btn" />
+        <input type="submit" value="Submit" className="btn-submit-announce" />
       </form>
       <br />
     </div>

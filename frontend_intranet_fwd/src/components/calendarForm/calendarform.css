@@ -1,43 +1,39 @@
-.container {
+.communicationadd-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-}
-
-.form {
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+  }
+  
+  .communicationadd-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 300px;
-    padding: 20px;
+  }
+  
+  .communicationadd-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.username,
-.date,
-.document {
-    margin-bottom: 10px;
-}
-
-.btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .communicationadd-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
+  }
+  
+  .communicationadd-submit:hover {
+    background-color: #45a049;
+  }

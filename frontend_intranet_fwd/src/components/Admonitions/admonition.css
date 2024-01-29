@@ -1,0 +1,120 @@
+.title-admonition{
+  text-align: center;
+  font-size: 36px; /* Increased font size */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #efeaea;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #008fd4; /* Added background color */
+  padding: 10px; /* Added padding */
+  border-radius: 5px; /* Added border radius */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Added box shadow */
+}
+
+
+.admonitions-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style-type: none;
+}
+
+.admonition-card{
+  background-color: #8ed2f5;
+  border: 3px solid #008fd4;
+  padding: 10px 30px;
+  margin: 50px 0;
+  /* height:80px;  */
+
+}
+
+.admonition-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admonition-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.student-name {
+  font-weight: bold;
+}
+
+.status-justification {
+  font-style: italic;
+}
+
+.responsable-name {
+  font-weight: bold;
+}
+
+/* Agregar estilos interactivos */
+.admonition-table td:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.admonition-table td.selected {
+  background-color: #e0e0e0;
+}
+
+
+.title-admonition {
+  text-align: center;
+  font-size: 36px; /* Increased font size */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #efeaea;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #008fd4; /* Added background color */
+  padding: 10px; /* Added padding */
+  border-radius: 5px; /* Added border radius */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Added box shadow */
+}
+
+.admonitions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #c888e8;
+  color: white;
+}
+
+.admonitions-table th,
+.admonitions-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.admonitions-table thead th {
+  background-color: #662d91;
+  color: white;
+}
+
+.admonitions-table tbody tr:nth-child(even) {
+  background-color: #b989eb;
+}
+
+
+.admonitions-table .status-column,
+.admonitions-table .responsable-column,
+.admonitions-table .student-column,
+.admonitions-table .type-column,
+.admonitions-table .date-column,
+.admonitions-table .action-column {
+  font-weight: bold;
+}
+
+.admonitions-table .status-cell,
+.admonitions-table .responsable-cell,
+.admonitions-table .student-cell,
+.admonitions-table .type-cell,
+.admonitions-table .date-cell,
+.admonitions-table .action-cell {
+  color: white;
+}

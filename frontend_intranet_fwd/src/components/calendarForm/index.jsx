@@ -42,16 +42,16 @@ const CalendarForm = ({ setCurrCalendarevent, setShow }) => {
   };
 
   return (
-    <div className="container">
-      <form ref={formRef} onSubmit={handleSubmit} className="form">
-        <p className="title">Calendar Form</p>
+    <div className="communicationadd-container">
+      <form ref={formRef} onSubmit={handleSubmit} className="communicationadd-form">
+        <h3>Calendar Form</h3>
         <label htmlFor="name">Title</label>
         <input
           type="text"
           name="title"
           id="name"
           placeholder="name"
-          className="username input"
+           className="communicationadd-input"
         />
         <br />
         <label htmlFor="content">Description:</label>
@@ -60,7 +60,7 @@ const CalendarForm = ({ setCurrCalendarevent, setShow }) => {
           name="description"
           id="content"
           placeholder="content"
-          className="username input"
+           className="communicationadd-input"
         />
         <br />
         <label htmlFor="url">Url</label>
@@ -69,10 +69,10 @@ const CalendarForm = ({ setCurrCalendarevent, setShow }) => {
           name="url"
           id="document"
           placeholder="document"
-          className="document input"
+         className="communicationadd-input"
         />
         <br />
-        <input type="submit" value="Submit" className="btn" />
+        <input type="submit" value="Submit" className="communicationadd-submit" />
         
       </form>
 

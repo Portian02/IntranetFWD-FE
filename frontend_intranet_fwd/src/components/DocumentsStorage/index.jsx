@@ -37,11 +37,18 @@ const DocumentsStorage = () => {
   return (
     <div>
       <Navbar />
-      <h2 className="title">List Documents FWD</h2>
+      <h2 className="title-documents">Documents</h2>
       {loading ? (
         <div className="loading">
           <Loading/>
+       <h3 className="mt-5 mr-3"> Loading...</h3>
         </div>
+      ) : 
+      (
+       documentsStorage.length === 0 ? (
+        <h2 className="d-flex justify-content-center  mt-5 no-data ">
+          There is no any data
+        </h2>
       ) : (
         <div className="container-documents-div">
           {documentsStorage.map((document) => (
@@ -65,6 +72,7 @@ const DocumentsStorage = () => {
             </div>
           ))}
         </div>
+      )
       )}
       {role === "admin" && (
         <ModalsDocumentsAdd />
