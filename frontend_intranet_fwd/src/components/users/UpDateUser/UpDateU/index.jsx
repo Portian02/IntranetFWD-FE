@@ -23,7 +23,8 @@ function UpdateUserForm({ id, initialData }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-modal-update">
+    <form onSubmit={handleSubmit} className="d-flex flex-wrap form-modal-update">
+      <h2>Updating User</h2>
       <div className="conatiner-form-div">
         <label className="Name-label">
           Name:
@@ -32,7 +33,7 @@ function UpdateUserForm({ id, initialData }) {
             name="username"
             value={data.username}
             onChange={handleChange}
-            className="form-input"
+            className="form-input-name"
           />
         </label>
         <label className="ID-label">

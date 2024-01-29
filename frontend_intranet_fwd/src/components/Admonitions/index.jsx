@@ -14,6 +14,8 @@ const Admonition = () => {
   const [loading, setLoading] = useState(true);
   const [admonition_type_id, setAdmonition_type_id] = useState([]);
   const role = localStorage.getItem("role");
+  const user_id = localStorage.getItem("id");
+
   useEffect(() => {
     async function loadAdmonitions() {
       try {

@@ -18,7 +18,7 @@ const Justifications = () => {
   const [Justifications_types, setJustifications_types] = useState([]);
   const [Users, setUsers] = useState([]);
   const role = localStorage.getItem("role");
-
+  const user_id = localStorage.getItem("id");
   useEffect(() => {
     async function loadJustification() {
       try {
@@ -46,7 +46,7 @@ const Justifications = () => {
 
 
 
-
+console.log(justifications.filter(justification => justification.user_id == user_id).map((justification_user)=>(justification_user.user_id == user_id)), "soy admonitions");
 
 
 
