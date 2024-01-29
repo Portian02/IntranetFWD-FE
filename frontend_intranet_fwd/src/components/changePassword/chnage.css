@@ -1,0 +1,28 @@
+.chnage-password {
+    background-color: #eee;
+    border: none;
+    padding: 0.25rem;
+    font-size: 1rem;
+    width: 10em;
+    border-radius: 1rem;
+    color: lightcoral;
+    box-shadow: 0 0.4rem #dfd9d9;
+    cursor: pointer;
+   }
+   
+   .chnage-password:active {
+    color: white;
+    box-shadow: 0 0.2rem #dfd9d9;
+    transform: translateY(0.2rem);
+   }
+   
+   .chnage-password:hover:not(:disabled) {
+    background: #ffcb05;
+    color: white;
+    text-shadow: 0 0.1rem #bcb4b4;
+   }
+   
+   .chnage-password:disabled {
+    cursor: auto;
+    color: grey;
+   }

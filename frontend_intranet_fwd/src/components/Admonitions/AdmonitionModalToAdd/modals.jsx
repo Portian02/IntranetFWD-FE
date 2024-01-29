@@ -14,7 +14,6 @@ const ModalsAdmonitionAdd = () => {
       </svg>
     </div>
       <Modal isOpen={isOpenFormAdd} closeModal={closeFormAdd}>
-        <h3>New Communication</h3>
         <AdmonitionForm />
       </Modal>
     </div>

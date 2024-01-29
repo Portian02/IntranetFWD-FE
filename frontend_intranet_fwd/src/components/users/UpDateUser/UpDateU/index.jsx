@@ -42,7 +42,7 @@ function UpdateUserForm({ id, initialData }) {
             name="identification"
             value={data.identification}
             onChange={handleChange}
-            className="form-input"
+            className="form-input-id"
           />
         </label>
         <label className="number-label">
@@ -52,7 +52,7 @@ function UpdateUserForm({ id, initialData }) {
             name="number"
             value={data.number}
             onChange={handleChange}
-            className="form-input"
+            className="form-input-number"
           />
         </label>
         <label className="role-label">
@@ -61,7 +61,7 @@ function UpdateUserForm({ id, initialData }) {
             name="role"
             value={data.role}
             onChange={handleChange}
-            className="form-input"
+            className="form-input-role"
           >
             <option value="student">Student</option>
             <option value="teacher">Teacher</option>
@@ -69,12 +69,12 @@ function UpdateUserForm({ id, initialData }) {
           </select>
         </label>
         <label className="type_user_id-label">
-          type_user_id:
+          User Type:
           <select
             name="type_user_id"
             value={data.type_user_id}
             onChange={handleChange}
-            className="form-input"
+            className="form-input-typer_user_id"
           >
             <option value="1">Student</option>
             <option value="2">Teacher</option>
@@ -88,7 +88,7 @@ function UpdateUserForm({ id, initialData }) {
             type="date"
             value={data.borndate}
             onChange={handleChange}
-            className="form-input"
+            className="form-input-born_date"
           />
         </label>
         <button type="submit" className="submit-button">

@@ -47,14 +47,7 @@
     flex-direction: column;
     margin-bottom: 10px;
   }
-  
-  .form-input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
+
   .form-input-name {
     width: 100%;
     padding: 8px;
@@ -62,6 +55,35 @@
     border-radius: 4px;
 
   }
+  
+.form-input-id {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-input-number {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-input-role {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-input-typer_user_id {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
   .submit-button {
     margin-top: 10px;
     padding: 8px 16px;

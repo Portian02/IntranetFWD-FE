@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../logo";
-import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+
 import Logout from "../logout";
 
 
@@ -65,7 +65,7 @@ const Navbar = ({ currUser, setCurrUser }) => {
             {dropdownVisible && (
               <div className="navbar__dropdown-content">
                 <Link to="/admonitions" className="navbar__link">
-                  Admonitions
+                  Admontions
                 </Link>
 
                 <Link to="/justifications" className="navbar__link">
@@ -85,16 +85,7 @@ const Navbar = ({ currUser, setCurrUser }) => {
         </li>
       </ul>
 
-      <Sidebar>
-  <Menu>
-    <SubMenu label="Charts">
-      <MenuItem> Pie charts </MenuItem>
-      <MenuItem> Line charts </MenuItem>
-    </SubMenu>
-    <MenuItem> Documentation </MenuItem>
-    <MenuItem> Calendar </MenuItem>
-  </Menu>
-</Sidebar>;
+ 
       <div className="logout-btn">
         {currUser ? "" : <Logout setCurrUser={setCurrUser} />}
       </div>

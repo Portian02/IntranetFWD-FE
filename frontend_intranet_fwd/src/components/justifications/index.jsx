@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { fetchJustifications } from '../../services/ApiJustification';
+import React, { useState, useEffect } from "react";
+import { fetchJustifications } from "../../services/ApiJustification";
 import Navbar from "../NavBar";
-import ButtonDeleteJustification from './DeleteJustification/ButtonDelete';
-import ModalsJustificationsAdd from './ModalToAddJustification/modals';
-import UpdateModalsJustification from './UpDateJustification/modalToUpdate';
-import './justification.css';
-import Loading from '../loader';
-import { fetchJustifications_types } from '../../services/ApiJustification';
-import { fetchUsers } from '../../services/ApiUsers';
-
-
-
+import ButtonDeleteJustification from "./DeleteJustification/ButtonDelete";
+import ModalsJustificationsAdd from "./ModalToAddJustification/modals";
+import UpdateModalsJustification from "./UpDateJustification/modalToUpdate";
+import "./justification.css";
+import Loading from "../loader";
+import { fetchJustifications_types } from "../../services/ApiJustification";
+import { fetchUsers } from "../../services/ApiUsers";
 
 const Justifications = () => {
   const [justifications, setJustifications] = useState([]);
@@ -25,96 +22,169 @@ const Justifications = () => {
         const data = await fetchJustifications();
         setJustifications(data);
         setIsLoading(false);
-        console.log(data, "soy data")
+        console.log(data, "soy data");
 
         const type = await fetchJustifications_types();
-        console.log(type, "soy type")
+        console.log(type, "soy type");
         setJustifications_types(type);
 
-         const user = await fetchUsers();
-        console.log(user, "soy user")
+        const user = await fetchUsers();
+        console.log(user, "soy user");
         setUsers(user);
-
-
       } catch (error) {
-        console.error("Failed to load admonitions", error);
+        console.error("Failed to load justifications", error);
       }
-
     }
     loadJustification();
   }, []);
 
-
-
-console.log(justifications.filter(justification => justification.user_id == user_id).map((justification_user)=>(justification_user.user_id == user_id)), "soy admonitions");
-
-
-
+  console.log(
+    justifications
+      .filter((justification) => justification.user_id == user_id)
+      .map((justification_user) => justification_user.user_id),
+    "soy justification"
+  );
 
   return (
-    <div> 
-      <Navbar/>
+    <div>
+      {" "}
+      {/* //Div container begining */}
+      <Navbar />
+          <h2 className="title-justifications">Justifications</h2>
       {isLoading ? (
         <div className="loading">
           <Loading />
-          <p>Loading data ...</p>
+          <h3 className="mt-5 mr-3"> Loading...</h3>
         </div>
-      ) : (
-        <div>
-          <h2>Justificaciones FWD</h2>
-          <ul className='justification-list'>
+      ) 
+      // this validation just in case that the table is empty
+      // so this is gonna show a messages that there is no data
+      : justifications.length === 0 ? (
+        <h2 className="d-flex justify-content-center  mt-5 no-data ">
+          There is no any data
+        </h2>
+      ) : role === "admin" || role === "teacher" ? (
+        // this div over here is gonna render if the user is admin or teacher all the justifications
+        <table className="justifications-table">
+          <thead>
+            <tr>
+              <th className="status-column">Status</th>
+              <th className="responsable-column">Responsable</th>
+              <th className="student-column">Student</th>
+              <th className="type-column">Type</th>
+              <th className="date-column">Date</th>
+              {role === "admin" && <th className="action-column">Delete</th>}
+              {role === "admin" && <th className="action-column">Edit</th>}
+            </tr>
+          </thead>
+          <tbody>
             {justifications.map((justification) => (
-              <div className="justification-card" key={justification.id}>
-                <div className="justification-name">{justification.name}</div>
-                <div className="justification-description">{justification.description}</div>
-                <div className="justification-date">{justification.date}</div>
-                {/* <div className="user-id">{justification.user_id}</div> */}
-                    
-                    
-                   <div className="justification-type-id">
-                    {Users.map((user) => (
-                      user.id === justification.user_id && (
-                        <div key={user.id}>{user.username}</div>
-                      )
-                    ))}
-                   </div>
-                
-                <div className="justification-type-id">
-                    {Justifications_types.map((type) => (
-                      type.id === justification.justification_types_id && (
-                        <div key={type.id}>{type.name}</div>
-                      )
-                    ))}
-                </div>
-                
-
-                {/* <div className="responsable-id">{justification.responsable_id}</div> */}
-                 <div className="justification-type-id">
-                    {Users.map((user) => (
+              <tr key={justification.id}>
+                <td className="status-cell"><h5>{justification.status_justification}</h5></td>
+                <td className="responsable-cell">
+                  {Users.map(
+                    (user) =>
                       user.id == justification.responsable_id && (
-                        <div key={user.id}>{user.username}</div>
+                        <span key={user.id}>{user.username}</span>
                       )
-                    ))}
-                     </div>
-               
+                  )}
+                </td>
+                <td className="student-cell">
+                  {Users.map(
+                    (user) =>
+                      user.id == justification.user_id && (
+                        <span key={user.id}>{user.username}</span>
+                      )
+                  )}
+                </td>
+                <td className="type-cell">
+                  {Justifications_types.map(
+                    (justification_type) =>
+                      justification_type.id === justification.justification_types_id && (
+                        <span key={justification_type.id}>
+                          {justification_type.name}
+                        </span>
+                      )
+                  )}
+                </td>
+                <td className="date-cell">{justification.date}</td>
                 {role === "admin" && (
-                  <ButtonDeleteJustification id={justification.id}/>
+                  <td className="action-cell">
+                    <ButtonDeleteJustification id={justification.id} />
+                  </td>
                 )}
-                {role === "admin" || role === "teacher" ? (
-                  <UpdateModalsJustification id={justification.id} initialData={justification} />
-                ) : null}
-              </div>
-              
+                {role === "admin" && (
+                  <td className="action-cell">
+                    <UpdateModalsJustification
+                      initialData={justification}
+                      id={justification.id}
+                    />
+                  </td>
+                )}
+              </tr>
             ))}
-          </ul>
-        </div>
+          </tbody>
+        </table>
+        
+        // this one end over here the same div that render all the justifications
+      ) : (
+        // this div over here is gonna render if the user is a student all the justifications that he has
+        <ol className="admonitions-list">
+          {justifications
+            .filter((justification) => justification.user_id == user_id)
+            .map((justification_user) => (
+              <li className="admonition-card">
+                <h2 className="card-title-admonition">
+                  Status: {justification_user.status_admonition}
+                </h2>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          {Users.map(
+                            (user) =>
+                              user.id === justification_user.user_id && (
+                                <div key={user.id} className="student-name">
+                                  Student: {user.username}
+                                </div>
+                              )
+                          )}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="status-justification">
+                          {justification_user.status_justification}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Date: {justification_user.date}</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          {Users.map(
+                            (user) =>
+                              user.id == justification_user.responsable_id && (
+                                <div key={user.id} className="responsable-name">
+                                  Responsable: {user.username}
+                                </div>
+                              )
+                          )}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+            ))}
+        </ol>
+        // this one ends over here the same div that render all the justifications
       )}
       {role === "admin" || role === "teacher" ? (
-        <ModalsJustificationsAdd/>
+        <ModalsJustificationsAdd />
       ) : null}
-    </div>
+    </div> //Div container end
   );
 };
-
 
 export default Justifications;

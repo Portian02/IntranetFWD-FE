@@ -38,6 +38,9 @@
   cursor: pointer;
 }
 
+.title-update-admonition{
+  color: black;
+}
 .submit-button:hover {
   background-color: #45a049;
 }

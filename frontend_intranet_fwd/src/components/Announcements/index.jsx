@@ -33,8 +33,15 @@ const Announcement = () => {
       <h2 className="title-announcements">Announcements</h2>
       {loading ? (
         <div className="loading">
-          <Loading/>      
+          <Loading/>   
+       <h3 className="mt-5 mr-3"> Loading...</h3>
         </div>
+      ) : 
+      (
+       announcements.length === 0 ? (
+        <h2 className="d-flex justify-content-center  mt-5 no-data ">
+          There is no any data
+        </h2>
       ) : (
         <div className="container-announcement-events">
           <ul className="internal-communications">
@@ -58,7 +65,9 @@ const Announcement = () => {
             ))}
           </ul>
         </div>
+      )
       )}
+      
       {role === "admin" && (
         <ModalsAnnouncementAdd />
       )}

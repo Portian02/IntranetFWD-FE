@@ -21,6 +21,8 @@
 
 .navbar__item {
   margin-right: auto;
+  border-right: #ffcc00;
+  margin-inline-start: ;
 }
 
 .navbar__link {
@@ -118,8 +120,9 @@
 }
 
 /* Logout Styles */
-.navbar__logout {
-  margin-left: auto; /* Added this block to move logout to the right */
+.logout-btn {
+  margin-left: -100px;
+  margin-right: 25px;
 }
 
 

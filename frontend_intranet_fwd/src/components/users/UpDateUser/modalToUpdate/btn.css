@@ -1,4 +1,4 @@
-.Btn {
+.Btn-users-update {
   position: relative;
   display: flex;
   align-items: center;
@@ -14,6 +14,8 @@
   border-radius: 10px;
   box-shadow: 5px 5px 0px rgb(140, 32, 212);
   transition-duration: .3s;
+  left: 85%;
+  bottom: 10px;
 }
 
 
@@ -30,11 +32,11 @@
   transition-duration: .3s;
 }
 
-.Btn:hover {
+.Btn-users-update:hover {
   color: transparent;
 }
 
-.Btn:hover svg {
+.Btn-users-update:hover svg {
   right: 43%;
   margin: 0;
   padding: 0;
@@ -42,7 +44,7 @@
   transition-duration: .3s;
 }
 
-.Btn:active {
+.Btn-users-update:active {
   transform: translate(3px , 3px);
   transition-duration: .3s;
   box-shadow: 2px 2px 0px rgb(140, 32, 212);

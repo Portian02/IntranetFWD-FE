@@ -45,7 +45,8 @@ function UpdateAdmonitionForm({ id, initialData }) {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit} className="form-modal-update">
+    <form onSubmit={handleSubmit} className="form-modal-update-admonition">
+      <h2 className="title-update-admonition">Update Admonition</h2>
       <div className="container-form-div">
         <label htmlFor="status_admonition" className="label">
           Status:
