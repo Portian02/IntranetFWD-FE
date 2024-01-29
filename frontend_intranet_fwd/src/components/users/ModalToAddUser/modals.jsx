@@ -14,7 +14,6 @@ const ModalsUserAdd = () => {
       </svg>
     </div>
       <Modal isOpen={isOpenFormAdd} closeModal={closeFormAdd}>
-        <h3>New Communication</h3>
         < Signup/>
       </Modal>
     </div>

@@ -3,10 +3,10 @@
 }
 
 
-.Btn {
+.Btn-justification {
   position: relative;
   display: flex;
-  left: 65%;
+  left: 6%;
   bottom: 5px;
   align-items: center;
   justify-content: flex-start;
@@ -35,11 +35,11 @@
   transition-duration: .3s;
 }
 
-.Btn:hover {
+.Btn-justification:hover {
   color: transparent;
 }
 
-.Btn:hover svg {
+.Btn-justification:hover svg {
   right: 43%;
   margin: 0;
   padding: 0;
@@ -47,7 +47,7 @@
   transition-duration: .3s;
 }
 
-.Btn:active {
+.Btn-justification:active {
   transform: translate(3px , 3px);
   transition-duration: .3s;
   box-shadow: 2px 2px 0px rgb(140, 32, 212);

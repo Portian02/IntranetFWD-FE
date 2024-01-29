@@ -1,1 +1,15 @@
 
+.title-announcements{
+    text-align: center;
+    font-size: 36px; /* Increased font size */
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #efeaea;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #008fd4; /* Added background color */
+    padding: 10px; /* Added padding */
+    border-radius: 5px; /* Added border radius */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Added box shadow */
+}

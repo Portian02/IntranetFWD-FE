@@ -1,8 +1,9 @@
 .form-modal-update {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
     margin-top: 20px;
+    width: 60vw;
   }
   
   .container-form-div {
@@ -12,18 +13,71 @@
     width: 300px;
   }
   
-  .Name-label,
-  .ID-label,
-  .number-label,
-  .role-label,
-  .typer_user_id-label,
+  .Name-label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-right: 200px;
+  }
+  .ID-label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-top: -89px;
+    margin-left: 210px; 
+  }
+  .number-label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .role-label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .typer_user_id-label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
   .borndate-label {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
   }
+
+  .form-input-name {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+  }
   
-  .form-input {
+.form-input-id {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-input-number {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-input-role {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-input-typer_user_id {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;

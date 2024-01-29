@@ -29,40 +29,54 @@ const CalendarList = () => {
   return (
     <div>
       <Navbar />
-      <h2 className="title">Calendar List</h2>
+      <h2 className="title-admonition">Calendar List</h2>
       {loading ? (
         <div className="loading">
           <Loading/>
-          <p>Loading data ...</p>
+       <h3 className="mt-5 mr-3"> Loading...</h3>
         </div>
       ) : (
+       calendars.length === 0 ? (
+        <h2 className="d-flex justify-content-center  mt-5 no-data ">
+          There is no any data
+        </h2>
+      ) : (
         <div className="container-calendar-events">
-          <ul className="internal-communications">
-            {calendars.map((calendar) => (
-              <div className="card">
-                <p key={calendar.id} className="card-title">
-                  {calendar.title}
-                </p>
-                <p key={calendar.id} className="small-desc">
-                  {calendar.description}
-                </p>
-                <a href={calendar.url} key={calendar.id} className="small-desc">
-                  {calendar.title}
-                  </a>
-                <div className="go-corner">
-                  <div className="go-arrow">→</div>
-                </div>
-                {role === "admin"&&(
-                <ButtonDeleteCalendar id={calendar.id} />)}
-                {role === "admin" &&(
-                <UpdateModalsCalendar
-                  id={calendar.id}
-                  initialData={calendar} />
+          <table className="calendar-table">
+            <thead>
+              <tr>
+                <th className="calendar-table-header">Title</th>
+                <th className="calendar-table-header">Description</th>
+                <th className="calendar-table-header">URL</th>
+                {role === "admin" && <th className="calendar-table-header">Delete</th>}
+                {role === "admin" && <th className="calendar-table-header">Edit</th>}
+
+              </tr>
+            </thead>
+            <tbody>
+              {calendars.map((calendar) => (
+                <tr key={calendar.id}>
+                  <td className="calendar-table-data"><h5>{calendar.title}</h5></td>
+                  <td className="calendar-table-data">{calendar.description}</td>
+                  <td className="calendar-table-data">
+                    <a href={calendar.url}>{calendar.title}</a>
+                  </td>
+                  {role === "admin" && (
+                    <td className="calendar-table-data">
+                      <ButtonDeleteCalendar id={calendar.id} />
+                    </td>
                   )}
-              </div>
-            ))}
-          </ul>
+                      {role === "admin" && (
+                    <td className="calendar-table-data">
+                      <UpdateModalsCalendar id={calendar.id} initialData={calendar} />
+                    </td>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
+        )
       )}
       {role === "admin"&&(
       <ModalsCalendarAdd />)}

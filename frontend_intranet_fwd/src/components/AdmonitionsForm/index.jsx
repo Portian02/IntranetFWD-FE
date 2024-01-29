@@ -1,6 +1,7 @@
   import { useRef, useEffect, useState } from "react";
   import { fetchUsers } from "../../services/ApiUsers";
-import { fetchAdmonitionstypes } from "../../services/ApiAdmonitions";
+  import Form from 'react-bootstrap/Form';
+ import { fetchAdmonitionstypes } from "../../services/ApiAdmonitions";
   import "./admonitions.css"; 
   import Swal from "sweetalert2";
 
@@ -76,6 +77,7 @@ import { fetchAdmonitionstypes } from "../../services/ApiAdmonitions";
     };
   // with this function we get the users  
   useEffect(() => {
+
     async function GetUsersandType() {
       try {
         const data = await fetchUsers();
@@ -83,7 +85,6 @@ import { fetchAdmonitionstypes } from "../../services/ApiAdmonitions";
         const type = await fetchAdmonitionstypes();
         setGetAdmonitions_types(type);
       } catch (error) {
-        
         console.error("Failed to load admonitions", error);
       }
     }
@@ -98,8 +99,9 @@ import { fetchAdmonitionstypes } from "../../services/ApiAdmonitions";
   return (
     <div className="admonition-add-container">
       
-      <form ref={formRef} onSubmit={handleSubmit} className="admonition-add-form">
-        <label htmlFor="status_admonition">Status:</label>
+      <form ref={formRef} onSubmit={handleSubmit} className="d-flex flex-wrap admonition-add-Form">
+        <h2>Admonition</h2>
+        <label className="labels" htmlFor="status_admonition">Status:</label>
         <select
           name="status_admonition"
           id="status_admonition"
@@ -150,7 +152,7 @@ import { fetchAdmonitionstypes } from "../../services/ApiAdmonitions";
         </label>
         <br />
         <br />
-        <label htmlFor="admonition_type_id">Admonition Type</label>
+        <label className="labels ms-5" htmlFor="admonition_type_id">Admonition Type</label>
         <select
           name="admonition_type_id"
           id="admonition_type_id"

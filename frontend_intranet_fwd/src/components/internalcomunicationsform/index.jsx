@@ -132,6 +132,7 @@ const communicationadd = async (communicationInfo, setCurrCommunication) => {
 
 
          <label>
+          <span>User</span>
           <select
             required
             name="type_user_id"
@@ -154,7 +155,6 @@ const communicationadd = async (communicationInfo, setCurrCommunication) => {
                 ))}
             </optgroup>
           </select>
-          <span>User</span>
         </label>
         
         <br />

@@ -59,12 +59,18 @@ const Internalcommunications = () => {
     <div>
       <Navbar />
 
-      <h2 className="internal-communications__title">Communication</h2>
+      <h2 className="internal-communications-title">Communication</h2>
       {isLoading ? (
         <div className="loading">
           <Loading />
-          <p>Loading data ...</p>
+       <h3 className="mt-5 mr-3"> Loading...</h3>
         </div>
+      ) : 
+        (
+        comunications.length === 0 ? (
+        <h2 className="d-flex justify-content-center  mt-5 no-data ">
+          There is no any data
+        </h2>
       ) : (
         <ul className="internal-communications">
           {comunications.map((comunication) => (
@@ -84,6 +90,7 @@ const Internalcommunications = () => {
             </div>
           ))}
         </ul>
+      )
       )}
       {role === "admin" && <Modals />}
     </div>

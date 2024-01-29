@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 350px;
   padding: 20px;
   border-radius: 20px;
   position: relative;
@@ -10,6 +9,7 @@
   color: #fff;
   border: 1px solid #333;
 }
+
 
 .title {
   font-size: 28px;
@@ -64,13 +64,14 @@
 
 .flex {
   display: flex;
-  width: 100%;
+  justify-content: space-between;
   gap: 6px;
 }
 
 .form label {
   position: relative;
 }
+
 
 .form label .input {
   background-color: #333;
@@ -109,7 +110,7 @@
   font-size: medium;
 }
 
-.submit {
+.submit-btn {
   border: none;
   outline: none;
   padding: 10px;
@@ -120,7 +121,7 @@
   background-color: #00bfff;
 }
 
-.submit:hover {
+.submit-btn:hover {
   background-color: #00bfff96;
 }
 

@@ -27,48 +27,46 @@ const UserList = () => {
   return (
     <div className="list-conatiner">
       <Navbar />
-      <h2 className="user-list-title">Lista de Usuarios</h2>
+      <h2 className="user-list-title d-flex justify-content-center"> Users List</h2>
       {isLoading ? (
         <div className="loading">
           <Loading />
           <p>Loading data ...</p>
         </div>
       ) : (
-        <ul className="user-list">
+        <ol className="user-list">
           {users.map((user) => (
-            <div key={user.id} className="user-card">
-             
+            <li key={user.id} className="user-card">
               <div className="user-info">
                 <div className="user-name">{user.name}</div>
                 <div className="user-details">
+                  <div className="user-role">
+                    <h2>
+                    {user.role}
+                    </h2> 
+                  </div>
                   <div className="user-username">
                     <strong>Name:</strong> {user.username}
                   </div>
                   <div className="user-email">
                     <strong>Email:</strong> {user.email}
                   </div>
-                  <div className="user-role">
-                    <strong>Role:</strong> {user.role}
-                  </div>
                   <div className="user-number">
-                    <strong>Number:</strong> {user.number}
+                    <strong>Phone:</strong> +506 {user.number}
                   </div>
                 </div>
               </div>
               <div className="btns">
-              {role === "admin" && (
-              <ButtonDeleteUser id={user.id} />
-              )}
-              {role === "admin" && (
-              <UpdateModalsUser id={user.id} initialData={user} />
-              
-              )}
+                {role === "admin" && <ButtonDeleteUser id={user.id} />}
+                {role === "admin" && (
+                  <UpdateModalsUser id={user.id} initialData={user} />
+                )}
               </div>
-            </div>
+            </li>
           ))}
-        </ul>
+        </ol>
       )}
-           <ModalsUserAdd />
+      <ModalsUserAdd />
     </div>
   );
 };

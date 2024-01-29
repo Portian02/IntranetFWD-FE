@@ -40,7 +40,7 @@ function UpdateDocumentForm({ id, initialData }) {
   return (
     <form onSubmit={handleSubmit} className="form-modal-update">
       <div className="container-form-div">
-
+      <h2>Updating Document</h2>
       <label className="label">
         Name
         <input

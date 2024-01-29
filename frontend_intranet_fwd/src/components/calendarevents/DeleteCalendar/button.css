@@ -1,8 +1,8 @@
-.button {
+.button-calendar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: rgb(20, 20, 20);
+  background-color:#f7901e;
   border: none;
   font-weight: 600;
   display: flex;
@@ -15,6 +15,7 @@
   overflow: hidden;
   position: relative;
   gap: 2px;
+  top:-0px;
 }
 
 .svgIcon {
@@ -26,7 +27,7 @@
   fill: white;
 }
 
-.button:hover {
+.button-calendar:hover {
   transition-duration: 0.3s;
   background-color: rgb(255, 69, 69);
   align-items: center;
@@ -36,7 +37,7 @@
 .bin-top {
   transform-origin: bottom right;
 }
-.button:hover .bin-top {
+.button-calendar:hover .bin-top {
   transition-duration: 0.5s;
   transform: rotate(160deg);
 }
