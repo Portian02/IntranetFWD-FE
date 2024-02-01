@@ -2,22 +2,40 @@
   color: aliceblue;
 }
 
-.Btn {
+.Btn-edit-communication {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 100px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border: none;
   padding: 0px 20px;
   background-color: rgb(168, 38, 255);
   color: white;
   font-weight: 500;
   cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 5px 5px 0px rgb(140, 32, 212);
+  border-radius: 50%;
   transition-duration: .3s;
+
+}
+
+.container-cm{
+  border: red 3px solid;
+  height: 100vh;
+}
+
+.internal-communications{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding: 20px 0 0 0;  
+  background-color: #f5f5f5;
+  border-radius: 8px;
+
 }
 
 .svg {
@@ -29,11 +47,11 @@
   transition-duration: .3s;
 }
 
-.Btn:hover {
+.Btn-edit-communication:hover {
   color: transparent;
 }
 
-.Btn:hover svg {
+.Btn-edit-communication:hover svg {
   right: 43%;
   margin: 0;
   padding: 0;
@@ -41,7 +59,7 @@
   transition-duration: .3s;
 }
 
-.Btn:active {
+.Btn-edit-communication:active {
   transform: translate(3px , 3px);
   transition-duration: .3s;
   box-shadow: 2px 2px 0px rgb(140, 32, 212);

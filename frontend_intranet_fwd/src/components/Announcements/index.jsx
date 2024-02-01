@@ -43,7 +43,7 @@ const Announcement = () => {
           There is no any data
         </h2>
       ) : (
-        <div className="container-announcement-events">
+        <div className="container-announcement-events flex">
           <ul className="internal-communications">
             {announcements.map((announcement) => (
               <div className="card" key={announcement.id}>

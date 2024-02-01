@@ -20,13 +20,14 @@ import Swal from "sweetalert2";
 const Routing = () => {
   const role = localStorage.getItem("role");
   const isAuthenticated = localStorage.getItem("token");
-  
+ 
+
   // Redirigir al usuario a la página de inicio de sesión si no está autenticado
   if (!isAuthenticated && window.location.pathname !== "/") {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Something went wrong!",
+      text: "You are not Authorized, to enter on this direction!",
       
     });
     setTimeout(() => {
@@ -41,6 +42,7 @@ const Routing = () => {
           <Route path="/" element={<LoginPage />} />
           {isAuthenticated && (
             <>
+            
               <Route path="/home" element={<Home />} />
               <Route path="/users" element={<UserList />} />
               <Route path="/communications" element={<Internalcommunications />} />

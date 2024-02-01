@@ -13,3 +13,46 @@
     border-radius: 5px; /* Added border radius */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Added box shadow */
 }
+.container-announcement-events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .internal-communications {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+  }
+
+  .card {
+    width: calc(50% - 20px);
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .small-desc {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+
+  .btns button {
+    margin-left: 10px;
+  }

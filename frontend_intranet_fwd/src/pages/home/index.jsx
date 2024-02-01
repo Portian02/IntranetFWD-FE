@@ -15,6 +15,7 @@ const Home = () => {
               At Forward Costa Rica, we are dedicated to providing quality education in frontend and backend programming, shaping the developers of the future.
             </p>
           </section>
+        <div className="flex">
 
           <section className="programs-section">
             <h2 className="section-title">Our study programs</h2>
@@ -35,7 +36,10 @@ const Home = () => {
             </ul>
           </section>
         </div>
+        </div>
+        <footer className="footer">
       <Footer />
+        </footer>
     </div>
   );
 };

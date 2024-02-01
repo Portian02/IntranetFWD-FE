@@ -19,6 +19,9 @@ const Admonition = () => {
   const role = localStorage.getItem("role");
   const user_id = localStorage.getItem("id");
 
+
+
+  
   useEffect(() => {
     async function loadAdmonitions() {
       try {
@@ -41,6 +44,8 @@ const Admonition = () => {
     <div>
       <Navbar />
       <h2 className="title-admonition">Admonitions</h2>
+      {role === "admin" || role === "teacher" ? <ModalsAdmonitionAdd /> : null}
+
       {loading ? (
         <div className="loading">
           <Loading />
@@ -55,10 +60,10 @@ const Admonition = () => {
         <table className="admonitions-table">
           <thead>
             <tr>
-              <th className="status-column">Status</th>
-              <th className="responsable-column">Responsable</th>
               <th className="student-column">Student</th>
+              <th className="responsable-column">Responsable</th>
               <th className="type-column">Type</th>
+              <th className="status-column">Status</th>
               <th className="date-column">Date</th>
               {role === "admin" && <th className="action-column">Delete</th>}
               {role === "admin" && <th className="action-column">Edit</th>}
@@ -67,19 +72,18 @@ const Admonition = () => {
           <tbody>
             {admonitions.map((admonition) => (
               <tr key={admonition.id}>
-                <td className="status-cell"><h5>{admonition.status_admonition}</h5></td>
-                <td className="responsable-cell">
-                  {getUsers.map(
-                    (user) =>
-                      user.id == admonition.responsable_id && (
-                        <span key={user.id}>{user.username}</span>
-                      )
-                  )}
-                </td>
                 <td className="student-cell">
                   {getUsers.map(
                     (user) =>
                       user.id == admonition.user_id && (
+                        <span key={user.id}>{user.username}</span>
+                      )
+                  )}
+                </td>
+                <td className="responsable-cell">
+                  {getUsers.map(
+                    (user) =>
+                      user.id == admonition.responsable_id && (
                         <span key={user.id}>{user.username}</span>
                       )
                   )}
@@ -94,6 +98,7 @@ const Admonition = () => {
                       )
                   )}
                 </td>
+                <td className="status-cell"><p>{admonition.status_admonition}</p></td>
                 <td className="date-cell">{admonition.date}</td>
                 {role === "admin" && (
                   <td className="action-cell">
@@ -164,7 +169,6 @@ const Admonition = () => {
         </ol>
       )}
 
-      {role === "admin" || role === "teacher" ? <ModalsAdmonitionAdd /> : null}
     </div>
   );
 };

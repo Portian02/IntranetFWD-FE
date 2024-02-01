@@ -60,20 +60,24 @@ const PasswordChange = () => {
 
 
   return (
-    <div className="d-flex flex-column justify-content-center p-4"> 
-      <label>New Password:</label>
+    <div className="d-flex flex-column justify-content-center p-4 body"> 
+      <label htmlFor="newPassword">New Password:</label>
       <input
+        id="newPassword"
         className="input-password-change mr-4 mb-2"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        placeholder={password ? "" : "Enter new password"}
       />
-      <label>Password Corfimation:</label>
+      <label htmlFor="passwordConfirmation">Password Confirmation:</label>
       <input
+        id="passwordConfirmation"
         className="input-confirmation-password-change"
         type="password"
         value={passwordConfirmation}
         onChange={(e) => setPasswordConfirmation(e.target.value)}
+        placeholder={passwordConfirmation ? "" : "Confirm new password"}
       />
       
       <button
@@ -83,7 +87,5 @@ const PasswordChange = () => {
         Change
       </button>
     </div>
-  );
-};
-
+  )};
 export default PasswordChange;

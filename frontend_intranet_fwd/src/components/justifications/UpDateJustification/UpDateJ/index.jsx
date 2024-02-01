@@ -46,7 +46,6 @@ function UpdateAdmonitionForm({ id, initialData }) {
 
   return (
     <form onSubmit={handleSubmit} className="form-modal-update">
-      <div className="container-form-div">
         <label htmlFor="status_justification" className="label">
           Status:
           <select
@@ -93,10 +92,9 @@ function UpdateAdmonitionForm({ id, initialData }) {
             ))}
           </select>
         </label>
-        <button type="submit" className="submit-button">
+        <button type="submit" className="submit-button-updated">
           Update Admonition
         </button>
-      </div>
     </form>
   );
 }

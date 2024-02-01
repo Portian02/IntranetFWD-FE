@@ -1,2 +1,13 @@
+/* FILEPATH: /c:/Frontend-IntranetFWD/IntranetFWD-FE/frontend_intranet_fwd/src/App.css */
 
+/* BEGIN: Modern and professional style */
+.App {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* END: Modern and professional style */
 

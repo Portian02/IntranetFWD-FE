@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./communication.css";
 import Navbar from "../NavBar";
-import {
-  fetchCommunicationInternals
-} from "../../services/ApiCommunications";
+import { fetchCommunicationInternals } from "../../services/ApiCommunications";
 import Modals from "../../components/internalcomunications/modalInternalCommunication/modals";
 import MyButton from "./DeleteCommunication/ButtonDelete";
 import UpdateModals from "./updatecommunications/modalToUpdate";
 import Loading from "../loader";
+
 const Internalcommunications = () => {
   const [comunications, setcomunication] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     async function loadCommunicationInternal() {
       try {
         const data = await fetchCommunicationInternals();
-        // console.log(data, "soy data");
         setcomunication(data);
         setIsLoading(false);
       } catch (error) {
@@ -41,6 +40,7 @@ const Internalcommunications = () => {
       for (let index = 0; index < data.length; index++) {
         const id_usuario_log = localStorage.getItem("id_usuario_log");
         if (data[index].user_id === parseInt(id_usuario_log)) {
+          // Do something with the data[index]
         }
       }
       return data;
@@ -50,49 +50,69 @@ const Internalcommunications = () => {
     }
   };
 
-  // 
-  //esto tiene el ultimo registro mas no el numero de id
   localStorage.setItem("id_registro", comunications.at(-1)?.id);
   console.log(comunications.at(-1)?.id, "soy el ultimo registro");
 
   return (
-    <div>
+    <div className="container-cm">
       <Navbar />
-
       <h2 className="internal-communications-title">Communication</h2>
       {isLoading ? (
         <div className="loading">
           <Loading />
-       <h3 className="mt-5 mr-3"> Loading...</h3>
+          <h3 className="mt-5 mr-3"> Loading...</h3>
         </div>
-      ) : 
-        (
-        comunications.length === 0 ? (
+      ) : comunications.length === 0 ? (
         <h2 className="d-flex justify-content-center  mt-5 no-data ">
           There is no any data
         </h2>
       ) : (
-        <ul className="internal-communications">
+        <div className="internal-communications">
           {comunications.map((comunication) => (
-            <div
-              key={comunication.id}
-              className="internal-communications__item"
-            >
-              {comunication.title}
-              <div className="comunication-content"> Description: {comunication.content}</div>
-              {/* <div className="comunication-date">{comunication.updated_at}</div> */}
-              
-
-              {role === "admin" && <MyButton id={comunication.id} />}
-              {role === "admin" && (
-                <UpdateModals id={comunication.id} initialData={comunication} />
-              )}
+            <div class="notifications-container">
+              <div class="success">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <svg
+                      class="succes-svg"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="success-prompt-wrap">
+                    <p class="success-prompt-heading">{comunication.title}</p>
+                    <div class="success-prompt-prompt">
+                      <p> {comunication.content}</p>
+                    </div>
+                    <div class="success-button-container">
+                      <button type="button" class="success-button-main">
+                        {role === "admin" && <MyButton id={comunication.id} />}
+                      </button>
+                      <button type="button" class="success-button-secondary">
+                        {role === "admin" && (
+                          <UpdateModals
+                            id={comunication.id}
+                            initialData={comunication}
+                          />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
-        </ul>
-      )
+          {role === "admin" && <Modals />}
+        </div>
       )}
-      {role === "admin" && <Modals />}
     </div>
   );
 };

@@ -50,16 +50,18 @@ const Justifications = () => {
       {" "}
       {/* //Div container begining */}
       <Navbar />
-          <h2 className="title-justifications">Justifications</h2>
+      <h2 className="title-justifications">Justifications</h2>
+      {role === "admin" || role === "teacher" ? (
+        <ModalsJustificationsAdd />
+      ) : null}
       {isLoading ? (
         <div className="loading">
           <Loading />
           <h3 className="mt-5 mr-3"> Loading...</h3>
         </div>
-      ) 
-      // this validation just in case that the table is empty
+      ) : // this validation just in case that the table is empty
       // so this is gonna show a messages that there is no data
-      : justifications.length === 0 ? (
+      justifications.length === 0 ? (
         <h2 className="d-flex justify-content-center  mt-5 no-data ">
           There is no any data
         </h2>
@@ -80,7 +82,9 @@ const Justifications = () => {
           <tbody>
             {justifications.map((justification) => (
               <tr key={justification.id}>
-                <td className="status-cell"><h5>{justification.status_justification}</h5></td>
+                <td className="status-cell">
+                  <h5>{justification.status_justification}</h5>
+                </td>
                 <td className="responsable-cell">
                   {Users.map(
                     (user) =>
@@ -100,7 +104,8 @@ const Justifications = () => {
                 <td className="type-cell">
                   {Justifications_types.map(
                     (justification_type) =>
-                      justification_type.id === justification.justification_types_id && (
+                      justification_type.id ===
+                        justification.justification_types_id && (
                         <span key={justification_type.id}>
                           {justification_type.name}
                         </span>
@@ -125,9 +130,8 @@ const Justifications = () => {
             ))}
           </tbody>
         </table>
-        
-        // this one end over here the same div that render all the justifications
       ) : (
+        // this one end over here the same div that render all the justifications
         // this div over here is gonna render if the user is a student all the justifications that he has
         <ol className="admonitions-list">
           {justifications
@@ -180,9 +184,7 @@ const Justifications = () => {
         </ol>
         // this one ends over here the same div that render all the justifications
       )}
-      {role === "admin" || role === "teacher" ? (
-        <ModalsJustificationsAdd />
-      ) : null}
+      
     </div> //Div container end
   );
 };

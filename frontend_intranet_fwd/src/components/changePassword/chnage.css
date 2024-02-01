@@ -1,3 +1,10 @@
+.body{
+    background-color: #eee;
+    padding: 90px;
+    border-radius: 10px 10px 10px 10px; 
+    
+}
+
 .chnage-password {
     background-color: #eee;
     border: none;
@@ -8,21 +15,27 @@
     color: lightcoral;
     box-shadow: 0 0.4rem #dfd9d9;
     cursor: pointer;
-   }
-   
-   .chnage-password:active {
+    transition: color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.chnage-password:active {
     color: white;
     box-shadow: 0 0.2rem #dfd9d9;
     transform: translateY(0.2rem);
-   }
-   
-   .chnage-password:hover:not(:disabled) {
+}
+
+.chnage-password:hover:not(:disabled) {
     background: #ffcb05;
     color: white;
     text-shadow: 0 0.1rem #bcb4b4;
-   }
-   
-   .chnage-password:disabled {
+}
+
+.chnage-password:disabled {
     cursor: auto;
     color: grey;
-   }
+}
+@media (max-width: 768px) {
+    .chnage-password {
+        width: 100%;
+    }
+}

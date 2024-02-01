@@ -1,58 +1,59 @@
 .admonition-add-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    width: 500px;
-    background-color: #f2f2f2;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-.labels{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 500px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.labels {
   margin-top: 40px;
   margin-left: -155px;
 }
 
-  #responsable_id{
+#responsable_id {
   display: none;
-  }
+}
 
-  .admonition-add-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-    width: 500px;
-  }
+.admonition-add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  width: 500px;
+}
 
-  .admonition-add-input {
+.admonition-add-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.admonition-add-submit {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.admonition-add-submit:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 600px) {
+  .admonition-add-container {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
   }
-
-  .admonition-add-submit {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  .admonition-add-submit:hover {
-    background-color: #0056b3;
-  }
-
-  @media screen and (max-width: 600px) {
-    .admonition-add-container {
-      padding: 10px;
-    }
-  }
+}

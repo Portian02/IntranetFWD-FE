@@ -1,11 +1,11 @@
 /* Note that you only needs to edit the config to customize the button! */
 #justification-add-container {
-  position: fixed; /* Make the button fixed */
-  bottom: 20px; /* Adjust the bottom position */
-  right: 20px; /* Adjust the right position */
-  z-index: 999; /* Set a high z-index to ensure visibility */
+  position: relative; /* Make the button fixed */
+  bottom: 15px;/* Adjust the bottom position */
+  left: 92%; /* Adjust the right position */
+  z-index: 999; /* Make sure it does not overlap */
 }
-.plusButton {
+.plusButton-justification {
     /* Config start */
     --plus_sideLength: 2.5rem;
     --plus_topRightTriangleSideLength: 0.9rem;
@@ -19,9 +19,10 @@
     height: var(--plus_sideLength);
     background-color: purple;
     overflow: hidden;
+    border-radius: 50%;
   }
   
-  .plusButton::before {
+  .plusButton-justification::before {
     position: absolute;
     content: "";
     top: 0;
@@ -35,20 +36,20 @@
     transition-duration: 0.2s;
   }
   
-  .plusButton:hover {
+  .plusButton-justification:hover {
     cursor: pointer;
   }
   
-  .plusButton:hover::before {
+  .plusButton-justification:hover::before {
     --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
   }
   
-  .plusButton:focus-visible::before {
+  .plusButton-justification:focus-visible::before {
     --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
   }
   
-  .plusButton>.plusIcon {
-    fill: #df2c8e;
+  .plusButton-justification>.plusIcon {
+    fill: #ffcb05 !important;
     width: calc(var(--plus_sideLength) * 0.7);
     height: calc(var(--plus_sideLength) * 0.7);
     z-index: 1;
@@ -56,12 +57,12 @@
     transition-duration: 0.2s;
   }
   
-  .plusButton:hover>.plusIcon {
-    fill: #ffcb05;
+  .plusButton-justification:hover>.plusIcon {
+    fill:  #df2c8e !important;
     transform: rotate(180deg);
   }
   
-  .plusButton:focus-visible>.plusIcon {
-    fill:  #ffcb05;
+  .plusButton-justification:focus-visible>.plusIcon {
+    fill:  #df2c8e !important;
     transform: rotate(180deg);
   }

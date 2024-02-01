@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchDocument, fetchDocumentsTypes } from "../../services/ApiDocuments";
+import Table from "react-bootstrap/Table";
 
 import Navbar from "../NavBar";
 import ButtonDeleteDocument from "./DeleteDocuments/ButtonDelete";
@@ -50,28 +51,48 @@ const DocumentsStorage = () => {
           There is no any data
         </h2>
       ) : (
-        <div className="container-documents-div">
-          {documentsStorage.map((document) => (
-            <div key={document.id} className="document-card">
-              <div className="name-document">{document.name}</div>
-              <div className="Body-document-info">
-                <p>{document.description}</p>
-                <p>this is the link to <a href={document.url}>{document.name}</a></p>
-                {document_type_id.map((type) => (type.id === document.documents_type_id) && (
-                  <p key={type.id}>Type: {type.type_name}</p>
-                ))}
-                
-              </div>
-
-              {role === "admin" && (
-                <div className="card-footer">
-                  <ButtonDeleteDocument id={document.id} />
-                  <UpdateModalsDocument id={document.id} document={document} />
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+          <Table striped bordered hover  className="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Link</th>
+                <th>Type</th>
+                {role === "admin" && (
+                  <th>Edit</th>
+                )}
+                   {role === "admin" && (
+                  <th>Delete</th>
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              {documentsStorage.map((document) => (
+                <tr key={document.id}>
+                  <td>{document.name}</td>
+                  <td>{document.description}</td>
+                  <td><a href={document.url}>{document.name}</a></td>
+                  <td>
+                    {document_type_id.map((type) => (
+                      type.id === document.documents_type_id && (
+                        <span key={type.id}>{type.type_name}</span>
+                      )
+                    ))}
+                  </td>
+                  {role === "admin" && (
+                    <td>
+                      <UpdateModalsDocument id={document.id} document={document} />
+                    </td>
+                  )}
+                   {role === "admin" && (
+                    <td>
+                      <ButtonDeleteDocument id={document.id} />
+                    </td>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </Table>
       )
       )}
       {role === "admin" && (

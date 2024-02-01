@@ -78,7 +78,7 @@ const Login = ({ setCurrUser, setShow }) => {
   return (
     <div className="container-login">
    
-      <Logo className="navbar__logo" /> {/* Agregar el componente de Logo */}
+      <Logo className="logo-login" /> {/* Agregar el componente de Logo */}
       <form ref={formRef} onSubmit={handleSubmit} className="form_main">
         <p className="heading">Login</p>
         <div className="inputContainer">

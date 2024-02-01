@@ -1,10 +1,11 @@
 /* Note that you only needs to edit the config to customize the button! */
-#justification-add-container {
-  position: fixed; /* Make the button fixed */
-  bottom: 20px; /* Adjust the bottom position */
-  right: 20px; /* Adjust the right position */
-  z-index: 999; /* Set a high z-index to ensure visibility */
+#admonition-add-container {
+  position: relative; /* Make the button fixed */
+  bottom: 15px;/* Adjust the bottom position */
+  left: 92%; /* Adjust the right position */
+  z-index: 999; /* Make sure it does not overlap */
 }
+
 .plusButton {
     /* Config start */
     --plus_sideLength: 2.5rem;
@@ -18,6 +19,7 @@
     width: var(--plus_sideLength);
     height: var(--plus_sideLength);
     background-color: purple;
+    border-radius: 50%;
     overflow: hidden;
   }
   
@@ -48,7 +50,7 @@
   }
   
   .plusButton>.plusIcon {
-    fill: #df2c8e;
+    fill: #ffcb05 !important;
     width: calc(var(--plus_sideLength) * 0.7);
     height: calc(var(--plus_sideLength) * 0.7);
     z-index: 1;
@@ -57,11 +59,11 @@
   }
   
   .plusButton:hover>.plusIcon {
-    fill: #ffcb05;
+    fill:  #df2c8e !important;
     transform: rotate(180deg);
   }
   
   .plusButton:focus-visible>.plusIcon {
-    fill:  #ffcb05;
+    fill:  #df2c8e !important;
     transform: rotate(180deg);
   }

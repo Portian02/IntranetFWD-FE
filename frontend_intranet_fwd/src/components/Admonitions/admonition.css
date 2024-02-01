@@ -9,7 +9,6 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   background-color: #008fd4; /* Added background color */
   padding: 10px; /* Added padding */
-  border-radius: 5px; /* Added border radius */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Added box shadow */
 }
 
@@ -52,52 +51,28 @@
   font-weight: bold;
 }
 
-/* Agregar estilos interactivos */
-.admonition-table td:hover {
-  background-color: #f5f5f5;
-  cursor: pointer;
-}
-
-.admonition-table td.selected {
-  background-color: #e0e0e0;
-}
-
-
-.title-admonition {
-  text-align: center;
-  font-size: 36px; /* Increased font size */
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #efeaea;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  background-color: #008fd4; /* Added background color */
-  padding: 10px; /* Added padding */
-  border-radius: 5px; /* Added border radius */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Added box shadow */
-}
-
+/* ///////////////////////////////////////////////////These are to all admoniton tables///////////////////////////////////////////////) */
 .admonitions-table {
-  width: 100%;
+  width: 96%;
+  margin-left: 2%;
+  margin-bottom: 1%;
   border-collapse: collapse;
-  background-color: #c888e8;
-  color: white;
+  background-color: #f5f5f5;
 }
 
 .admonitions-table th,
 .admonitions-table td {
+  border: #3c3c3c 1px solid;
   padding: 12px;
   text-align: left;
 }
 
 .admonitions-table thead th {
-  background-color: #662d91;
-  color: white;
+  background-color: #d60606;
 }
 
 .admonitions-table tbody tr:nth-child(even) {
-  background-color: #b989eb;
+  background-color: #ffffff;
 }
 
 
@@ -108,6 +83,7 @@
 .admonitions-table .date-column,
 .admonitions-table .action-column {
   font-weight: bold;
+  color: white;
 }
 
 .admonitions-table .status-cell,
@@ -117,4 +93,40 @@
 .admonitions-table .date-cell,
 .admonitions-table .action-cell {
   color: white;
+    color: black;
+}
+
+/* Agregar estilos interactivos */
+.admonition-table tr:hover td {
+  background-color: #9b9696;
+  cursor: pointer;
+}
+
+.admonition-table tr.selected td {
+  background-color: #6e6d6d;
+}
+
+.admonitions-table tr:hover td {
+  background-color: #9b9696;
+  cursor: pointer;
+}
+
+.admonitions-table tr.selected td {
+  background-color: #6e6d6d;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .admonitions-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .admonition-card {
+    margin: 20px 0;
+  }
+  
+  .admonitions-table {
+    width: 100%;
+    margin-left: 0;
+  }
 }
